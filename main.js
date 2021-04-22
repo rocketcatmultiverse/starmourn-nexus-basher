@@ -110,6 +110,7 @@ nb.needInterrupt = function(){
 
 nb.needHeal = function(){
 	if (nb.hpperc > NB.HEALTH_THRESHOLD) return false;
+	if (nb.healCd()) return false;
 	switch (nb.class) {
 		case "Engineer":
 			return false;
@@ -126,8 +127,26 @@ nb.needHeal = function(){
 			return false;
 	}
 }
+nb.healCd = function(){
+	switch (nb.class) {
+		case "Engineer":
+			return false
+		case "Scoundrel":
+			return "ab_Guile_stim" in nd.cooldowns;
+		case "BEAST":
+			return "ab_Suit_support" in nd.cooldowns;
+		case "Fury":
+			return "ab_Kith_suffuse" in nd.cooldowns;
+		case "Nanoseer":
+			return "ab_Nanotech_repair" in nd.cooldowns;
+		default:
+			nb.error("Invalid class "+nb.class+" provided to nb.sendHeal");
+			return false;
+	}
+}
 
 nb.needMend = function(){
+	if (!nb.wwBal) return false;
 	for (let sys in nb.sys.health) {
 		if (nb.sys.health[sys] < 92.5 && nb.sys.efficacy[sys] === 100) {
 			return "ww mend "+sys;
