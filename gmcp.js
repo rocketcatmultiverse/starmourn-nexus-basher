@@ -31,6 +31,7 @@ nb.gmcp = function(m, r) {
 }
 
 nb.combatMessage = function(msg, caster, target, text) {
+	nb.debug("nb.combatMessage called with msg, caster, target, text: "+msg +","+ caster +","+ target+","+ text);
 	if (!nb.me(caster)) return;
 	msg = msg.toLowerCase(); 
 	//naive, but it will work for most situations.

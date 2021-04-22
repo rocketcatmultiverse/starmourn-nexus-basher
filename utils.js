@@ -7,7 +7,7 @@ nb.debug = function(m) {
 }
 
 nb.me = function(who) {
-
+	nb.debug("nb.me called with who = "+who);
 	if (who.split(' ')[0] == GMCP.Character.name) { //this is the native Nexus character name from GMCP.
 		return true;
 	}
