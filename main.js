@@ -59,8 +59,8 @@ nb.offense.Beast = function(){
 
 nb.tarCheck = function(){
 	//is our target still here?
+	var mobsHere = client.get_item_list('room', 'm', 'x')
 	if (pve.tar !== "") {
-		var mobsHere = client.get_item_list('room', 'm', 'x')
 		for (let i = 0; i < mobsHere.length; i++) {
 			if (mobsHere[i].id == pve.tar) return true;
 		}
