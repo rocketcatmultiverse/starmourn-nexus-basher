@@ -1,5 +1,9 @@
-display_notice('Hello world');
+try {
+1 ==== 2;
+display_notice("Nexus community basher has loaded successfully","yellow");
+
+} catch (err) {
+	display_notice("Nexus community basher has failed to load. Check console for error message.","red");
+	console.log(err);
+}
 nb = {};
-display_notice('typeof nb is '+typeof nb);
-nb.calc = 1+1;
-display_notice(nb.calc);
