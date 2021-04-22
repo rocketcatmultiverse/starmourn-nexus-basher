@@ -19,9 +19,9 @@ nb.calc = function() {
 	if (!nb.bal) return;
 	let needInterrupt = nb.needInterrupt();
 	if (needInterrupt) { nb.send(nb.needInterrupt); return; }
-	let needMend = nb.needMend; 
+	let needMend = nb.needMend(); 
 	if (needMend) { nb.send(needMend); return; }
-	let needHeal = nb.needHeal;
+	let needHeal = nb.needHeal();
 	if (needHeal) { nb.send(needHeal); return; }
 
 	//we're gonna check for our target on every bal for now.
