@@ -8,6 +8,7 @@ nb.gmcp = function(m, r) {
 		nb.wwBal = r.ww == "1" ? true : false;
 		nb.hpperc = parseInt(r.hp)/parseInt(r.maxhp);
 		nb.class = r.class;
+		if (nb.class === "B.E.A.S.T.") nb.class = "BEAST";
 		nb.cooldowns = JSON.parse("{"+r.cooldowns+"}");
 		switch (nb.class) {
 			case "Scoundrel":

@@ -1,5 +1,6 @@
 nb = {};
 nb.class = get_variable("my_class");
+if (nb.class === "B.E.A.S.T.") nb.class = "BEAST";
 pve.tar = "";
 nb.mobs = ["a yellow-feathered spiderax","a spotted mouse","a sleek shadow fox"]; //we can switch to area-based bashing later, for now let's just call it an array :)
 nb.offense = {};
@@ -29,7 +30,6 @@ nb.calc = function() {
 nb.attack = function(){
 	nb.send(nb.offense[nb.class]());
 }
-
 
 nb.tarCheck = function(){
 	//is our target still here?
@@ -124,7 +124,6 @@ nb.needMend = function(){
 	}
 	return false;
 }
-
 
 nb.onBal = function(){
 	nb.calc();
