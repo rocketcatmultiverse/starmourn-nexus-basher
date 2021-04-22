@@ -35,14 +35,14 @@ nb.attack = function(){
 nb.tarCheck = function(){
 	//is our target still here?
 	var mobsHere = client.get_item_list('room', 'm', 'x')
-	debug(JSON.stringify(mobsHere));
+	nb.debug(JSON.stringify(mobsHere));
 	if (nb.tar !== "") {
 		for (var i = 0; i < mobsHere.length; i++) {
 			if (mobsHere[i].id == nb.tar) return true;
 		}
 	}
 	//no, let's get a new one if we can.
-	debug(JSON.stringify(nb.mobs));
+	nb.debug(JSON.stringify(nb.mobs));
     for (i = 0; i < nb.mobs.length; i++) {
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].text.split("  #")[0] == nb.mobs[i]) {
