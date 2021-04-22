@@ -1,12 +1,13 @@
 nb = {};
 nb.class = get_variable("my_class");
 if (nb.class === "B.E.A.S.T.") nb.class = "BEAST";
-pve.tar = "";
+nb.tar = "";
 nb.mobs = ["a yellow-feathered spiderax","a spotted mouse","a sleek shadow fox"]; //we can switch to area-based bashing later, for now let's just call it an array :)
 nb.offense = {};
 nb.sys = {};
 nb.sys.health = {};
 nb.sys.efficacy = {};
+nb.debugMode = false;
 nb.systems = ['muscular','internal','sensory','mind','wetwiring'];
 
 nb.send = function(cmd) {
@@ -34,17 +35,18 @@ nb.attack = function(){
 nb.tarCheck = function(){
 	//is our target still here?
 	var mobsHere = client.get_item_list('room', 'm', 'x')
-	if (pve.tar !== "") {
-		for (let i = 0; i < mobsHere.length; i++) {
-			if (mobsHere[i].id == pve.tar) return true;
+	debug(JSON.stringify(mobsHere));
+	if (nb.tar !== "") {
+		for (var i = 0; i < mobsHere.length; i++) {
+			if (mobsHere[i].id == nb.tar) return true;
 		}
 	}
-
 	//no, let's get a new one if we can.
-    for (i = 0; i < pve.mobs.length; i++) {
+	debug(JSON.stringify(nb.mobs));
+    for (i = 0; i < nb.mobs.length; i++) {
         for (let k = 0; k < mobsHere.length; k++) {
-            if (mobsHere[k].text.split("  #")[0] == pve.mobs[i]) {
-                pve.tar = mobsHere[k].id;
+            if (mobsHere[k].text.split("  #")[0] == nb.mobs[i]) {
+                nb.tar = mobsHere[k].id;
                 return true;
             }
         }
@@ -59,19 +61,19 @@ nb.needInterrupt = function(){
 	if (!nb.interrupt) return false;
 	switch (nb.class) {
 		case "Engineer":
-			return 'bot swing '+pve.tar;
+			return 'bot swing '+nb.tar;
 		case "Scoundrel":
 			if (nb.bullets === 0 ) {
-				return "guile pocketsand "+pve.tar;
+				return "guile pocketsand "+nb.tar;
 			} else {
-				return "gun pointblank "+pve.tar;
+				return "gun pointblank "+nb.tar;
 			} 
 		case "BEAST":
-			return "mwp netlaunch "+pve.tar;
+			return "mwp netlaunch "+nb.tar;
 		case "Fury":
-			return "kith fever "+pve.tar;
+			return "kith fever "+nb.tar;
 		case "Nanoseer":
-			return "nano eyestrike "+pve.tar;
+			return "nano eyestrike "+nb.tar;
 		default:
 			nb.error("Invalid class "+nb.class+" provided to nb.sendHeal");
 			return false;
@@ -102,13 +104,13 @@ nb.healCd = function(){
 		case "Engineer":
 			return false
 		case "Scoundrel":
-			return "ab_Guile_stim" in nd.cooldowns;
+			return "ab_Guile_stim" in nb.cooldowns;
 		case "BEAST":
-			return "ab_Suit_support" in nd.cooldowns;
+			return "ab_Suit_support" in nb.cooldowns;
 		case "Fury":
-			return "ab_Kith_suffuse" in nd.cooldowns;
+			return "ab_Kith_suffuse" in nb.cooldowns;
 		case "Nanoseer":
-			return "ab_Nanotech_repair" in nd.cooldowns;
+			return "ab_Nanotech_repair" in nb.cooldowns;
 		default:
 			nb.error("Invalid class "+nb.class+" provided to nb.sendHeal");
 			return false;
