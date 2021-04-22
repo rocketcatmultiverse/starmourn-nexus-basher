@@ -109,7 +109,7 @@ nb.needInterrupt = function(){
 }
 
 nb.needHeal = function(){
-	if (nb.hpperc > NB.HEALTH_THRESHOLD) return false;
+	if (nb.hpperc > .7) return false;
 	if (nb.healCd()) return false;
 	switch (nb.class) {
 		case "Engineer":
@@ -182,7 +182,7 @@ nb.gmcp = function(m, r) {
 		nb.cooldowns = JSON.parse("{"+r.cooldowns+"}");
 		switch (nb.class) {
 			case "Scoundrel":
-				nb.bullets = r.bl;
+				nb.bullets = parseInt(r.bl);
 				break;
 			case "Fury":
 				nb.stance = r.st;
