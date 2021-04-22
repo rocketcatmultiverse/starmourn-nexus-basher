@@ -2,7 +2,7 @@ nb.alias = function(c) {
 	let cmd = c.split(' ');
 	let arg = cmd[0].toLowerCase();
 	if (arg === "nbk" || arg === "nbkill") {
-		nb.verb_c;
+		nb.verb_k();
 		return true;
 	}
 	if (arg === "nbignore") {
@@ -42,7 +42,7 @@ nb.verb_go = function(toggle) {
 	else display_notice("Nexus basher has stopped.");
 }
 
-nb.verb_c = function(){
+nb.verb_k = function(){
 	if (!nb.go) {
 		display_notice("Nexus basher is not enabled. Use NBGO to start and NBSTOP to stop!")
 	}
