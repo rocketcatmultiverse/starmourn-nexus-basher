@@ -91,8 +91,11 @@ nb.needInterrupt = function(){
 		case "Engineer":
 			return 'bot swing '+pve.tar;
 		case "Scoundrel":
-			if (nb.bullets === 0 ) return "guile pocketsand "+pve.tar;
-			else return "gun pointblank "+pve.tar;
+			if (nb.bullets === 0 ) {
+				return "guile pocketsand "+pve.tar;
+			} else {
+				return "gun pointblank "+pve.tar;
+			} 
 		case "BEAST":
 			return "mwp netlaunch "+pve.tar;
 		case "Fury":
@@ -102,6 +105,7 @@ nb.needInterrupt = function(){
 		default:
 			nb.error("Invalid class "+nb.class+" provided to nb.sendHeal");
 			return false;
+	}
 }
 
 nb.needHeal = function(){
