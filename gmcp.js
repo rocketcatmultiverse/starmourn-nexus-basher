@@ -23,7 +23,7 @@ nb.gmcp = function(m, r) {
 	} else if (m === "IRE.CombatMessage") {
 		for (let msg in r) {
 			//only one property in combatmessages, grab the prop name
-			nb.combatMessage(msg, r.caster, r.target, r.message);
+			nb.combatMessage(msg, r[msg].caster, r[msg].target, r[msg].message);
 			break;
 		}
 	}
