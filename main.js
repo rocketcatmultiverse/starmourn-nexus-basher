@@ -2,14 +2,11 @@ nb = {};
 nb.class = get_variable("my_class");
 pve.tar = "";
 nb.mobs = ["a yellow-feathered spiderax","a spotted mouse","a sleek shadow fox"]; //we can switch to area-based bashing later, for now let's just call it an array :)
-
-nb.alias = function(c) {
-	if (c === "c") {
-		nb.calc();
-		return true;
-	}
-	return false;
-}
+nb.offense = {};
+nb.sys = {};
+nb.sys.health = {};
+nb.sys.efficacy = {};
+nb.systems = ['muscular','internal','sensory','mind','wetwiring'];
 
 nb.send = function(cmd) {
 	send_command(cmd,1);
@@ -32,32 +29,6 @@ nb.calc = function() {
 nb.attack = function(){
 	nb.send(nb.offense[nb.class]());
 }
-
-nb.offense = {};
-
-nb.offense.Nanoseer = function(){
-	return "void freeze "+pve.tar;
-}
-
-nb.offense.Scoundrel = function(){
-	if (nb.bullets === 0 ) {
-		return "gun quickload";
-	} 
-	return "gun crackshot "+pve.tar;
-}
-
-nb.offense.Fury = function(){
-	return "kith burn "+pve.tar;
-}
-
-nb.offense.Engineer = function(){
-	return "bot claw "+pve.tar;
-}
-
-nb.offense.Beast = function(){
-	return "mwp wristblade "+pve.tar;
-}
-
 
 
 nb.tarCheck = function(){
@@ -82,10 +53,6 @@ nb.tarCheck = function(){
     //no mob here to bash.
     display_notice("No mobs here.","red");
     return false;
-}
-
-nb.error = function(m) {
-	display_notice("Error: "+m,"red");
 }
 
 nb.needInterrupt = function(){
@@ -158,43 +125,7 @@ nb.needMend = function(){
 	return false;
 }
 
-nb.trigger = function(c) {
-	if (c === "You have recovered your balance.") nb.onBal();
-	else if (c.includes("You have slain")) nb.tarCheck();
-	return false;
-}
 
 nb.onBal = function(){
 	nb.calc();
 }
-
-nb.sys = {};
-nb.sys.health = {};
-nb.sys.efficacy = {};
-nb.systems = ['muscular','internal','sensory','mind','wetwiring'];
-nb.gmcp = function(m, r) {
-	if (m === "Char.Vitals") {
-		nb.systems.forEach(function(sys){
-			nb.sys.health[sys] = parseFloat(r[sys]);
-			nb.sys.efficacy[sys] = parseFloat(r[sys+"_efficacy"]);
-		});
-		nb.bal = r.bal == "1" ? true : false;
-		nb.wwBal = r.ww == "1" ? true : false;
-		nb.hpperc = parseInt(r.hp)/parseInt(r.maxhp);
-		nb.class = r.class;
-		nb.cooldowns = JSON.parse("{"+r.cooldowns+"}");
-		switch (nb.class) {
-			case "Scoundrel":
-				nb.bullets = parseInt(r.bl);
-				break;
-			case "Fury":
-				nb.stance = r.st;
-				break;
-			default:
-				break;
-		}
-	}
-	return false;	
-}
-
-display_notice("Nexus community basher has loaded successfully","green");
