@@ -154,7 +154,7 @@ nb.gmcp = function(m, r) {
 	if (m === "Char.Vitals") {
 		nb.systems.forEach(function(sys){
 			nb.sys.health[sys] = parseFloat(r[sys]);
-			nb.sys.efficacy[sys] = parseFloat(eval(r[sys]+"_efficacy"));
+			nb.sys.efficacy[sys] = parseFloat(r[sys+"_efficacy"]);
 		});
 		nb.bal = r.bal == "1" ? true : false;
 		nb.wwBal = r.ww == "1" ? true : false;
