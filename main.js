@@ -160,7 +160,7 @@ nb.gmcp = function(m, r) {
 		nb.wwBal = r.ww == "1" ? true : false;
 		nb.hpperc = parseInt(r.hp)/parseInt(r.maxhp);
 		nb.class = r.class;
-		nb.cooldowns = JSON.parse(r.cooldowns);
+		nb.cooldowns = JSON.parse("{"+r.cooldowns+"}");
 		switch (nb.class) {
 			case "Scoundrel":
 				nb.bullets = r.bl;
