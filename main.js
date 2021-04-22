@@ -1,8 +1,8 @@
 nb = {};
 nb.class = get_variable("my_class");
 if (nb.class === "B.E.A.S.T.") nb.class = "BEAST";
+nb.go = false;
 nb.tar = "";
-nb.mobs = ["a yellow-feathered spiderax","a spotted mouse","a sleek shadow fox"]; //we can switch to area-based bashing later, for now let's just call it an array :)
 nb.offense = {};
 nb.sys = {};
 nb.sys.health = {};
@@ -15,6 +15,7 @@ nb.send = function(cmd) {
 }
 
 nb.calc = function() {
+	if (!nb.go) return;
 	if (!nb.bal) return;
 	let needInterrupt = nb.needInterrupt();
 	if (needInterrupt) { nb.send(nb.needInterrupt); return; }
@@ -44,6 +45,7 @@ nb.tarCheck = function(){
 	//no, let's get a new one if we can.
 	nb.debug(JSON.stringify(nb.mobs));
     for (i = 0; i < nb.mobs.length; i++) {
+    	if (nb.ignores.includes(nb.mobs[i])) continue; //don't target this mob if we have ignored it.
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].text.split("  #")[0] == nb.mobs[i]) {
                 nb.tar = mobsHere[k].id;
@@ -130,3 +132,5 @@ nb.needMend = function(){
 nb.onBal = function(){
 	nb.calc();
 }
+
+display_notice("Welcome to the Starmourn Community Nexus Basher!","green");
