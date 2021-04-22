@@ -1,3 +1,3 @@
 nb.offense.Nanoseer = function(){
-	return "void freeze "+pve.tar;
+	return "void freeze "+nb.tar;
 }

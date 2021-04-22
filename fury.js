@@ -1,3 +1,3 @@
 nb.offense.Fury = function(){
-	return "kith burn "+pve.tar;
+	return "kith burn "+nb.tar;
 }

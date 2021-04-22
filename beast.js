@@ -1,3 +1,3 @@
 nb.offense.Beast = function(){
-	return "mwp wristblade "+pve.tar;
+	return "mwp wristblade "+nb.tar;
 }
