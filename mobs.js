@@ -16,7 +16,8 @@ nb.mobs = [
 	// 10-20
 	//====================
 	//Oldtown/Lower reaches/Undercity
-	"a glitch-riddled security robot", "an aggressively malfunctioning drone",
+	"a glitch-riddled security robot", "an aggressively malfunctioning drone", "a skull-featured female Bushraki gang member",
+	"a skull-featured male Bushraki gang member", "a vibro-blade wielding Bushraki", "a savage dark-cloaked Bushraki",
 	//Coriolis
 	"a malfunctioning windmill drone","a horned lapine","a venomous copper flitwing",
 	//Scrapston
