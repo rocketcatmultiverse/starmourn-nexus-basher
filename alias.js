@@ -1,6 +1,6 @@
 nb.alias = function(c) {
 	let cmd = c.split(' ');
-	let arg = c.split[0].toLowerCase();
+	let arg = cmd[0].toLowerCase();
 	if (arg === "nbk" || arg === "nbkill") {
 		nb.verb_c;
 		return true;
