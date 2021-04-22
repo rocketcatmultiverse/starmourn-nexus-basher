@@ -5,3 +5,11 @@ nb.error = function(m) {
 nb.debug = function(m) {
 	if (nb.debugMode) display_notice('[DEBUG]: '+m);
 }
+
+nb.me = function(who) {
+
+	if (who.split(' ')[0] == GMCP.Character.name) { //this is the native Nexus character name from GMCP.
+		return true;
+	}
+	return false;
+}

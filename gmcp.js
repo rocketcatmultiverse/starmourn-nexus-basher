@@ -20,6 +20,28 @@ nb.gmcp = function(m, r) {
 			default:
 				break;
 		}
+	} else if (m === "IRE.CombatMessage") {
+		for (let k in r) {
+			//only one property in combatmessages, grab the prop name
+			let msg = k;
+			break;
+		}
+		nb.combatMessage(msg, r.caster, r.target, r.message);
+
 	}
 	return false;	
+}
+
+nb.combatMessage = function(msg, caster, target, text) {
+	if (!nb.me(caster)) return;
+	const msg = msg.toLowerCase(); 
+	//naive, but it will work for most situations.
+	switch (msg) {
+		case "guile pocketsand":
+		case "gun pointblank":
+		case "kith fever":
+		case "bot swing":
+		case "mwp netlaunch":
+			nb.interrupt = false;
+	}
 }

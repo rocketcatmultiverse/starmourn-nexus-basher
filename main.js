@@ -5,6 +5,7 @@ nb.go = false;
 nb.tar = "";
 nb.offense = {};
 nb.sys = {};
+nb.interrupt = false;
 nb.sys.health = {};
 nb.sys.efficacy = {};
 nb.debugMode = false;
@@ -42,6 +43,7 @@ nb.tarCheck = function(){
 			if (mobsHere[i].id == nb.tar) return true;
 		}
 	}
+
 	//no, let's get a new one if we can.
 	nb.debug(JSON.stringify(nb.mobs));
     for (i = 0; i < nb.mobs.length; i++) {
