@@ -21,13 +21,11 @@ nb.gmcp = function(m, r) {
 				break;
 		}
 	} else if (m === "IRE.CombatMessage") {
-		for (let k in r) {
+		for (let msg in r) {
 			//only one property in combatmessages, grab the prop name
-			let msg = k;
+			nb.combatMessage(msg, r.caster, r.target, r.message);
 			break;
 		}
-		nb.combatMessage(msg, r.caster, r.target, r.message);
-
 	}
 	return false;	
 }
@@ -43,5 +41,8 @@ nb.combatMessage = function(msg, caster, target, text) {
 		case "bot swing":
 		case "mwp netlaunch":
 			nb.interrupt = false;
+			break;
+		default:
+			break;
 	}
 }
