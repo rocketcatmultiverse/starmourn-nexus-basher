@@ -44,7 +44,7 @@ nb.attack = function(){
 
 nb.tarCheck = function(){
 	//is our target still here?
-	var mobsHere = client.get_item_list('room', 'm', 'x')
+	var mobsHere = nb.itemsHere;
 	nb.debug(JSON.stringify(mobsHere));
 	if (nb.tar !== "") {
 		for (var i = 0; i < mobsHere.length; i++) {
@@ -57,7 +57,7 @@ nb.tarCheck = function(){
     for (i = 0; i < nb.mobs.length; i++) {
     	if (nb.ignores.includes(nb.mobs[i].toLowerCase())) continue; //don't target this mob if we have ignored it.
         for (let k = 0; k < mobsHere.length; k++) {
-            if (mobsHere[k].text.split("  #")[0].toLowerCase() == nb.mobs[i].toLowerCase()) {
+            if (mobsHere[k].name.toLowerCase() == nb.mobs[i].toLowerCase()) {
                 nb.tar = mobsHere[k].id;
                 send_GMCP("IRE.Target.Set",nb.tar);
                 return true;
@@ -68,6 +68,32 @@ nb.tarCheck = function(){
     //no mob here to bash.
     display_notice("No mobs here.","red");
     return false;
+}
+
+nb.onGo = function(){
+	if (nb.class === "Engineer") {
+		if (!("Stimjector" in GMCP.Defences)) {
+			nb.warn("Your stimjector is off. Make sure to OPERATE STIMJECTOR "+GMCP.Character.name+" ON before you start.");
+		}
+		var botFound = false;
+		var turretFound = false;
+		for (let i=0; i < nb.itemsHere.length; i++) {
+			if (nb.itemsHere[i].name === "a crane-armed carrybot") botFound=true;
+			if (nb.itemsHere[i].name.includes("a deployed turret")) turretFound=true;
+			if (botFound&&turretFound) break;
+		}
+		if (!botFound) {
+			if (nb.haveSkill("bots","homeport")) {
+				nb.warn("Nexus basher doesn't see a carrybot where you are. Use HOMEPORT or construct a new one! You can force your bots to follow you with ORDER LOYALS FOLLOW.");
+			} else {
+				nb.warn("Nexus basher doesn't see a carrybot where you are. BOT CONSTRUCT CARRYBOT to construct a new one or LOYALS LIST to find where your old one has gotten to. Look to learning BOT HOMEPORT soon! You can force your bots to follow you with ORDER LOYALS FOLLOW.");
+			}
+		}
+		if (!turretFound) {
+			nb.warn("Nexus basher doesn't see a turret where you are. TURRET CONSTRUCT, TURRET DEPLOY, and order your Carrybot to carry the turret for you with BOT TURRET!");
+		}
+
+	}
 }
 
 nb.needInterrupt = function(){
@@ -176,6 +202,7 @@ nb.updateCheck = function(){
 nb.onLoad = function() {
 	display_notice("Starmourn Community Nexus Basher has loaded with no errors!","green");
 	nb.parseSkills();
+	send_GMCP("Char.Items.Room",""); //to populate nb.itemsHere.
 }
 
 display_notice("Welcome to the Starmourn Community Nexus Basher!","green");
