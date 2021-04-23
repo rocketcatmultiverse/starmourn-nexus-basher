@@ -47,7 +47,7 @@ const interruptLines = [
 "A high\-pitched whistle of steam screams from a rampaging construction mech\, and it begins to spin in a rapid circle\, firing bolts and scrap metal in every direction\.",
 ]
 
-var regex = new RegExp(interruptLines.join("|");
+var regex = new RegExp(interruptLines.join("|"));
 
 nb.isInterruptLine = function(line) {
 	if (regex.test(line)) return true;
