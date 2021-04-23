@@ -79,7 +79,7 @@ nb.skillsInfo = function(r) {
 			return;
 		}
 	}
-	if (Object(nb.mySkills[group]).keys.length >= nb.mySkills.number_of_skills) {
+	if (Object.keys(nb.mySkills[group]).length >= nb.mySkills.number_of_skills) {
 		nb.skillsParsed++;
 		if (nb.skillsParsed === 3) {
 			display_notice("Nexus basher has finished grabbing your skills.");
