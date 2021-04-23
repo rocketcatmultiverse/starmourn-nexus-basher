@@ -11,6 +11,13 @@ nb.sys.efficacy = {};
 nb.debugMode = false;
 nb.checkForUpdates = nb.checkForUpdates || true;
 nb.systems = ['muscular','internal','sensory','mind','wetwiring'];
+nb.calcOffense = {}
+nb.calcOffense.Beast = function() {}
+nb.calcOffense.Engineer = function() {}
+nb.calcOffense.Fury = function() {}
+nb.calcOffense.Nanoseer = function() {}
+nb.calcOffense.Scoundrel = function() {}
+nb.tarHealth = 100;
 
 nb.send = function(cmd) {
 	send_command(cmd,1);
@@ -52,6 +59,7 @@ nb.tarCheck = function(){
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].text.split("  #")[0] == nb.mobs[i]) {
                 nb.tar = mobsHere[k].id;
+                send_GMCP("IRE.Target.Set",nb.tar);
                 return true;
             }
         }
@@ -151,7 +159,10 @@ nb.updateCheck = function(){
 				console.log("Client version is "+nb.version.nxs+". Current version is "+v+".");
 				if (v > nb.version.nxs) {
 					display_notice("WARNING: Your .nxs for Nexus community basher is out of date. You may wish to download the latest release from https://github.com/rocketcatmultiverse/starmourn-nexus-basher/releases and replace your existing .nxs with the new one","yellow");
-				} else {
+				} else if (v < nb.version.nxs) {
+					display_notice("I hope you are on a test version of the .nxs!","yellow");
+				} 
+				else {
 					console.log("Nb nxs is up to date.");
 				}
 				
@@ -160,6 +171,11 @@ nb.updateCheck = function(){
 			}
 		})
 	});
+}
+
+nb.onLoad = function() {
+	display_notice("Starmourn Community Nexus Basher has loaded with no errors!","green");
+	nb.parseSkills();
 }
 
 display_notice("Welcome to the Starmourn Community Nexus Basher!","green");

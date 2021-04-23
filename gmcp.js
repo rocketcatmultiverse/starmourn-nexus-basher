@@ -26,6 +26,12 @@ nb.gmcp = function(m, r) {
 			nb.combatMessage(msg, r[msg].caster, r[msg].target, r[msg].message);
 			break;
 		}
+	} else if (m === "Char.Skills.List") {
+		nb.skillsList(r);
+	} else if (m === "Char.Skills.Info") {
+		nb.skillsInfo(r);
+	} else if (m === "IRE.Target.Info") {
+		nb.tarHealth = parseInt(r.hpperc.replace("%",""))
 	}
 	return false;	
 }
