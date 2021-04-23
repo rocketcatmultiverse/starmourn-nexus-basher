@@ -11,7 +11,7 @@ nb.offense.Scoundrel = function(){
 			return "gun quickload";
 		}
 	}
-	var rf = nb.haveSkill("gunslinging","rapidfire") && !("ab_Gunslinging_rapidfire" in nb.cooldowns);
+	var rf = nb.bullets >= 2 && nb.haveSkill("gunslinging","rapidfire") && !("ab_Gunslinging_rapidfire" in nb.cooldowns);
 	if (nb.bullets == 2 && rf) {
 		return "gun rapidfire "+nb.tar;
 	}
@@ -29,7 +29,7 @@ nb.wantedIED = "";
 nb.scoundrelGetIEDFling = function() {
 	var ied = ""
 	var mod = nb.haveSkill("improvisation","shrapnel") ? "shrapnel " : "";
-	if (tarHealth > 30 && nb.haveSkill("improvisation","melter")) {
+	if (nb.tarHealth > 30 && nb.haveSkill("improvisation","melter")) {
 		ied = "melter";
 	} else {
 		ied = "ripper"; //don't need a skill check, we always have rippers if we have fling.
