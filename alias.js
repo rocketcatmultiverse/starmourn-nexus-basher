@@ -74,13 +74,13 @@ nb.verb_k = function(){
 	nb.calc();
 }
 
-nb.verb_ignore = function(cmd){
-	if (cmd.length < 2) {
+nb.verb_ignore = function(c){
+	if (c.length < 2) {
 		display_notice("Please provide the name of the mob you would like to ignore.")
 		return;
 	}
 	c.shift();
-	let mob = c.join(" ");
+	let mob = c.join(" ").toLowerCase();
 	if (!nb.mobs.includes(mob)) {
 		display_notice("nb doesn't know that mob anyway.");
 		return;
@@ -93,13 +93,13 @@ nb.verb_ignore = function(cmd){
 	display_notice("Okay, you are now ignoring "+mob+ ". In total you are ignoring "+nb.ignores.join(", "));
 }
 
-nb.verb_unignore = function(cmd){
+nb.verb_unignore = function(c){
 	if (cmd.length < 2) {
 		display_notice("Please provide the name of the mob you would like to unignore.");
 		return;
 	}
 	c.shift();
-	let mob = c.join(" ");
+	let mob = c.join(" ").toLowerCase();
 	if (!nb.ignores.includes(mob)) {
 		display_notice("You are not ignoring that mob to begin with.");
 		return;

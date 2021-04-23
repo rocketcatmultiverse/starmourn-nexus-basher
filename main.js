@@ -55,9 +55,9 @@ nb.tarCheck = function(){
 	//no, let's get a new one if we can.
 	nb.debug(JSON.stringify(nb.mobs));
     for (i = 0; i < nb.mobs.length; i++) {
-    	if (nb.ignores.includes(nb.mobs[i])) continue; //don't target this mob if we have ignored it.
+    	if (nb.ignores.includes(nb.mobs[i].toLowerCase())) continue; //don't target this mob if we have ignored it.
         for (let k = 0; k < mobsHere.length; k++) {
-            if (mobsHere[k].text.split("  #")[0] == nb.mobs[i]) {
+            if (mobsHere[k].text.split("  #")[0].toLowerCase() == nb.mobs[i].toLowerCase()) {
                 nb.tar = mobsHere[k].id;
                 send_GMCP("IRE.Target.Set",nb.tar);
                 return true;
