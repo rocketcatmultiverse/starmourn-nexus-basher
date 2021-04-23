@@ -1,7 +1,6 @@
 nb.mySkills={}
 nb.parsingSkills = false;
 nb.skillsParsed = 0;
-var debug = nb.debug;
 
 nb.skillParsingDone = function(){
 	nb.parsingSkills = false;
@@ -12,7 +11,7 @@ nb.skillParsingDone = function(){
 nb.parseSkills = function(){
 	nb.parsingSkills = true;
 	nb.skillsParsed = 0;
-	debug("Nexus basher is grabbing skills.");
+	nb.debug("Nexus basher is grabbing skills.");
 	switch (nb.class) {
 		case "BEAST":
 			send_GMCP("Char.Skills.Get",{"group":"Suittech"});
@@ -40,7 +39,7 @@ nb.parseSkills = function(){
 			send_GMCP("Char.Skills.Get",{"group":"Improvisation"});
 			break;
 		default:
-			debug("Invalid class provided to nb.parseSkills "+nb.class);
+			nb.debug("Invalid class provided to nb.parseSkills "+nb.class);
 	}
 }
 
@@ -69,12 +68,12 @@ nb.skillsInfo = function(r) {
 	var info = r.info;
 	var res = skillRegex.exec(info);
 	if (res === null) {
-		debug("res is null")
+		nb.debug("res is null")
 		nb.setSkill(group, skill, false);
 		return;
 	}
 	if (res.length !== 2) {
-		debug("Length "+res.length+" result in skillsInfo: "+JSON.stringify(r));
+		nb.debug("Length "+res.length+" result in skillsInfo: "+JSON.stringify(r));
 		return;
 	} else {
 		if (res[1] == "Yes") {
@@ -84,14 +83,14 @@ nb.skillsInfo = function(r) {
 			nb.setSkill(group, skill, false);
 
 		} else {
-			debug("Uncaught regex result in skillsInfo r="+JSON.stringify(r)+" and res="+JSON.stringify(res));
+			nb.debug("Uncaught regex result in skillsInfo r="+JSON.stringify(r)+" and res="+JSON.stringify(res));
 			return;
 		}
 	}
 	if (Object.keys(nb.mySkills[group]).length > nb.mySkills[group].number_of_skills) {
 		nb.skillsParsed++;
 		if (nb.skillsParsed === 3) {
-			debug("Nexus basher done grabbing skills.");
+			nb.debug("Nexus basher done grabbing skills.");
 			nb.skillParsingDone();
 		}
 	}
