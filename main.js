@@ -11,6 +11,13 @@ nb.sys.efficacy = {};
 nb.debugMode = false;
 nb.checkForUpdates = nb.checkForUpdates || true;
 nb.systems = ['muscular','internal','sensory','mind','wetwiring'];
+nb.calcOffense = {}
+nb.calcOffense.Beast = function() {}
+nb.calcOffense.Engineer = function() {}
+nb.calcOffense.Fury = function() {}
+nb.calcOffense.Nanoseer = function() {}
+nb.calcOffense.Scoundrel = function() {}
+nb.tarHealth = 100;
 
 nb.send = function(cmd) {
 	send_command(cmd,1);
@@ -52,6 +59,7 @@ nb.tarCheck = function(){
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].text.split("  #")[0] == nb.mobs[i]) {
                 nb.tar = mobsHere[k].id;
+                send_GMCP("IRE.Target.Set",nb.tar);
                 return true;
             }
         }
@@ -160,6 +168,10 @@ nb.updateCheck = function(){
 			}
 		})
 	});
+}
+
+nb.onLoad = function() {
+	nb.parseSkills();
 }
 
 display_notice("Welcome to the Starmourn Community Nexus Basher!","green");

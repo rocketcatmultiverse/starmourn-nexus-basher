@@ -2,10 +2,16 @@ nb.mySkills={}
 nb.parsingSkills = false;
 nb.skillsParsed = 0;
 
+nb.skillParsingDone = function(){
+	nb.parsingSkills = false;
+	//calcOffense can be used if we want to set a class's offense function based on their skills. Otherwise we just check skills on every balance, which is okay too.
+	nb.calcOffense[nb.class]();
+}
+
 nb.parseSkills = function(){
 	nb.parsingSkills = true;
 	nb.skillsParsed = 0;
-	display_notice("Nexus basher is grabbing your skills... hang tight.");
+	debug("Nexus basher is grabbing skills.");
 	switch (nb.class) {
 		case "BEAST":
 			send_GMCP("Char.Skills.Get",{"group":"Suittech"});
@@ -84,7 +90,8 @@ nb.skillsInfo = function(r) {
 	if (Object.keys(nb.mySkills[group]).length > nb.mySkills[group].number_of_skills) {
 		nb.skillsParsed++;
 		if (nb.skillsParsed === 3) {
-			display_notice("Nexus basher has finished grabbing your skills.");
+			debug("Nexus basher done grabbing skills.");
+			nb.skillParsingDone();
 		}
 	}
 
