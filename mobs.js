@@ -54,4 +54,4 @@ nb.mobs = [
 
 ];
 
-nb.ignores = [];
+nb.ignores = nb.ignores || [];
