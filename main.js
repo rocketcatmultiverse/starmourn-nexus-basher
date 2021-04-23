@@ -171,6 +171,7 @@ nb.updateCheck = function(){
 }
 
 nb.onLoad = function() {
+	display_notice("Starmourn Community Nexus Basher has loaded with no errors!","green");
 	nb.parseSkills();
 }
 
