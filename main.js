@@ -150,6 +150,7 @@ nb.updateCheck = function(){
 			console.log([data]);
 			try {
 				let v = eval(data);
+				if (typeof v !== "number") v = parseInt(v); 
 				if (v.nxs > nb.version) {
 					display_notice("WARNING: Your .nxs for Nexus community basher is out of date. You may wish to download the latest release from https://github.com/rocketcatmultiverse/starmourn-nexus-basher/releases and replace your existing .nxs with the new one","yellow");
 				} else {
