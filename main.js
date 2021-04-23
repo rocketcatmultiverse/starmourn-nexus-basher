@@ -110,9 +110,9 @@ nb.healCd = function(){
 		case "Scoundrel":
 			return "ab_Guile_stim" in nb.cooldowns;
 		case "BEAST":
-			return "ab_Suit_support" in nb.cooldowns;
+			return "ab_SuitTech_support" in nb.cooldowns;
 		case "Fury":
-			return "ab_Kith_suffuse" in nb.cooldowns;
+			return "ab_Fulmination_suffuse" in nb.cooldowns;
 		case "Nanoseer":
 			return "ab_Nanotech_repair" in nb.cooldowns;
 		default:
