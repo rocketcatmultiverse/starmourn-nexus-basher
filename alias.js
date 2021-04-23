@@ -32,6 +32,7 @@ nb.alias = function(c) {
 
 	if (arg === "nbtoggle") {
 		nb.verb_toggle(c)
+		return true;
 	}
 	return false;
 }
