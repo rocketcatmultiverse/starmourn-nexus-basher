@@ -56,13 +56,15 @@ nb.skillsInfo = function(r) {
 	var group = r.group;
 	var skill = r.skill;
 	if (!('info' in r)) {
-		nb.setSkill(group, skill, false)
+		nb.setSkill(group, skill, false);
+		return;
 	}
 	var info = r.info;
 	var res = skillRegex.exec(info);
 	if (res === null) {
 		debug("res is null")
-		nb.setSkill(group, skill, true);
+		nb.setSkill(group, skill, false);
+		return;
 	}
 	if (res.length !== 2) {
 		debug("Length "+res.length+" result in skillsInfo: "+JSON.stringify(r));
@@ -79,7 +81,7 @@ nb.skillsInfo = function(r) {
 			return;
 		}
 	}
-	if (Object.keys(nb.mySkills[group]).length >= nb.mySkills.number_of_skills) {
+	if (Object.keys(nb.mySkills[group]).length > nb.mySkills[group].number_of_skills) {
 		nb.skillsParsed++;
 		if (nb.skillsParsed === 3) {
 			display_notice("Nexus basher has finished grabbing your skills.");
@@ -96,7 +98,7 @@ nb.haveSkill = function(group, skill) {
 
 nb.setSkill = function(group, skill, has) {
 	if (!(group in nb.mySkills)) nb.mySkills[group] = {};
-	nb.mySkills[skill] = has;
+	nb.mySkills[group][skill] = has;
 }
 
 
