@@ -150,15 +150,12 @@ nb.updateCheck = function(){
 			console.log([data]);
 			try {
 				let v = eval(data);
-				if (!('nxs' in v)) {
-					console.log("nb VERSION is corrupt");
+				if (v.nxs > nb.version) {
+					display_notice("WARNING: Your .nxs for Nexus community basher is out of date. You may wish to download the latest release from https://github.com/rocketcatmultiverse/starmourn-nexus-basher/releases and replace your existing .nxs with the new one","yellow");
 				} else {
-					if (v.nxs > nb.version) {
-						display_notice("WARNING: Your .nxs for Nexus community basher is out of date. You may wish to download the latest release from https://github.com/rocketcatmultiverse/starmourn-nexus-basher/releases and replace your existing .nxs with the new one","yellow");
-					} else {
-						console.log("Nb nxs is up to date.");
-					}
+					console.log("Nb nxs is up to date.");
 				}
+				
 			} catch (err) {
 				console.log("error in nb.updateCheck: "+err);
 			}
