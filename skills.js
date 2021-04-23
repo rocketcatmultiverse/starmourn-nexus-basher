@@ -1,6 +1,7 @@
 nb.mySkills={}
 nb.parsingSkills = false;
 nb.skillsParsed = 0;
+var debug = nb.debug;
 
 nb.skillParsingDone = function(){
 	nb.parsingSkills = false;
