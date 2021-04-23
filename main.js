@@ -151,7 +151,8 @@ nb.updateCheck = function(){
 			try {
 				let v = eval(data);
 				if (typeof v !== "number") v = parseInt(v); 
-				if (v.nxs > nb.version) {
+				console.log("Client version is "+nb.version+". Current version is "+v+".");
+				if (v > nb.version) {
 					display_notice("WARNING: Your .nxs for Nexus community basher is out of date. You may wish to download the latest release from https://github.com/rocketcatmultiverse/starmourn-nexus-basher/releases and replace your existing .nxs with the new one","yellow");
 				} else {
 					console.log("Nb nxs is up to date.");
