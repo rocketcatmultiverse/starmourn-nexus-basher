@@ -27,8 +27,28 @@ nb.alias = function(c) {
 	}
 	if (arg === "nbreload") {
 		run_function("onLoad",null,"Nexus community basher");
+		return true;
+	}
+
+	if (arg === "nbtoggle") {
+		nb.verb_toggle(c)
 	}
 	return false;
+}
+
+nb.verb_toggle = function(c) {
+	c = c.split(" ");
+	const toggles = ["debug"];
+	var toggled = null;
+	if (c.length !== 2) {
+		display_notice("NBTOGGLE TOGGLE <"+toggles.join("/")+">");
+		return;
+	}
+	if (c[1] === "debug") {
+		debugMode=!debugMode;
+		toggled = debugMode;
+	}
+	display_notice(c[1]+ " is now "+toggled);
 }
 
 nb.verb_help = function() {
