@@ -30,6 +30,8 @@ nb.gmcp = function(m, r) {
 		nb.skillsList(r);
 	} else if (m === "Char.Skills.Info") {
 		nb.skillsInfo(r);
+	} else if (m === "IRE.Target.Info") {
+		nb.tarHealth = parseInt(r.hpperc.replace("%",""))
 	}
 	return false;	
 }
