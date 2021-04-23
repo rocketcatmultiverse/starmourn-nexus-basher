@@ -49,7 +49,7 @@ nb.skillsList = function(r) {
 	});
 }
 
-const skillRegex = /\\nKnown\:\s+(Yes|No)\\n/g;
+const skillRegex = /Known\:\s+(Yes|No)/;
 
 nb.skillsInfo = function(r) {
 	if (!nb.parsingSkills) return;
@@ -60,6 +60,10 @@ nb.skillsInfo = function(r) {
 	}
 	var info = r.info;
 	var res = skillRegex.exec(info);
+	if (res === null) {
+		debug("res is null")
+		nb.setSkill(group, skill, true);
+	}
 	if (res.length !== 2) {
 		debug("Length "+res.length+" result in skillsInfo: "+JSON.stringify(r));
 		return;
