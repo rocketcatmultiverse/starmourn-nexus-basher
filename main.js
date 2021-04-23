@@ -140,6 +140,7 @@ nb.onBal = function(){
 }
 
 nb.updateCheck = function(){
+	if (!nb.checkForUpdates) return;
 	var promise = $.when(1);
 	url = "https://raw.githubusercontent.com/rocketcatmultiverse/starmourn-nexus-basher/main/VERSION"
 	promise = promise.then(function(){
