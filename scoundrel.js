@@ -6,7 +6,7 @@ nb.offense.Scoundrel = function(){
 	if (nb.bullets === 0 || eject) {
 		if (fling) {
 			if (eject) nb.send("gun eject");
-			return "fling "+nb.scoundrelGetIEDFling()+" "+nb.tar;
+			return "ied fling "+nb.scoundrelGetIEDFling()+" at "+nb.tar;
 		} else {
 			return "gun quickload";
 		}
