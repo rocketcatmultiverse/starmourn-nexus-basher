@@ -84,13 +84,13 @@ nb.skillsInfo = function(r) {
 
 }
 
-nb.haveSkill(group, skill) {
+nb.haveSkill = function(group, skill) {
 	if (!(group in nb.mySkills)) return false;
 	if (!(skill in nb.mySkills[group])) return false;
 	return nb.mySkills[group][skill];
 }
 
-nb.setSkill(group, skill, has) {
+nb.setSkill = function(group, skill, has) {
 	if (!(group in nb.mySkills)) nb.mySkills[group] = {};
 	nb.mySkills[skill] = has;
 }
