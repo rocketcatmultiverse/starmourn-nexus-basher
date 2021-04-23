@@ -26,6 +26,8 @@ nb.gmcp = function(m, r) {
 			nb.combatMessage(msg, r[msg].caster, r[msg].target, r[msg].message);
 			break;
 		}
+	} else if (length m.split('.')[0] === "Char.Skills.List") {
+		nb.skillsList(r);
 	}
 	return false;	
 }
