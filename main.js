@@ -203,6 +203,7 @@ nb.updateCheck = function(){
 nb.onLoad = function() {
 	display_notice("Starmourn Community Nexus Basher has loaded with no errors!","green");
 	nb.parseSkills();
+	send_GMCP("Char.Items.Room");
 }
 
 display_notice("Welcome to the Starmourn Community Nexus Basher!","green");
