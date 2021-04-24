@@ -32,8 +32,47 @@ nb.gmcp = function(m, r) {
 		nb.skillsInfo(r);
 	} else if (m === "IRE.Target.Info") {
 		nb.tarHealth = parseInt(r.hpperc.replace("%",""))
+	} else if (m === "Char.Items.List") {
+		if (r.location !== "room") return;
+		nb.itemsList(r);
+	} else if (m === "Char.Items.Add") {
+		if (r.location !== "room") return;
+		nb.itemsAdd(r);
+	} else if (m === "Char.Items.Remove") {
+		if (r.location !== "room") return;
+		nb.itemsRemove(r);
+
 	}
 	return false;	
+}
+
+nb.itemsHere = [];
+nb.itemsList = function(r) {
+	if (r.location !== "room") return; //shoudn't happen, but just in case.
+	r.items.forEach(function(el){
+		for (let i = 0; i < nb.itemsHere.length; i++) {
+			if (el.id === nb.itemsHere[i].id) return;
+		}
+		nb.itemsHere.push(el);
+	});
+}
+
+nb.itemsAdd = function(r){
+	if (r.location !== "room") return; //shoudn't happen, but just in case.
+	for (let i = 0; i < nb.itemsHere.length; i++) {
+		if (r.item.id === nb.itemsHere[i].id) return; // don't add an item that's already in our list.
+	}
+	nb.itemsHere.push(r.item);
+}
+
+nb.itemsRemove = function(r) {
+	if (r.location !== "room") return; //shoudn't happen, but just in case.
+	for (let i = 0; i < nb.itemsHere.length; i++) {
+		if (r.item.id === nb.itemsHere[i].id) {
+			nb.itemsHere.splice(i,1);
+			return;
+		}
+	}
 }
 
 nb.combatMessage = function(msg, caster, target, text) {
@@ -52,4 +91,5 @@ nb.combatMessage = function(msg, caster, target, text) {
 		default:
 			break;
 	}
+	if (msg === "turret qpcboost") nb.needQPCBoost = false;
 }

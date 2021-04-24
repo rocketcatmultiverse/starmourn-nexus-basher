@@ -63,7 +63,10 @@ nb.verb_help = function() {
 nb.verb_go = function(toggle) {
 	if (toggle) nb.go = !nb.go;
 	else nb.go = false;
-	if (nb.go) display_notice("Nexus basher now enabled.");
+	if (nb.go) {
+		display_notice("Nexus basher now enabled.");
+		nb.onGo();
+	}
 	else display_notice("Nexus basher has stopped.");
 }
 

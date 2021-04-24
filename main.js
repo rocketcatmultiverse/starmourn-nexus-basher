@@ -70,6 +70,12 @@ nb.tarCheck = function(){
     return false;
 }
 
+nb.onGo = function(){
+	if (nb.class === "Engineer" && !("Stimjector" in GMCP.Defences)) {
+		nb.warn("Your stimjector is off. Make sure to OPERATE STIMJECTOR "+GMCP.Character.name+" ON before you start.");
+	}
+}
+
 nb.needInterrupt = function(){
 	if (!nb.interrupt) return false;
 	switch (nb.class) {
