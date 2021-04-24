@@ -85,9 +85,9 @@ nb.onGo = function(){
 		}
 		if (!botFound) {
 			if (nb.haveSkill("bots","homeport")) {
-				nb.warn("Nexus basher doesn't see a carrybot where you are. Use HOMEPORT or construct a new one!");
+				nb.warn("Nexus basher doesn't see a carrybot where you are. Use HOMEPORT or construct a new one! You can force your bots to follow you with ORDER LOYALS FOLLOW.");
 			} else {
-				nb.warn("Nexus basher doesn't see a carrybot where you are. BOT CONSTRUCT CARRYBOT to construct a new one or LOYALS LIST to find where your old one has gotten to. Look to learning BOT HOMEPORT soon!");
+				nb.warn("Nexus basher doesn't see a carrybot where you are. BOT CONSTRUCT CARRYBOT to construct a new one or LOYALS LIST to find where your old one has gotten to. Look to learning BOT HOMEPORT soon! You can force your bots to follow you with ORDER LOYALS FOLLOW.");
 			}
 		}
 		if (!turretFound) {
