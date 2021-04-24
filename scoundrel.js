@@ -16,7 +16,7 @@ nb.offense.Scoundrel = function(){
 		return "gun rapidfire "+nb.tar;
 	}
 	if (nb.haveSkill("gunslinging","ambush") && !("ab_Gunslinging_ambush" in nb.cooldowns)) {
-		return eject+"gun ambush "+nb.tar;
+		return "gun ambush "+nb.tar;
 	}
 	if (rf) {
 		return "gun rapidfire "+nb.tar;
