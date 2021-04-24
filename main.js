@@ -80,7 +80,7 @@ nb.onGo = function(){
 		var turretFound = false;
 		for (let i=0; i < nb.itemsHere.length; i++) {
 			if (nb.itemsHere[i].name === "a crane-armed carrybot") botFound=true;
-			if (nb.itemsHere[i].includes("a deployed turret")) turretFound=true;
+			if (nb.itemsHere[i].name.includes("a deployed turret")) turretFound=true;
 			if (botFound&&turretFound) break;
 		}
 		if (!botFound) {
