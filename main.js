@@ -84,7 +84,7 @@ nb.onGo = function(){
 			if (botFound&&turretFound) break;
 		}
 		if (!botFound) {
-			if (nb.have("bots","homeport")) {
+			if (nb.haveSkill("bots","homeport")) {
 				nb.warn("Nexus basher doesn't see a carrybot where you are. Use HOMEPORT or construct a new one!");
 			} else {
 				nb.warn("Nexus basher doesn't see a carrybot where you are. BOT CONSTRUCT CARRYBOT to construct a new one or LOYALS LIST to find where your old one has gotten to. Look to learning BOT HOMEPORT soon!");
