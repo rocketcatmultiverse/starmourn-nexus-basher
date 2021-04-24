@@ -44,7 +44,7 @@ nb.attack = function(){
 
 nb.tarCheck = function(){
 	//is our target still here?
-	var mobsHere = client.get_item_list('room', 'm', 'x')
+	var mobsHere = nb.itemsHere;
 	nb.debug(JSON.stringify(mobsHere));
 	if (nb.tar !== "") {
 		for (var i = 0; i < mobsHere.length; i++) {
@@ -57,7 +57,7 @@ nb.tarCheck = function(){
     for (i = 0; i < nb.mobs.length; i++) {
     	if (nb.ignores.includes(nb.mobs[i].toLowerCase())) continue; //don't target this mob if we have ignored it.
         for (let k = 0; k < mobsHere.length; k++) {
-            if (mobsHere[k].text.split("  #")[0].toLowerCase() == nb.mobs[i].toLowerCase()) {
+            if (mobsHere[k].name.toLowerCase() == nb.mobs[i].toLowerCase()) {
                 nb.tar = mobsHere[k].id;
                 send_GMCP("IRE.Target.Set",nb.tar);
                 return true;
@@ -71,8 +71,29 @@ nb.tarCheck = function(){
 }
 
 nb.onGo = function(){
-	if (nb.class === "Engineer" && !("Stimjector" in GMCP.Defences)) {
-		nb.warn("Your stimjector is off. Make sure to OPERATE STIMJECTOR "+GMCP.Character.name+" ON before you start.");
+	if (nb.class === "Engineer") {
+		if (!("Stimjector" in GMCP.Defences)) {
+			nb.warn("Your stimjector is off. Make sure to OPERATE STIMJECTOR "+GMCP.Character.name+" ON before you start.");
+		}
+		var loyals = client.get_item_list('room', 'mx')
+		var botFound = false;
+		var turretFound = false;
+		for (let i=0; i < nb.itemsHere.length; i++) {
+			if (nb.itemsHere[i].name === "a crane-armed carrybot") botFound=true;
+			if (nb.itemsHere[i].includes("a deployed turret")) turretFound=true;
+			if (botFound&&turretFound) break;
+		}
+		if (!botFound) {
+			if (nb.have("bots","homeport")) {
+				nb.warn("Nexus basher doesn't see a carrybot where you are. Use HOMEPORT or construct a new one!");
+			} else {
+				nb.warn("Nexus basher doesn't see a carrybot where you are. BOT CONSTRUCT CARRYBOT to construct a new one or LOYALS LIST to find where your old one has gotten to. Look to learning BOT HOMEPORT soon!");
+			}
+		}
+		if (!turretFound) {
+			nb.warn("Nexus basher doesn't see a turret where you are. TURRET CONSTRUCT, TURRET DEPLOY, and order your Carrybot to carry the turret for you with BOT TURRET!");
+		}
+
 	}
 }
 
