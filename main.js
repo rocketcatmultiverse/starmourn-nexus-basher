@@ -75,7 +75,6 @@ nb.onGo = function(){
 		if (!("Stimjector" in GMCP.Defences)) {
 			nb.warn("Your stimjector is off. Make sure to OPERATE STIMJECTOR "+GMCP.Character.name+" ON before you start.");
 		}
-		var loyals = client.get_item_list('room', 'mx')
 		var botFound = false;
 		var turretFound = false;
 		for (let i=0; i < nb.itemsHere.length; i++) {
@@ -203,7 +202,7 @@ nb.updateCheck = function(){
 nb.onLoad = function() {
 	display_notice("Starmourn Community Nexus Basher has loaded with no errors!","green");
 	nb.parseSkills();
-	send_GMCP("Char.Items.Room");
+	send_GMCP("Char.Items.Room",""); //to populate nb.itemsHere.
 }
 
 display_notice("Welcome to the Starmourn Community Nexus Basher!","green");
