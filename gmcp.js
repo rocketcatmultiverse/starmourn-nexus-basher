@@ -49,6 +49,7 @@ nb.gmcp = function(m, r) {
 nb.itemsHere = [];
 nb.itemsList = function(r) {
 	if (r.location !== "room") return; //shoudn't happen, but just in case.
+	nb.itemsHere=[];
 	r.items.forEach(function(el){
 		for (let i = 0; i < nb.itemsHere.length; i++) {
 			if (el.id === nb.itemsHere[i].id) return;
