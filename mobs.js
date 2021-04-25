@@ -51,6 +51,10 @@ nb.mobs = [
 	"a rampaging construction mech","a dilapidated construction mech","a cyborg leech orchid",
 	//Ixsei
 	"a crystal-clawed rock giant","a salt-crusted quartz creeper",
+	//northern usum
+	'a blacktooth coroxodon',"a giant tosmarian condor","an immense rapasu worm","an overfed skulf",
+	"a foraging zhubeast","an alert giant springer","a lurking blacktooth coroxodon","a large hairy skulf",
+	"a roosting tosmarian condor","a two-headed zhubeast","a juvenile rapasu worm","a coiling skilth snake",
 
 ];
 
