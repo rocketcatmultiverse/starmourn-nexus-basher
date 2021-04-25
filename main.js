@@ -40,6 +40,12 @@ nb.calc = function() {
 	if (tarHere) nb.attack();
 }
 
+nb.onKill = function(){
+	nb.interrupt = false;
+	nb.tarCheck();
+	nb.furyOnKill();
+}
+
 nb.attack = function(){
 	nb.send(nb.offense[nb.class]());
 }
@@ -114,6 +120,10 @@ nb.onGo = function(){
 			if (!(traveller && conqueror)) {
 				nb.warn("Nexus basher recommends channeling Traveller and Affinity Conqueror for best effect.")
 			}
+		}
+	} else if (nb.class === "Fury") {
+		if (nb.haveSkill("fulmination","windshape")){
+			display_notice("Don't forget to WINDSHAPE BLADE!","orange");
 		}
 	}
 }

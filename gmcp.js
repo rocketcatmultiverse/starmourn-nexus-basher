@@ -118,4 +118,7 @@ nb.combatMessage = function(msg, caster, target, text) {
 	if (msg === "turret qpcboost") { nb.needQPCBoost = false; return; }
 	if (msg === "void point zero") { nb.pzHere = true; return; }
 	if (msg === "oblivion speedup") { nb.speedupHere = true; return; }
+	if (msg.split(" ")[0] === "rage") { nb.rageSent = true; }
+	if (msg.split(" ")[0] === "blade") { nb.rageSent = false; }
+	if (msg === "rage unstoppable") { nb.unstoppableReady = false; return; }
 }
