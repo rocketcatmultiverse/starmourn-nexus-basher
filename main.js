@@ -40,6 +40,12 @@ nb.calc = function() {
 	if (tarHere) nb.attack();
 }
 
+nb.onKill = function(){
+	nb.interrupt = false;
+	nb.tarCheck();
+	nb.furyOnKill();
+}
+
 nb.attack = function(){
 	nb.send(nb.offense[nb.class]());
 }
