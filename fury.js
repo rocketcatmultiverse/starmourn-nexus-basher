@@ -37,7 +37,7 @@ nb.offense.Fury = function(){
 	} else {
 		if (toStance === "Symmetry") {
 			rage = "strike";
-		} else if (toStance === "Ember") {
+		} else if (toStance === "Flare") {
 			rage = "flyinglash";
 		} else if (toStance === "Eruption") {
 			if (!nb.haveSkill("rage","deepstrike")) {
@@ -48,6 +48,13 @@ nb.offense.Fury = function(){
 		}
 	}
 	if (combo) return combo;
+	if (!blade) {
+		nb.error("Blade attack not found, you might be off stance?");
+		return "kith burn "+nb.tar;
+	} else if (!rage) {
+		nb.error("Rage attack not found, you might be off stance?");
+		return "kith burn "+nb.tar;
+	}
 	combo = "combo "+blade + rage;
 	if (rage !== "unstoppable") combo+=" "+nb.tar;
 	return combo;
