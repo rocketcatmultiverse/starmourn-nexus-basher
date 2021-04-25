@@ -43,7 +43,7 @@ nb.offense.Nanoseer = function(){
           nb.send("swap traveller");
           return 'speedup';
         }
-      } else if (haveEmp("traveller")) {
+      } else if (nb.haveEmp("traveller")) {
         if (speedupTest && sanity > 400) {
           return "speedup";
         } else {
