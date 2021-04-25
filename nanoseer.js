@@ -7,7 +7,7 @@ nb.haveEmp = function(e){
       nb.error("Desc field not found in GMCP.Defences.")
       return false;
     }
-    if (GMCP.Defences[d].desc.toLowerCase().includes("e")) return true;
+    if (GMCP.Defences[d].desc.toLowerCase().includes(e)) return true;
   }
 }
 
