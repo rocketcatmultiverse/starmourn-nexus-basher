@@ -73,8 +73,8 @@ nb.tarCheck = function(){
 
 nb.calcTarsHere = function() {
 	var res = 0;
-	for (var i = 0; i < nb.itemsHere; i++) {
-		for (var k = 0; k < nb.mobs; k++) {
+	for (var i = 0; i < nb.itemsHere.length; i++) {
+		for (var k = 0; k < nb.mobs.length; k++) {
 			if (nb.itemsHere[i].name.toLowerCase() === nb.mobs[k].toLowerCase()) {
 				res++;
 			}
