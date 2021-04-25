@@ -47,7 +47,7 @@ nb.offense.Nanoseer = function(){
         if (speedupTest && sanity > 400) {
           return "speedup";
         } else {
-          if (frenzyTest && sanity > 550) {
+          if (frenzyTest && sanity > 550 && !("ab_Oblivion_swap" in nb.cooldowns)) {
             send_command("swap conqueror|frenzy"); //we should grab the user's command separator from Nexus in the future.
           }
         }
@@ -57,7 +57,7 @@ nb.offense.Nanoseer = function(){
         }
       }
     } else if (frenzyTest) { //we do not have speedup but we do have frenzy 
-      if (!nb.haveEmp("conqueror")) {
+      if (!nb.haveEmp("conqueror") && !("ab_Oblivion_swap" in nb.cooldowns)) {
         if (sanity > 550) send_command("swap conqueror|frenzy");
       } else {
         if (sanity > 350) nb.send("frenzy");
