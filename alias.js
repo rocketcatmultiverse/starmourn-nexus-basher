@@ -46,8 +46,8 @@ nb.verb_toggle = function(c) {
 		return;
 	}
 	if (c[1] === "debug") {
-		debugMode=!debugMode;
-		toggled = debugMode;
+		nb.debugMode=!nb.debugMode;
+		toggled = nb.debugMode;
 	}
 	display_notice(c[1]+ " is now "+toggled);
 }
