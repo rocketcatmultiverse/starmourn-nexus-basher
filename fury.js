@@ -6,7 +6,7 @@ nb.offense.Fury = function(){
 	var wound = nb.haveSkill("battleflow","wound");
 	var rupture = nb.haveSkill("battleflow","rupture");
 	var deepstrike = nb.haveSkill("rage","deepstrike");
-	var unstoppable = nb.haveskill("rage","unstoppable");
+	var unstoppable = nb.haveSkill("rage","unstoppable");
 	var slice = nb.haveSkill("rage","slice");
 	if (!(gutrend && flyinglash && sear && strike)) return "kith burn "+nb.tar;
 	var blade = ""
