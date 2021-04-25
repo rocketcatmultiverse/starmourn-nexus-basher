@@ -94,7 +94,7 @@ nb.combatMessage = function(msg, caster, target, text) {
 			case "kith fever":
 			case "rage stun":
 			case "bot swing":
-			case "gadgets shock"
+			case "gadgets shock":
 			case "mwp netlaunch":
 			case "plasma sear":
 			case "nanotech eyestrike":
