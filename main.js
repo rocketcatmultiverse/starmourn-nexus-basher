@@ -18,6 +18,7 @@ nb.calcOffense.Fury = function() {}
 nb.calcOffense.Nanoseer = function() {}
 nb.calcOffense.Scoundrel = function() {}
 nb.tarHealth = 100;
+nb.tarsHere = 0;
 
 nb.send = function(cmd) {
 	send_command(cmd,1);
@@ -70,6 +71,18 @@ nb.tarCheck = function(){
     return false;
 }
 
+nb.calcTarsHere = function() {
+	var res = 0;
+	for (let i = 0; i < nb.itemsHere; i++) {
+		for (let k = 0; k < nb.mobs; k++) {
+			if (nb.itemsHere[i].name.toLowerCase() === nb.mobs[k].toLowerCase()) {
+				res++;
+			}
+		}
+	}
+	nb.tarsHere = res;
+}
+
 nb.onGo = function(){
 	if (nb.class === "Engineer") {
 		if (!("Stimjector" in GMCP.Defences)) {
@@ -93,6 +106,14 @@ nb.onGo = function(){
 			nb.warn("Nexus basher doesn't see a turret where you are. TURRET CONSTRUCT, TURRET DEPLOY, and order your Carrybot to carry the turret for you with BOT TURRET!");
 		}
 
+	} else if (nb.class === "Nanoseer") {
+		var traveller = nb.haveEmp("traveller")
+		var conqueror = nb.haveEmp("conqueror")
+		if (nb.haveSkill("oblivion","affinity")) {
+			if (!(traveller && conqueror)) {
+				nb.warn("Nexus basher recommends channeling Traveller and Affinity Conqueror for best effect.")
+			}
+		}
 	}
 }
 

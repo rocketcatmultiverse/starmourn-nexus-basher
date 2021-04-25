@@ -17,6 +17,9 @@ nb.gmcp = function(m, r) {
 			case "Fury":
 				nb.stance = r.st;
 				break;
+			case "Nanoseer":
+				nb.sanity = r.sa;
+				break;
 			default:
 				break;
 		}
@@ -56,6 +59,7 @@ nb.itemsList = function(r) {
 		}
 		nb.itemsHere.push(el);
 	});
+	nb.calcTarsHere();
 }
 
 nb.itemsAdd = function(r){
@@ -64,6 +68,7 @@ nb.itemsAdd = function(r){
 		if (r.item.id === nb.itemsHere[i].id) return; // don't add an item that's already in our list.
 	}
 	nb.itemsHere.push(r.item);
+	nb.calcTarsHere();
 }
 
 nb.itemsRemove = function(r) {
@@ -71,6 +76,7 @@ nb.itemsRemove = function(r) {
 	for (let i = 0; i < nb.itemsHere.length; i++) {
 		if (r.item.id === nb.itemsHere[i].id) {
 			nb.itemsHere.splice(i,1);
+			nb.calcTarsHere();
 			return;
 		}
 	}
@@ -78,19 +84,24 @@ nb.itemsRemove = function(r) {
 
 nb.combatMessage = function(msg, caster, target, text) {
 	nb.debug("nb.combatMessage called with msg, caster, target, text: "+msg +","+ caster +","+ target+","+ text);
-	if (!nb.me(caster)) return;
+	//if (!nb.me(caster)) return;
 	msg = msg.toLowerCase(); 
 	//naive, but it will work for most situations.
-	switch (msg) {
-		case "guile pocketsand":
-		case "gun pointblank":
-		case "kith fever":
-		case "bot swing":
-		case "mwp netlaunch":
-			nb.interrupt = false;
-			break;
-		default:
-			break;
+	if (target === nb.tar) {
+		switch (msg) {
+			case "guile pocketsand":
+			case "gun pointblank":
+			case "kith fever":
+			case "bot swing":
+			case "mwp netlaunch":
+			case "neural blinder":
+				nb.interrupt = false;
+				return;
+			default:
+				break;
+		}
 	}
-	if (msg === "turret qpcboost") nb.needQPCBoost = false;
+	if (msg === "turret qpcboost") { nb.needQPCBoost = false; return; }
+	if (msg === "void point zero") { nb.pzHere = true; return; }
+	if (msg === "oblivion speedup") { nb.speedupHere = true; return; }
 }

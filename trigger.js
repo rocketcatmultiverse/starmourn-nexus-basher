@@ -9,6 +9,10 @@ nb.trigger = function(c) {
 		display_notice("We notice you are gaining new skills. When you are finished learning, NBRELOAD so that Nexus Basher uses the best abilities", "green");
 	} else if (c.includes("buzzes softly, but doesn't have enough power to attack.")) {
 		nb.needQPCBoost = true; //this is simplistic to begin with. we'll need a way to tell if this is actually our turret.
+	} else if (c === "The time distortion effect ends.") {
+		nb.speedupHere= false;
+	} else if (c === "The swirling point zero suddenly collapses into itself.") {
+		nb.pzHere = false;
 	}
 	return false;
 }
