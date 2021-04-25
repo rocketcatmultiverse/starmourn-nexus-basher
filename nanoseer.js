@@ -48,7 +48,7 @@ nb.offense.Nanoseer = function(){
           return "speedup";
         } else {
           if (frenzyTest && sanity > 550) {
-            nb.send("swap conqueror|frenzy"); //we should grab the user's command separator from Nexus in the future.
+            send_command("swap conqueror|frenzy"); //we should grab the user's command separator from Nexus in the future.
           }
         }
       } else { //we are on some other empyreal, go back to traveller which lets us get back the most sanity
@@ -58,7 +58,7 @@ nb.offense.Nanoseer = function(){
       }
     } else if (frenzyTest) { //we do not have speedup but we do have frenzy 
       if (!nb.haveEmp("conqueror")) {
-        if (sanity > 550) nb.send("swap conqueror|frenzy");
+        if (sanity > 550) send_command("swap conqueror|frenzy");
       } else {
         if (sanity > 350) nb.send("frenzy");
       }
