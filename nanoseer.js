@@ -17,7 +17,7 @@ nb.offense.Nanoseer = function(){
 	// Frenzy costs 15% sanity
 	// Speedup costs 20%
 	// Swap costs 20%
-	var frenzyTest = nb.haveSkill("oblivion","frenzy") && !("oblivion frenzy" in GMCP.Defences) && !("ab_Oblivion_frenzy" in nb.cooldowns);
+	var frenzyTest = nb.haveSkill("oblivion","frenzy") && !("Oblivion Frenzy" in GMCP.Defences) && !("ab_Oblivion_frenzy" in nb.cooldowns);
 	var speedupTest = nb.haveSkill("oblivion","speedup") && ( nb.targetsHere > 1 ) && !("ab_Oblivion_speedup" in nb.cooldowns) && !(nb.speedupHere);
 	var sanity = nb.sanity;
 
