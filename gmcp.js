@@ -92,8 +92,12 @@ nb.combatMessage = function(msg, caster, target, text) {
 			case "guile pocketsand":
 			case "gun pointblank":
 			case "kith fever":
+			case "rage stun":
 			case "bot swing":
+			case "gadgets shock"
 			case "mwp netlaunch":
+			case "plasma sear":
+			case "nanotech eyestrike":
 			case "neural blinder":
 				nb.interrupt = false;
 				return;
