@@ -32,9 +32,9 @@ nb.offense.Fury = function(){
 		nb.toStance = "Flare";
 	}
 
-	if (slice && nb.unstoppableReady && !("Rage unstoppable" in GMCP.Defences)) {
+	if (unstoppable && nb.unstoppableReady && !("Rage unstoppable" in GMCP.Defences)) {
 		rage = "unstoppable";
-	} else if ("Rage unstoppable" in GMCP.Defences) {
+	} else if (slice && ("Rage unstoppable" in GMCP.Defences)) {
 		rage = "slice";
 	} else {
 		if (nb.toStance === "Symmetry") {
