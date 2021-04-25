@@ -20,7 +20,7 @@ nb.offense.Nanoseer = function(){
 	var frenzyTest = nb.haveSkill("oblivion","frenzy") && !("Oblivion Frenzy" in GMCP.Defences) && !("ab_Oblivion_frenzy" in nb.cooldowns);
 	var speedupTest = nb.haveSkill("oblivion","speedup") && ( nb.tarsHere > 1 ) && !("ab_Oblivion_speedup" in nb.cooldowns) && !(nb.speedupHere);
 	var sanity = nb.sanity;
-  nb.debug("Nanoseer offense, speedupTest: "+speedupTest+ " cooldowns: "+nb.cooldowns);
+  nb.debug("Nanoseer offense, speedupTest: "+speedupTest+ " cooldowns: "+JSON.stringify(nb.cooldowns));
 
   if (nb.haveSkill("oblivion","affinity")) {
 		if (nb.haveEmp("conqueror") && sanity > 350 && frenzyTest) {
