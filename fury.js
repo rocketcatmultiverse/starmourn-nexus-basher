@@ -1,3 +1,4 @@
+nb.toStance= ""
 nb.offense.Fury = function(){
 	var strike = nb.haveSkill("rage","strike");
 	var gutrend = nb.haveSkill("battleflow","gutrend");
@@ -12,22 +13,22 @@ nb.offense.Fury = function(){
 	if (!(gutrend && flyinglash && sear && strike)) return "kith burn "+nb.tar;
 	var blade = ""
 	var rage = ""
-	var toStance = ""
+	nb.toStance = ""
 	var combo = ""
 	if (nb.stance === "Symmetry") {
 		blade = "gutrend";
-		toStance = "Flare";
+		nb.toStance = "Flare";
 	} else if (nb.stance === "Flare") {
 		if (wound && rupture) {
 			blade = "wound";
-			toStance = "Eruption"
+			nb.toStance = "Eruption"
 		} else {
 			blade = "sear";
-			toStance = "Symmetry";
+			nb.toStance = "Symmetry";
 		}
 	} else if (nb.stance === "Eruption") {
 		blade = "rupture";
-		toStance = "Flare";
+		nb.toStance = "Flare";
 	}
 
 	if (rage && slice && nb.unstoppableReady && !("Rage unstoppable" in GMCP.Defences)) {
@@ -35,11 +36,11 @@ nb.offense.Fury = function(){
 	} else if ("Rage unstoppable" in GMCP.Defences) {
 		rage = "slice";
 	} else {
-		if (toStance === "Symmetry") {
+		if (nb.toStance === "Symmetry") {
 			rage = "strike";
-		} else if (toStance === "Flare") {
+		} else if (nb.toStance === "Flare") {
 			rage = "flyinglash";
-		} else if (toStance === "Eruption") {
+		} else if (nb.toStance === "Eruption") {
 			if (!nb.haveSkill("rage","deepstrike")) {
 				combo = "blade wound "+nb.tar; //just send the blade attack, still more effective than previous rotation even without a rage.
 			} else {
@@ -66,12 +67,13 @@ nb.furyOnKill = function(){
 	if (!nb.go) return;
 	if (nb.class !== "Fury") return;
 	if (nb.rageSent) return;
+	if (!nb.toStance) return;
 	//send extra stuff if we just killed something with our blade
 	if (nb.haveSkill("rage","overpower") && ("Rage unstoppable" in GMCP.Defences) && !("Rage overpower" in GMCP.Defences)) {
 		nb.send("rage overpower");
-	} else if (nb.haveSkill("rage", "berserk") && (nb.stance === "Flare") && !("Rage berserk" in GMCP.Defences)){
+	} else if (nb.haveSkill("rage", "berserk") && (nb.toStance === "Flare") && !("Rage berserk" in GMCP.Defences)){
 		nb.send("rage berserk");
-	} else if (nb.haveSkill("rage","resistant") && (nb.stance === "Ember") && !("Rage resistant" in GMCP.Defences)) {
-		nb.send("rage resistant");
+	} else if (nb.haveSkill("rage","resistant") && (nb.toStance === "Ember") && !("Rage resistant" in GMCP.Defences)) {
+		nb.send("rage resistant"); //shouldn't happen in our rotation, but w/e, it's here...
 	}
 }
