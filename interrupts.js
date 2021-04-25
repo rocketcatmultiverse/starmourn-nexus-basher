@@ -45,6 +45,7 @@ const interruptLines = [
 "An out\-of\-control FeTek assembly drone\'s curved beak begins to bob up and down erratically\, the welding attachment beginning to glow even brighter\.",
 "A Vihana void crawler\'s chitin begins to shake\, the plates vibrating against one another at a frequency that causes your head to ache as the vibrations sink into your core\.",
 "A high\-pitched whistle of steam screams from a rampaging construction mech\, and it begins to spin in a rapid circle\, firing bolts and scrap metal in every direction\.",
+"Lifting its huge body up into the air\,.*rears back in preparation\, acid dripping from its mandibles'.",
 ]
 
 var regex = new RegExp(interruptLines.join("|"));
