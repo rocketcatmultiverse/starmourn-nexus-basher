@@ -32,9 +32,9 @@ nb.offense.Fury = function(){
 		nb.toStance = "Flare";
 	}
 
-	if (unstoppable && nb.unstoppableReady && !("Rage unstoppable" in GMCP.Defences)) {
+	if (unstoppable && nb.unstoppableReady && !("Rage Unstoppable" in GMCP.Defences)) {
 		rage = "unstoppable";
-	} else if (slice && ("Rage unstoppable" in GMCP.Defences)) {
+	} else if (slice && ("Rage Unstoppable" in GMCP.Defences)) {
 		rage = "slice";
 	} else {
 		if (nb.toStance === "Symmetry") {
@@ -70,11 +70,11 @@ nb.furyOnKill = function(){
 	if (nb.rageSent) return;
 	if (!nb.toStance) return;
 	//send extra stuff if we just killed something with our blade
-	if (nb.haveSkill("rage","overpower") && ("Rage unstoppable" in GMCP.Defences) && !("Rage overpower" in GMCP.Defences)) {
+	if (nb.haveSkill("rage","overpower") && ("Rage Unstoppable" in GMCP.Defences) && !("Rage Overpower" in GMCP.Defences)) {
 		nb.send("rage overpower");
-	} else if (nb.haveSkill("rage", "berserk") && (nb.toStance === "Flare") && !("Rage berserk" in GMCP.Defences)){
+	} else if (nb.haveSkill("rage", "berserk") && (nb.toStance === "Flare") && !("Rage Berserk" in GMCP.Defences)){
 		nb.send("rage berserk");
-	} else if (nb.haveSkill("rage","resistant") && (nb.toStance === "Ember") && !("Rage resistant" in GMCP.Defences)) {
+	} else if (nb.haveSkill("rage","resistant") && (nb.toStance === "Ember") && !("Rage Resistant" in GMCP.Defences)) {
 		nb.send("rage resistant"); //shouldn't happen in our rotation, but w/e, it's here...
 	}
 }
