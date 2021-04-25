@@ -87,24 +87,23 @@ nb.combatMessage = function(msg, caster, target, text) {
 	//if (!nb.me(caster)) return;
 	msg = msg.toLowerCase(); 
 	//naive, but it will work for most situations.
-	if (target === nb.tar) {
-		switch (msg) {
-			case "guile pocketsand":
-			case "gun pointblank":
-			case "kith fever":
-			case "rage stun":
-			case "bot swing":
-			case "gadgets shock":
-			case "mwp netlaunch":
-			case "plasma sear":
-			case "nanotech eyestrike":
-			case "neural blinder":
-				nb.interrupt = false;
-				return;
-			default:
-				break;
-		}
+	switch (msg) {
+		case "guile pocketsand":
+		case "gun pointblank":
+		case "kith fever":
+		case "rage stun":
+		case "bot swing":
+		case "gadgets shock":
+		case "mwp netlaunch":
+		case "plasma sear":
+		case "nanotech eyestrike":
+		case "neural blinder":
+			nb.interrupt = false;
+			return;
+		default:
+			break;
 	}
+
 	if (msg === "turret qpcboost") { nb.needQPCBoost = false; return; }
 	if (msg === "void point zero") { nb.pzHere = true; return; }
 	if (msg === "oblivion speedup") { nb.speedupHere = true; return; }
