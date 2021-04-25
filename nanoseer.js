@@ -22,7 +22,7 @@ nb.offense.Nanoseer = function(){
 	var sanity = nb.sanity;
 
   if (nb.haveSkill("oblivion","affinity")) {
-		if (nb.haveEmp("conqueror")) && sanity > 350 && frenzyTest {
+		if (nb.haveEmp("conqueror") && sanity > 350 && frenzyTest) {
 			sanity = sanity-150;
 			nb.send('frenzy'); //this is balanceless, so keep doing things, but change our local sanity in case gmcp.Char.Vitals doesn't have time to update
 		}
@@ -32,7 +32,7 @@ nb.offense.Nanoseer = function(){
 	} else {
     // if we have speedup, then we also have frenzy and we need to swap around.
     if (nb.haveSkill("oblivion","speedup")) {
-      if nb.haveEmp("conqueror") {
+      if (nb.haveEmp("conqueror")) {
         if (frenzyTest && sanity > 350) {
           sanity = sanity-150;
           nb.send("frenzy");
