@@ -26,7 +26,7 @@ nb.offense.Nanoseer = function(){
 			sanity = sanity-150;
 			nb.send('frenzy'); //this is balanceless, so keep doing things, but change our local sanity in case gmcp.Char.Vitals doesn't have time to update
 		}
-		if (haveEmp("traveller") && sanity > 400) { 
+		if (nb.haveEmp("traveller") && sanity > 400) { 
       return "speedup";
 		}
 	} else {
