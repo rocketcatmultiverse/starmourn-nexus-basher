@@ -121,6 +121,10 @@ nb.onGo = function(){
 				nb.warn("Nexus basher recommends channeling Traveller and Affinity Conqueror for best effect.")
 			}
 		}
+	} else if (nb.class === "Fury") {
+		if (nb.haveSkill("fulmination","windshape")){
+			display_notice("Don't forget to WINDSHAPE BLADE!","orange");
+		}
 	}
 }
 
