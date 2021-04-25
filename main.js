@@ -19,6 +19,7 @@ nb.calcOffense.Nanoseer = function() {}
 nb.calcOffense.Scoundrel = function() {}
 nb.tarHealth = 100;
 nb.tarsHere = 0;
+nb.vnum = 0;
 
 nb.send = function(cmd) {
 	send_command(cmd,1);

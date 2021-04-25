@@ -13,9 +13,9 @@ nb.trigger = function(c) {
 		nb.speedupHere= false;
 	} else if (c === "The swirling point zero suddenly collapses into itself.") {
 		nb.pzHere = false;
-	} else if (c === "Time has already been distorted at this location.") {
+	} else if ((c === "Time has already been distorted at this location.") || (c === "Time has been strangely distorted here.")) {
 		nb.speedupHere=true;
-	} else if (c === "Lifting your hand, you call upon the void within, seeking to form a sphere of absolute zero temperature, but realize there is one here already.") {
+	} else if ((c === "Lifting your hand, you call upon the void within, seeking to form a sphere of absolute zero temperature, but realize there is one here already.") || (c === "Air swirls around a point of absolute coldness here.")) {
 		nb.pzHere= true;
 	}
 	return false;

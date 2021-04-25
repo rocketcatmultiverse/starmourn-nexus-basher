@@ -44,9 +44,20 @@ nb.gmcp = function(m, r) {
 	} else if (m === "Char.Items.Remove") {
 		if (r.location !== "room") return;
 		nb.itemsRemove(r);
-
+	} else if (m === "Room.Info") {
+		nb.roomInfo(r);
 	}
 	return false;	
+}
+
+nb.roomInfo = function(r){
+	if (r.num !== nb.vnum) nb.onRoomChange(r);
+	nb.vnum = r.num
+}
+
+nb.onRoomChange = function(newRoomInfo) {
+	nb.speedupHere=false;
+	nb.pzHere=false;
 }
 
 nb.itemsHere = [];
