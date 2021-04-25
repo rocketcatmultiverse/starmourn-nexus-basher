@@ -32,7 +32,7 @@ nb.offense.Fury = function(){
 		nb.toStance = "Flare";
 	}
 
-	if (rage && slice && nb.unstoppableReady && !("Rage unstoppable" in GMCP.Defences)) {
+	if (slice && nb.unstoppableReady && !("Rage unstoppable" in GMCP.Defences)) {
 		rage = "unstoppable";
 	} else if ("Rage unstoppable" in GMCP.Defences) {
 		rage = "slice";
