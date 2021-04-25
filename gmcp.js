@@ -120,4 +120,5 @@ nb.combatMessage = function(msg, caster, target, text) {
 	if (msg === "oblivion speedup") { nb.speedupHere = true; return; }
 	if (msg.split(" ")[0] === "rage") { nb.rageSent = true; return; }
 	if (msg.split(" ")[0] === "blade") { nb.rageSent = false; return; }
+	if (msg === "rage unstoppable") { nb.unstoppableReady = false; return; }
 }
