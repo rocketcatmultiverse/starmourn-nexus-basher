@@ -55,7 +55,7 @@ nb.offense.Fury = function(){
 		nb.error("Rage attack not found, you might be off stance?");
 		return "kith burn "+nb.tar;
 	}
-	combo = "combo "+blade + rage;
+	combo = "combo "+blade +" "+ rage;
 	if (rage !== "unstoppable") combo+=" "+nb.tar;
 	return combo;
 }
