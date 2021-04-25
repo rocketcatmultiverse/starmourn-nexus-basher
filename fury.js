@@ -1,4 +1,5 @@
 nb.offense.Fury = function(){
+	var strike = nb.haveSkill("rage","strike");
 	var gutrend = nb.haveSkill("battleflow","gutrend");
 	var flyinglash = nb.haveSkill("rage","flyinglash");
 	var sear = nb.haveSkill("battleflow","sear");
