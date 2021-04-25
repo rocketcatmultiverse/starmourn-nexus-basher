@@ -19,7 +19,8 @@ nb.trigger = function(c) {
 	} else if (c.includes("Rage flows through you")) {
 		nb.unstoppableReady = true;
 	} else if (c === "Your rage must grow until you are absolutely unstoppable before that ability can be used." ||
-		c === "You haven't used enough rage attacks to become unstoppable!") {
+		c === "You haven't used enough rage attacks to become unstoppable!" || 
+		c === "You are no longer raging.") {
 		nb.unstoppableReady = false; //just a force fix in case user walks away and loses unstoppable timer
 	}
 	return false;

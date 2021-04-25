@@ -1,4 +1,5 @@
 nb.toStance= ""
+nb.unstoppableReady=false;
 nb.offense.Fury = function(){
 	var strike = nb.haveSkill("rage","strike");
 	var gutrend = nb.haveSkill("battleflow","gutrend");
