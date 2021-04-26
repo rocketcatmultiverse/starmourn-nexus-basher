@@ -19,7 +19,7 @@ nb.me = function(who) {
 }
 
 nb.tableReport = function(table) {
-    table.setBorder(" ");
+    table.removeBorder();
     table = table.toString();
     nb.owWrite('#output_main', '<div class="mono">'+ table+'</div>'); 
 }

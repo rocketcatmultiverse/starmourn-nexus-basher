@@ -141,6 +141,7 @@ nb.configDisplay = function() {
 	final.setAlign(1, AsciiTable.LEFT)
 	final.setAlign(2, AsciiTable.LEFT)
 	final.setTitleAlignLeft();
+	final.setHeadingAlignLeft()
 	nb.tableReport(final);
 
 }
