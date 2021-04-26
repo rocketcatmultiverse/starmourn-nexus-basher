@@ -49,11 +49,3 @@ nb.offense.BEAST = function(){
 		}
 	}
 }
-
-/*
-1) just Burn
-2) backhand minigun
-3) hobble minigun
-4) dualshot/hobble
-Do overclock if you have it and keep heatup going.
-*/

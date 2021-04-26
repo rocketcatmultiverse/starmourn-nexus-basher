@@ -1,4 +1,5 @@
 nb.trigger = function(c) {
+	var res;
 	if (c === "You have recovered your balance.") nb.onBal();
 	else if (c.includes("You have slain")) {
 		nb.onKill();
@@ -24,6 +25,13 @@ nb.trigger = function(c) {
 		nb.unstoppableReady = false; //just a force fix in case user walks away and loses unstoppable timer
 	} else if (c.includes("You collapse to the ground, killed")) {
 		nb.onDeath();
+	} else if ((res = /^\(Crew\): .+ says, "Target: (.+)\."$/.exec(c)) !== null) {
+		if (nb.groupMode && !nb.groupLeader) nb.setTar(res[0]);
+	} else if (c === "Your HUD indicates that you may use your life support system once again." ||
+		c === "Your nanites can again repair your body." ||
+		c === "You can again use a stim." ||
+		c === "It is safe to suffuse yourself with kith energy again.") {
+		nb.onHealBalGained();
 	}
 	return false;
 }

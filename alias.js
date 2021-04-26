@@ -30,24 +30,52 @@ nb.alias = function(c) {
 		return true;
 	}
 
-	if (arg === "nbtoggle") {
+	if (arg === "nbtoggle" || arg === "nbt") {
 		nb.verb_toggle(c)
+		return true;
+	}
+
+	if (arg === "nbconfig") {
+		nb.verb_config(c);
 		return true;
 	}
 	return false;
 }
 
+nb.verb_config = function(c){
+	var split = c.split(" ");
+	if (split.length > 1) {
+		if (split[1] === "help") {
+			nb.configHelp();
+			return;
+		} else {
+			nb.reloadUserConfigs();
+			return;
+		}
+	}
+	nb.configDisplay();
+}
+
 nb.verb_toggle = function(c) {
 	c = c.split(" ");
-	const toggles = ["debug"];
+	const toggles = ["debug","group","leader"];
 	var toggled = null;
 	if (c.length !== 2) {
-		display_notice("NBTOGGLE TOGGLE <"+toggles.join("/")+">");
+		display_notice("NBT(OGGLE) <"+toggles.join("/")+">");
+		display_notice("DEBUG is used for development and testing of the Nexus basher.");
+		display_notice("GROUP is used to toggle bashing in groups. You will listen to other players' target calls on crew chat.");
+		display_notice("LEADER is used to indicate that you are the leader of a group hunt. You will send target calls on CRT and not listen to other players' target calls.");
 		return;
 	}
 	if (c[1] === "debug") {
 		nb.debugMode=!nb.debugMode;
 		toggled = nb.debugMode;
+	} else if (c[1] === "group") {
+		nb.groupMode = !nb.groupMode;
+		toggled = nb.groupMode
+	} else if (c[1] === "leader") {
+		nb.groupLeader = !nb.groupLeader;
+		toggled = nb.groupLeader
 	}
 	display_notice(c[1]+ " is now "+toggled);
 }
@@ -58,6 +86,8 @@ nb.verb_help = function() {
 	display_notice("Use NBIGNORE <mob name> to tell the basher to ignore a particular mob name. UNIGNORE to undo. Ignores do not persist across sessions.");
 	display_notice("Use NBK or NBKILL to tell the basher to kill all the mobs in the room.");
 	display_notice("NBRELOAD will reload the system.");
+	display_notice("NBTOGGLE or just NBT will show you information about various toggles for your session.");
+	display_notice("NBCONFIG will show you configuration options. Learn more about it with NBCONFIG HELP. Reload your user configs with NBCONFIG RELOAD");
 }
 
 nb.verb_go = function(toggle) {
