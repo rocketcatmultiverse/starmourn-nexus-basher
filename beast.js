@@ -25,6 +25,10 @@ nb.offense.BEAST = function(){
 	var minigun = nb.haveSkill("mwp","minigun");
 	var hobble = nb.haveSkill("mwp","hobble");
 	var dualshot = nb.haveSkill("mwp","dualshot");
+	if (!backhand && !hobble) {
+		//we do not use minigun, and must use plasma burn. Do not use heatup. 
+		return "plasma burn "+nb.tar;
+	}
 	if (!("Plasma generation" in GMCP.Defences)) {
 		return "heatup";
 	}
@@ -44,7 +48,6 @@ nb.offense.BEAST = function(){
 			return "suit backhand "+nb.tar;
 		}
 	}
-	return "plasma burn "+nb.tar;
 }
 
 /*

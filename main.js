@@ -147,6 +147,8 @@ nb.onGo = function(){
 		} else if (minigun && backhand) {
 			nb.warn("Make sure your minigun is active! Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
 			if (routing && routingNow !== "medium") nb.warn("Make sure to SUIT ROUTE MEDIUM.")
+		} else {
+			nb.warn("We will use PLASMA BURN to bash. Make sure to HEATUP and PLASMA RESISTANCE ON to make sure you always have enough plasma.");
 		}
 
 	}
