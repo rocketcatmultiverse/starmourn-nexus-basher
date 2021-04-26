@@ -27,6 +27,11 @@ nb.trigger = function(c) {
 		nb.onDeath();
 	} else if ((res = /^\(Crew\): .+ says, "Target: (.+)\."$/.exec(c)) !== null) {
 		if (nb.groupMode && !nb.groupLeader) nb.setTar(res[0]);
+	} else if (c === "Your HUD indicates that you may use your life support system once again." ||
+		c === "Your nanites can again repair your body." ||
+		c === "You can again use a stim." ||
+		c === "It is safe to suffuse yourself with kith energy again.") {
+		nb.onHealBalGained();
 	}
 	return false;
 }

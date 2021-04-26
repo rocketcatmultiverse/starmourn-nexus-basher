@@ -54,7 +54,7 @@ nb.checkVitalsWaiting = function(){
 }
 
 nb.onHealBalGained = function(){
-	if (!nb.go) return;
+	if (!nb.go || !nb.bal) return;
 	if (nb.configs.heal_full_after_room_clear.val && !nb.tarsHere) {
 		nb.send(nb.getClassHeal());
 		return;

@@ -4,7 +4,6 @@ nb.gmcp = function(m, r) {
 			nb.sys.health[sys] = parseFloat(r[sys]);
 			nb.sys.efficacy[sys] = parseFloat(r[sys+"_efficacy"]);
 		});
-		if (!nb.bal && (r.bal === "1")) nb.onHealBalGained();
 		nb.bal = r.bal == "1" ? true : false;
 		nb.wwBal = r.ww == "1" ? true : false;
 		nb.hpperc = parseInt(r.hp)/parseInt(r.maxhp);
