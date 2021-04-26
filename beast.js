@@ -5,7 +5,7 @@ nb.beastOnKill = function() {
 	nb.tarStaggeringOrDazed = false;
 }
 nb.beastCheckOverclock = function(msg) {
-	if (!nb.haveSkill("suittech","overclock")) return;
+	if (!nb.haveSkill("suittech","overclock") || ("ab_SuitTech_overclock" in nb.cooldowns)) return;
 	if (nb.haveSkill("mwp","dualshot")) { //if we have dualshot, only use it with dualshot.
 		if (msg === "mwp dualshot") {
 			nb.send("overclock");
