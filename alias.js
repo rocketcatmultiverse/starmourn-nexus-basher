@@ -30,7 +30,7 @@ nb.alias = function(c) {
 		return true;
 	}
 
-	if (arg === "nbtoggle") {
+	if (arg === "nbtoggle" || arg === "nbt") {
 		nb.verb_toggle(c)
 		return true;
 	}
@@ -61,7 +61,10 @@ nb.verb_toggle = function(c) {
 	const toggles = ["debug","group","leader"];
 	var toggled = null;
 	if (c.length !== 2) {
-		display_notice("NBTOGGLE <"+toggles.join("/")+">");
+		display_notice("NBT(OGGLE) <"+toggles.join("/")+">");
+		display_notice("DEBUG is used for development and testing of the Nexus basher.");
+		display_notice("GROUP is used to toggle bashing in groups. You will listen to other players' target calls on crew chat.");
+		display_notice("LEADER is used to indicate that you are the leader of a group hunt. You will send target calls on CRT and not listen to other players' target calls.");
 		return;
 	}
 	if (c[1] === "debug") {
@@ -83,6 +86,7 @@ nb.verb_help = function() {
 	display_notice("Use NBIGNORE <mob name> to tell the basher to ignore a particular mob name. UNIGNORE to undo. Ignores do not persist across sessions.");
 	display_notice("Use NBK or NBKILL to tell the basher to kill all the mobs in the room.");
 	display_notice("NBRELOAD will reload the system.");
+	display_notice("NBTOGGLE or just NBT will show you information about various toggles for your session.");
 	display_notice("NBCONFIG will show you configuration options. Learn more about it with NBCONFIG HELP. Reload your user configs with NBCONFIG RELOAD");
 }
 
