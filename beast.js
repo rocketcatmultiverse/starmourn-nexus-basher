@@ -37,7 +37,7 @@ nb.offense.BEAST = function(){
 		}
 	} else {
 		if (nb.tarStaggeringOrDazed) {
-			return "mwp mingun "+nb.tar;
+			return "mwp minigun "+nb.tar;
 		} else if (hobble) {
 			return "mwp hobble "+nb.tar;
 		} else if (backhand) {
