@@ -258,6 +258,7 @@ nb.onLoad = function() {
 	display_notice("Starmourn Community Nexus Basher has loaded with no errors!","green");
 	nb.parseSkills();
 	send_GMCP("Char.Items.Room",""); //to populate nb.itemsHere.
+	nb.reloadUserConfigs();
 }
 
 
