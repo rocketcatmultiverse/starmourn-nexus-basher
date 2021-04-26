@@ -128,7 +128,7 @@ nb.tarCheck = function(){
 }
 
 nb.setTar = function(t) {
-    nb.tar = mobsHere[k].id;
+    nb.tar = t;
     send_GMCP("IRE.Target.Set",nb.tar);
 	if (nb.groupMode && nb.groupLeader) nb.send("crt Target: "+nb.tar);
 }
