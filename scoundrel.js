@@ -27,9 +27,13 @@ nb.offense.Scoundrel = function(){
 //for now we do not check that you actually have the ied...
 nb.wantedIED = "";
 nb.scoundrelGetIEDFling = function() {
+	if (nb.configs.override_ied_type.val) {
+		nb.wantedIED = nb.configs.override_ied_type.val;
+		return nb.configs.override_ied_type.val;
+	}
 	var ied = ""
 	var mod = nb.haveSkill("improvisation","shrapnel") ? "shrapnel " : "";
-	if (nb.tarHealth > 30 && nb.haveSkill("improvisation","melter")) {
+	if ((nb.tarHealth/100) > nb.configs.melter_target_hp_threshold.val && nb.haveSkill("improvisation","melter")) {
 		ied = "melter";
 	} else {
 		ied = "ripper"; //don't need a skill check, we always have rippers if we have fling.

@@ -18,7 +18,7 @@ nb.offense.Nanoseer = function(){
 	// Speedup costs 20%
 	// Swap costs 20%
 	var frenzyTest = nb.haveSkill("oblivion","frenzy") && !("Oblivion Frenzy" in GMCP.Defences) && !("ab_Oblivion_frenzy" in nb.cooldowns);
-	var speedupTest = nb.haveSkill("oblivion","speedup") && ( nb.tarsHere > 1 ) && !("ab_Oblivion_speedup" in nb.cooldowns) && !(nb.speedupHere);
+	var speedupTest = nb.haveSkill("oblivion","speedup") && ( nb.tarsHere >= nb.configs.speedup_target_count_threshold.val ) && !("ab_Oblivion_speedup" in nb.cooldowns) && !(nb.speedupHere);
 	var sanity = nb.sanity;
   nb.debug("Nanoseer offense, speedupTest: "+speedupTest+ " cooldowns: "+JSON.stringify(nb.cooldowns));
 
@@ -65,7 +65,7 @@ nb.offense.Nanoseer = function(){
     }
 	}
   //we will need a config to disable pointzero, it's not required once you have crits.
-  var pzTest = nb.haveSkill("voidism","pointzero") && (nb.tarsHere > 3) && !nb.pzHere;
+  var pzTest = nb.haveSkill("voidism","pointzero") && nb.configs.use_pointzero.val && (nb.tarsHere >= nb.configs.pointzero_target_count_threshold.val) && !nb.pzHere;
   //phew... time for the easy part.
   if (pzTest) {
     return "pointzero";

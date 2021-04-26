@@ -4,6 +4,7 @@ nb.gmcp = function(m, r) {
 			nb.sys.health[sys] = parseFloat(r[sys]);
 			nb.sys.efficacy[sys] = parseFloat(r[sys+"_efficacy"]);
 		});
+		if (!nb.bal && (r.bal === "1")) nb.onHealBalGained();
 		nb.bal = r.bal == "1" ? true : false;
 		nb.wwBal = r.ww == "1" ? true : false;
 		nb.hpperc = parseInt(r.hp)/parseInt(r.maxhp);
@@ -23,6 +24,7 @@ nb.gmcp = function(m, r) {
 			default:
 				break;
 		}
+		nb.checkVitalsWaiting();
 	} else if (m === "IRE.CombatMessage") {
 		for (let msg in r) {
 			//only one property in combatmessages, grab the prop name
@@ -99,22 +101,24 @@ nb.combatMessage = function(msg, caster, target, text) {
 	//if (!nb.me(caster)) return;
 	msg = msg.toLowerCase(); 
 	//naive, but it will work for most situations.
-	switch (msg) {
-		case "guile pocketsand":
-		case "gun pointblank":
-		case "kith fever":
-		case "rage stun":
-		case "bot swing":
-		case "gadgets shock":
-		case "mwp netlaunch":
-		case "plasma sear":
-		case "plasma flash":
-		case "nanotech eyestrike":
-		case "neural blinder":
-			nb.interrupt = false;
-			return;
-		default:
-			break;
+	if (nb.configs.trust_other_interrupts.val || (caster && nb.me(caster))) {
+		switch (msg) {
+			case "guile pocketsand":
+			case "gun pointblank":
+			case "kith fever":
+			case "rage stun":
+			case "bot swing":
+			case "gadgets shock":
+			case "mwp netlaunch":
+			case "plasma sear":
+			case "plasma flash":
+			case "nanotech eyestrike":
+			case "neural blinder":
+				nb.interrupt = false;
+				return;
+			default:
+				break;
+		}
 	}
 
 	if (msg === "turret qpcboost") { nb.needQPCBoost = false; return; }

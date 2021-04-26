@@ -34,7 +34,26 @@ nb.alias = function(c) {
 		nb.verb_toggle(c)
 		return true;
 	}
+
+	if (arg === "nbconfig") {
+		nb.verb_config(c);
+		return true;
+	}
 	return false;
+}
+
+nb.verb_config = function(c){
+	var split = c.split[" "];
+	if (c.length > 1) {
+		if (split[1] === "help") {
+			nb.configHelp();
+			return;
+		} else {
+			nb.reloadUserConfigs();
+			return;
+		}
+	}
+	nb.configDisplay();
 }
 
 nb.verb_toggle = function(c) {
@@ -58,6 +77,7 @@ nb.verb_help = function() {
 	display_notice("Use NBIGNORE <mob name> to tell the basher to ignore a particular mob name. UNIGNORE to undo. Ignores do not persist across sessions.");
 	display_notice("Use NBK or NBKILL to tell the basher to kill all the mobs in the room.");
 	display_notice("NBRELOAD will reload the system.");
+	display_notice("NBCONFIG will show you configuration options. Learn more about it with NBCONFIG HELP. Reload your user configs with NBCONFIG RELOAD");
 }
 
 nb.verb_go = function(toggle) {

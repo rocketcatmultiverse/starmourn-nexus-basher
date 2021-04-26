@@ -20,6 +20,7 @@ nb.calcOffense.Scoundrel = function() {}
 nb.tarHealth = 100;
 nb.tarsHere = 0;
 nb.vnum = 0;
+nb.vitalsWaiting=false;
 
 nb.send = function(cmd) {
 	send_command(cmd,1);
@@ -37,7 +38,47 @@ nb.calc = function() {
 
 	//we're gonna check for our target on every bal for now.
 	let tarHere = nb.tarCheck();
-	if (tarHere) nb.attack();
+	if (tarHere && !nb.vitalsWaiting) nb.attack();
+}
+
+nb.checkVitalsWaiting = function(){
+	if (!nb.vitalsWaiting || !nb.go) return;
+	let v = nb.configs.heal_after_each_mob.val;
+	if (!v) return;
+	if (nb.hpperc > v) {
+		nb.vitalsWaiting=false;
+		nb.calc();
+	}
+}
+
+nb.onHealBalGained = function(){
+	if (!nb.go) return;
+	if (nb.configs.heal_full_after_room_clear.val && !nb.tarsHere) {
+		nb.send(nb.getClassHeal());
+		return;
+	}
+	if ((nb.configs.heal_after_each_mob.val && nb.vitalsWaiting)) {
+		nb.send(nb.getClassHeal());
+		return;
+	}
+}
+
+nb.getClassHeal = function(){
+	switch (nb.class) {
+		case "Engineer":
+			return false;
+		case "Scoundrel":
+			return "guile stim";
+		case "BEAST":
+			return "suit support";
+		case "Fury":
+			return "kith suffuse";
+		case "Nanoseer":
+			return "nano repair";
+		default:
+			nb.error("Invalid class "+nb.class+" provided to nb.getClassHeal");
+			return false;
+	}
 }
 
 nb.onKill = function(){
@@ -45,6 +86,11 @@ nb.onKill = function(){
 	nb.tarCheck();
 	nb.furyOnKill();
 	nb.beastOnKill();
+	let v = nb.configs.heal_after_each_mob.val;
+	if (!v) return;
+	if (nb.hpperc < v) {
+		nb.vitalsWaiting=true;
+	}
 }
 
 nb.attack = function(){
@@ -91,69 +137,6 @@ nb.calcTarsHere = function() {
 	nb.tarsHere = res;
 }
 
-nb.onGo = function(){
-	if (nb.class === "Engineer") {
-		if (!("Stimjector" in GMCP.Defences)) {
-			nb.warn("Your stimjector is off. Make sure to OPERATE STIMJECTOR "+GMCP.Character.name+" ON before you start.");
-		}
-		var botFound = false;
-		var turretFound = false;
-		for (let i=0; i < nb.itemsHere.length; i++) {
-			if (nb.itemsHere[i].name === "a crane-armed carrybot") botFound=true;
-			if (nb.itemsHere[i].name.includes("a deployed turret")) turretFound=true;
-			if (botFound&&turretFound) break;
-		}
-		if (!botFound) {
-			if (nb.haveSkill("bots","homeport")) {
-				nb.warn("Nexus basher doesn't see a carrybot where you are. Use HOMEPORT or construct a new one! You can force your bots to follow you with ORDER LOYALS FOLLOW.");
-			} else {
-				nb.warn("Nexus basher doesn't see a carrybot where you are. BOT CONSTRUCT CARRYBOT to construct a new one or LOYALS LIST to find where your old one has gotten to. Look to learning BOT HOMEPORT soon! You can force your bots to follow you with ORDER LOYALS FOLLOW.");
-			}
-		}
-		if (!turretFound) {
-			nb.warn("Nexus basher doesn't see a turret where you are. TURRET CONSTRUCT, TURRET DEPLOY, and order your Carrybot to carry the turret for you with BOT TURRET!");
-		}
-
-	} else if (nb.class === "Nanoseer") {
-		var traveller = nb.haveEmp("traveller")
-		var conqueror = nb.haveEmp("conqueror")
-		if (nb.haveSkill("oblivion","affinity")) {
-			if (!(traveller && conqueror)) {
-				nb.warn("Nexus basher recommends channeling Traveller and Affinity Conqueror for best effect.")
-			}
-		}
-	} else if (nb.class === "Fury") {
-		if (nb.haveSkill("fulmination","windshape")){
-			display_notice("Don't forget to WINDSHAPE BLADE!","orange");
-		}
-	} else if (nb.class === "BEAST") {
-		var backhand = nb.haveSkill("suittech","backhand");
-		var minigun = nb.haveSkill("mwp","minigun");
-		var hobble = nb.haveSkill("mwp","hobble");
-		var dualshot = nb.haveSkill("mwp","dualshot");
-		var routing = nb.haveSkill("suittech","routing");
-		var routingNow = "";
-		if ("Suit routing" in GMCP.Defences) {
-			if (GMCP.Defences["Suit routing"].desc.includes("large")) routingNow = "large";
-			if (GMCP.Defences["Suit routing"].desc.includes("medium")) routingNow = "medium";
-			if (GMCP.Defences["Suit routing"].desc.includes("small")) routingNow = "small";
-		}
-		if (dualshot) {
-			nb.warn("Make sure your railgun is active. Otherwise we recommend netlauncher and shield.")
-			if (routing && routingNow !== "large") nb.warn("Make sure to SUIT ROUTE LARGE.")
-		} else if (hobble) {
-			nb.warn("Make sure your minigun and railgun are active. Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
-			if (routing && routingNow !== "medium") nb.warn("Make sure to SUIT ROUTE MEDIUM.")
-		} else if (minigun && backhand) {
-			nb.warn("Make sure your minigun is active! Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
-			if (routing && routingNow !== "medium") nb.warn("Make sure to SUIT ROUTE MEDIUM.")
-		} else {
-			nb.warn("We will use PLASMA BURN to bash. Make sure to HEATUP and PLASMA RESISTANCE ON to make sure you always have enough plasma.");
-		}
-
-	}
-}
-
 nb.needInterrupt = function(){
 	if (!nb.interrupt) return false;
 	switch (nb.class) {
@@ -179,7 +162,8 @@ nb.needInterrupt = function(){
 	}
 }
 
-nb.onDeath = function(){
+nb.reset = function(){
+	nb.vitalsWaiting=false;
 	nb.interrupt=false;
 	nb.unstoppableReady=false;
 	nb.tarStaggeringOrDazed = false;
@@ -188,24 +172,18 @@ nb.onDeath = function(){
 	nb.tar = "";
 }
 
-nb.needHeal = function(){
-	if (nb.hpperc > .7) return false;
-	if (nb.healCd()) return false;
-	switch (nb.class) {
-		case "Engineer":
-			return false;
-		case "Scoundrel":
-			return "guile stim";
-		case "BEAST":
-			return "suit support";
-		case "Fury":
-			return "kith suffuse";
-		case "Nanoseer":
-			return "nano repair";
-		default:
-			nb.error("Invalid class "+nb.class+" provided to nb.sendHeal");
-			return false;
+nb.onDeath = function(){
+	nb.reset();
+	if (nb.go) {
+		display_notice("Nexus basher has stopped.");
+		nb.go=false;
 	}
+}
+
+nb.needHeal = function(){
+	if (nb.hpperc > nb.configs.hp_heal_threshold.val) return false;
+	if (nb.healCd()) return false;
+	return nb.getClassHeal();
 }
 nb.healCd = function(){
 	switch (nb.class) {
@@ -272,6 +250,71 @@ nb.onLoad = function() {
 	display_notice("Starmourn Community Nexus Basher has loaded with no errors!","green");
 	nb.parseSkills();
 	send_GMCP("Char.Items.Room",""); //to populate nb.itemsHere.
+}
+
+
+nb.onGo = function(){
+	nb.reset();
+	if (nb.class === "Engineer") {
+		if (!("Stimjector" in GMCP.Defences)) {
+			nb.warn("Your stimjector is off. Make sure to OPERATE STIMJECTOR "+GMCP.Character.name+" ON before you start.");
+		}
+		var botFound = false;
+		var turretFound = false;
+		for (let i=0; i < nb.itemsHere.length; i++) {
+			if (nb.itemsHere[i].name === "a crane-armed carrybot") botFound=true;
+			if (nb.itemsHere[i].name.includes("a deployed turret")) turretFound=true;
+			if (botFound&&turretFound) break;
+		}
+		if (!botFound) {
+			if (nb.haveSkill("bots","homeport")) {
+				nb.warn("Nexus basher doesn't see a carrybot where you are. Use HOMEPORT or construct a new one! You can force your bots to follow you with ORDER LOYALS FOLLOW.");
+			} else {
+				nb.warn("Nexus basher doesn't see a carrybot where you are. BOT CONSTRUCT CARRYBOT to construct a new one or LOYALS LIST to find where your old one has gotten to. Look to learning BOT HOMEPORT soon! You can force your bots to follow you with ORDER LOYALS FOLLOW.");
+			}
+		}
+		if (!turretFound) {
+			nb.warn("Nexus basher doesn't see a turret where you are. TURRET CONSTRUCT, TURRET DEPLOY, and order your Carrybot to carry the turret for you with BOT TURRET!");
+		}
+
+	} else if (nb.class === "Nanoseer") {
+		var traveller = nb.haveEmp("traveller")
+		var conqueror = nb.haveEmp("conqueror")
+		if (nb.haveSkill("oblivion","affinity")) {
+			if (!(traveller && conqueror)) {
+				nb.warn("Nexus basher recommends channeling Traveller and Affinity Conqueror for best effect.")
+			}
+		}
+	} else if (nb.class === "Fury") {
+		if (nb.haveSkill("fulmination","windshape")){
+			display_notice("Don't forget to WINDSHAPE BLADE!","orange");
+		}
+	} else if (nb.class === "BEAST") {
+		var backhand = nb.haveSkill("suittech","backhand");
+		var minigun = nb.haveSkill("mwp","minigun");
+		var hobble = nb.haveSkill("mwp","hobble");
+		var dualshot = nb.haveSkill("mwp","dualshot");
+		var routing = nb.haveSkill("suittech","routing");
+		var routingNow = "";
+		if ("Suit routing" in GMCP.Defences) {
+			if (GMCP.Defences["Suit routing"].desc.includes("large")) routingNow = "large";
+			if (GMCP.Defences["Suit routing"].desc.includes("medium")) routingNow = "medium";
+			if (GMCP.Defences["Suit routing"].desc.includes("small")) routingNow = "small";
+		}
+		if (dualshot) {
+			nb.warn("Make sure your railgun is active. Otherwise we recommend netlauncher and shield.")
+			if (routing && routingNow !== "large") nb.warn("Make sure to SUIT ROUTE LARGE.")
+		} else if (hobble) {
+			nb.warn("Make sure your minigun and railgun are active. Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
+			if (routing && routingNow !== "medium") nb.warn("Make sure to SUIT ROUTE MEDIUM.")
+		} else if (minigun && backhand) {
+			nb.warn("Make sure your minigun is active! Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
+			if (routing && routingNow !== "medium") nb.warn("Make sure to SUIT ROUTE MEDIUM.")
+		} else {
+			nb.warn("We will use PLASMA BURN to bash. Make sure to HEATUP and PLASMA RESISTANCE ON to make sure you always have enough plasma.");
+		}
+
+	}
 }
 
 display_notice("Welcome to the Starmourn Community Nexus Basher!","green");
