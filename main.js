@@ -165,7 +165,7 @@ nb.needInterrupt = function(){
 			} 
 		case "BEAST":
 			//if (nb.mwpActive("netlauncher")) return "netlaunch "+nb.tar; //this would be better
-			if (nb.haveSkill("mwp","dualshot")) return "netlaunch "+nb.tar;
+			if (nb.haveSkill("mwp","dualshot") && !("ab_MWP_netlaunch" in nb.cooldowns)) return "netlaunch "+nb.tar;
 			return "plasma flash "+nb.tar;
 		case "Fury":
 			return "kith fever "+nb.tar;
