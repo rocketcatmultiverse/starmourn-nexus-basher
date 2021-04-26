@@ -43,8 +43,8 @@ nb.alias = function(c) {
 }
 
 nb.verb_config = function(c){
-	var split = c.split[" "];
-	if (c.length > 1) {
+	var split = c.split(" ");
+	if (split.length > 1) {
 		if (split[1] === "help") {
 			nb.configHelp();
 			return;
