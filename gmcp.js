@@ -107,6 +107,7 @@ nb.combatMessage = function(msg, caster, target, text) {
 		case "gadgets shock":
 		case "mwp netlaunch":
 		case "plasma sear":
+		case "plasma flash":
 		case "nanotech eyestrike":
 		case "neural blinder":
 			nb.interrupt = false;
@@ -121,4 +122,5 @@ nb.combatMessage = function(msg, caster, target, text) {
 	if (msg.split(" ")[0] === "rage") { nb.rageSent = true; }
 	if (msg.split(" ")[0] === "blade") { nb.rageSent = false; }
 	if (msg === "rage unstoppable") { nb.unstoppableReady = false; return; }
+	if (msg.split(" ")[0] === "mwp") { nb.beastCheckOverclock(msg); return; }
 }

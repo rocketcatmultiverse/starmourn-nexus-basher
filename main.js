@@ -12,7 +12,7 @@ nb.debugMode = false;
 nb.checkForUpdates = nb.checkForUpdates || true;
 nb.systems = ['muscular','internal','sensory','mind','wetwiring'];
 nb.calcOffense = {}
-nb.calcOffense.Beast = function() {}
+nb.calcOffense.BEAST = function() {}
 nb.calcOffense.Engineer = function() {}
 nb.calcOffense.Fury = function() {}
 nb.calcOffense.Nanoseer = function() {}
@@ -44,6 +44,7 @@ nb.onKill = function(){
 	nb.interrupt = false;
 	nb.tarCheck();
 	nb.furyOnKill();
+	nb.beastOnKill();
 }
 
 nb.attack = function(){
@@ -125,6 +126,29 @@ nb.onGo = function(){
 		if (nb.haveSkill("fulmination","windshape")){
 			display_notice("Don't forget to WINDSHAPE BLADE!","orange");
 		}
+	} else if (nb.class === "BEAST") {
+		var backhand = nb.haveSkill("suittech","backhand");
+		var minigun = nb.haveSkill("mwp","minigun");
+		var hobble = nb.haveSkill("mwp","hobble");
+		var dualshot = nb.haveSkill("mwp","dualshot");
+		var routing = nb.haveSkill("suittech","routing");
+		var routingNow = "";
+		if ("Suit routing" in GMCP.Defences) {
+			if (GMCP.Defences["Suit routing"].desc.includes("large")) routingNow = "large";
+			if (GMCP.Defences["Suit routing"].desc.includes("medium")) routingNow = "medium";
+			if (GMCP.Defences["Suit routing"].desc.includes("small")) routingNow = "small";
+		}
+		if (dualshot) {
+			nb.warn("Make sure your railgun is active. Otherwise we recommend netlauncher and shield.")
+			if (routing && routingNow !== "large") nb.warn("Make sure to SUIT ROUTE LARGE.")
+		} else if (hobble) {
+			nb.warn("Make sure your minigun and railgun are active. Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
+			if (routing && routingNow !== "medium") nb.warn("Make sure to SUIT ROUTE MEDIUM.")
+		} else if (minigun && backhand) {
+			nb.warn("Make sure your minigun is active! Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
+			if (routing && routingNow !== "medium") nb.warn("Make sure to SUIT ROUTE MEDIUM.")
+		}
+
 	}
 }
 
@@ -140,7 +164,9 @@ nb.needInterrupt = function(){
 				return "gun pointblank "+nb.tar;
 			} 
 		case "BEAST":
-			return "mwp netlaunch "+nb.tar;
+			//if (nb.mwpActive("netlauncher")) return "netlaunch "+nb.tar; //this would be better
+			if (nb.haveSkill("mwp","dualshot")) return "netlaunch "+nb.tar;
+			return "plasma flash "+nb.tar;
 		case "Fury":
 			return "kith fever "+nb.tar;
 		case "Nanoseer":
