@@ -1,80 +1,3 @@
-nb.configs = {
-	//general configs
-	"hp_heal_threshold" : {
-		"val":0.7,
-		"category":"General",
-		"desc":"Use class heal when your hp percent is below this. Must be a number between 0 and 1. Default: 0.7",
-		"validateMsg":"hp_heal_threshold must be a number between 0 and 1.",
-		"validate":nb.isPercentage
-	},
-
-	"heal_full_after_room_clear" : {
-		"val":false,
-		"category":"General",
-		"desc":"NB will try to heal you to 100% after you fully clear a room. Must be true or false. Default: false.",
-		"validateMsg":"heal_full_after_room_clear must be a boolean true or false.",
-		"validate":nb.isBool
-	},
-
-	"heal_after_each_mob" : {
-		"val":0,
-		"category":"General",
-		"desc":"NB will wait until your health is above this percent before hitting the next mob. Must be a number between 0 and 1. Set to 0 to ignore this feature entirely. Default: 0. Do not use if fighting aggressive mobs.",
-		"validateMsg":"heal_after_each_mob must be a number between 0 and 1.",
-		"validate":nb.isPercentage
-	},
-	"trust_other_interrupts" : {
-		"val":true,
-		"category":"General",
-		"desc":"NB will trust interrupts originating from other players. Default: true.",
-		"validateMsg":"trust_other_interrupts must be a boolean true or false",
-		"validate":nb.isBool
-	},
-
-	//Beast
-	//Engineer
-	//Fury
-	//Nanoseer
-	"use_pointzero" : {
-		"val":false,
-		"category":"Nanoseer",
-		"desc":"NB will use pointzero if you have the skill. Default: true. Effectiveness of pointzero drops off when you reach crits.",
-		"validateMsg":"use_pointzero must be a boolean true or false.",
-		"validate":nb.isBool
-
-	},
-	"pointzero_target_count_threshold" : {
-		"val":3,
-		"category":"Nanoseer",
-		"desc":"NB will only use pointzero in rooms with this number of valid targets or more. Default: 3.",
-		"validateMsg":"pointzero_target_count_threshold must be a number.",
-		"validate":nb.isNumber
-	},
-	"speedup_target_count_threshold" : {
-		"val":2,
-		"category":"Nanoseer",
-		"desc":"NB will only use speedup in rooms with this number of valid targets or more. Default: 2.",
-		"validateMsg":"speedup_target_count_threshold must be a number.",
-		"validate":nb.isNumber
-	},
-	//Scoundrel
-	"override_ied_type" : {
-		"val":"",
-		"category":"Scoundrel",
-		"desc":"NB will only use this IED. Default: empty string ''.",
-		"validateMsg":"override_ied_type must be a string.",
-		"validate":nb.isString
-	},
-	"melter_target_hp_threshold" : {
-		"val":.4,
-		"category":"Scoundrel",
-		"desc":"NB will use melters if you have the skill when the target is above this health percentage. Default: 0.4. Not compatible with user defined override_ied_type.",
-		"validateMsg":"melter_target_hp_threshold must be a number between 0 and 1.",
-		"validate":nb.isPercentage,
-	},
-}
-
-
 nb.isPercentage = function(v){
 	if ((typeof v !== "number")||(v<0)||(v>=1)) {
 		return false
@@ -87,6 +10,83 @@ nb.isBool = function(v){ return (typeof v === "boolean") ? true : false; }
 nb.isNumber = function(v){ return (typeof v === "number") ? true : false; }
 
 nb.isString = function(v){ return (typeof v === "string") ? true : false; }
+
+
+nb.configs = {
+	//general configs
+	"hp_heal_threshold" : {
+		"val":0.7,
+		"category":"General",
+		"desc":"Use class heal when your hp percent is below this. Must be a number between 0 and 1. Default: 0.7",
+		"validateMsg":"hp_heal_threshold must be a number between 0 and 1.",
+		"validate":function(v){return nb.isPercentage(v);}
+	},
+
+	"heal_full_after_room_clear" : {
+		"val":false,
+		"category":"General",
+		"desc":"NB will try to heal you to 100% after you fully clear a room. Must be true or false. Default: false.",
+		"validateMsg":"heal_full_after_room_clear must be a boolean true or false.",
+		"validate":function(v){return nb.isBool(v);}
+	},
+
+	"heal_after_each_mob" : {
+		"val":0,
+		"category":"General",
+		"desc":"NB will wait until your health is above this percent before hitting the next mob. Must be a number between 0 and 1. Set to 0 to ignore this feature entirely. Default: 0. Do not use if fighting aggressive mobs.",
+		"validateMsg":"heal_after_each_mob must be a number between 0 and 1.",
+		"validate":function(v){return nb.isPercentage(v);}
+	},
+	"trust_other_interrupts" : {
+		"val":true,
+		"category":"General",
+		"desc":"NB will trust interrupts originating from other players. Default: true.",
+		"validateMsg":"trust_other_interrupts must be a boolean true or false",
+		"validate":function(v){return nb.isBool(v);}
+	},
+
+	//Beast
+	//Engineer
+	//Fury
+	//Nanoseer
+	"use_pointzero" : {
+		"val":false,
+		"category":"Nanoseer",
+		"desc":"NB will use pointzero if you have the skill. Default: true. Effectiveness of pointzero drops off when you reach crits.",
+		"validateMsg":"use_pointzero must be a boolean true or false.",
+		"validate":function(v){return nb.isBool(v);}
+
+	},
+	"pointzero_target_count_threshold" : {
+		"val":3,
+		"category":"Nanoseer",
+		"desc":"NB will only use pointzero in rooms with this number of valid targets or more. Default: 3.",
+		"validateMsg":"pointzero_target_count_threshold must be a number.",
+		"validate":function(v){return nb.isNumber(v);}
+	},
+	"speedup_target_count_threshold" : {
+		"val":2,
+		"category":"Nanoseer",
+		"desc":"NB will only use speedup in rooms with this number of valid targets or more. Default: 2.",
+		"validateMsg":"speedup_target_count_threshold must be a number.",
+		"validate":function(v){return nb.isNumber(v);}
+	},
+	//Scoundrel
+	"override_ied_type" : {
+		"val":"",
+		"category":"Scoundrel",
+		"desc":"NB will only use this IED. Default: empty string ''.",
+		"validateMsg":"override_ied_type must be a string.",
+		"validate":function(v){return nb.isString(v);}
+	},
+	"melter_target_hp_threshold" : {
+		"val":.4,
+		"category":"Scoundrel",
+		"desc":"NB will use melters if you have the skill when the target is above this health percentage. Default: 0.4. Not compatible with user defined override_ied_type.",
+		"validateMsg":"melter_target_hp_threshold must be a number between 0 and 1.",
+		"validate":function(v){return nb.isPercentage(v);},
+	},
+}
 
 nb.loadUserConfigs = function(){
 	//nb.userConfigs comes from the .nxs from 0.5 up, which calls this function.
