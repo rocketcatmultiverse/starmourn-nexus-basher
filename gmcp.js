@@ -56,6 +56,7 @@ nb.roomInfo = function(r){
 }
 
 nb.onRoomChange = function(newRoomInfo) {
+	nb.interrupt=false; //a bit naive...
 	nb.speedupHere=false;
 	nb.pzHere=false;
 }
