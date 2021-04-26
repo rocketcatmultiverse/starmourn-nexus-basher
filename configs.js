@@ -137,6 +137,10 @@ nb.configDisplay = function() {
 	}
     
 	var final = AsciiTable.factory(output);
+	final.setAlign(0, AsciiTable.LEFT)
+	final.setAlign(1, AsciiTable.LEFT)
+	final.setAlign(2, AsciiTable.LEFT)
+	final.setTitleAlignLeft();
 	nb.tableReport(final);
 
 }

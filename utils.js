@@ -18,8 +18,7 @@ nb.me = function(who) {
 	return false;
 }
 
-nb.tableReport = function(table) { 
-    table.options.prefix = '  ';
+nb.tableReport = function(table) {
     table.setBorder(" ");
     table = table.toString();
     nb.owWrite('#output_main', '<div class="mono">'+ table+'</div>'); 
