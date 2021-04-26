@@ -177,6 +177,15 @@ nb.needInterrupt = function(){
 	}
 }
 
+nb.onDeath = function(){
+	nb.interrupt=false;
+	nb.unstoppableReady=false;
+	nb.tarStaggeringOrDazed = false;
+	nb.speedupHere = false;
+	nb.pzHere = false;
+	nb.tar = "";
+}
+
 nb.needHeal = function(){
 	if (nb.hpperc > .7) return false;
 	if (nb.healCd()) return false;

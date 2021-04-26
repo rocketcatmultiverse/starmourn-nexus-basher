@@ -22,6 +22,8 @@ nb.trigger = function(c) {
 		c === "You haven't used enough rage attacks to become unstoppable!" || 
 		c === "You are no longer raging.") {
 		nb.unstoppableReady = false; //just a force fix in case user walks away and loses unstoppable timer
+	} else if (c.includes("You collapse to the ground, killed")) {
+		nb.onDeath();
 	}
 	return false;
 }
