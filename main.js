@@ -21,6 +21,8 @@ nb.tarHealth = 100;
 nb.tarsHere = 0;
 nb.vnum = 0;
 nb.vitalsWaiting=false;
+nb.groupMode=false;
+nb.groupLeader=false;
 
 nb.send = function(cmd) {
 	send_command(cmd,1);
@@ -99,11 +101,12 @@ nb.attack = function(){
 
 nb.tarCheck = function(){
 	//is our target still here?
+	if (nb.groupMode && !nb.groupLeader) return true;
 	var mobsHere = nb.itemsHere;
 	nb.debug(JSON.stringify(mobsHere));
 	if (nb.tar !== "") {
 		for (var i = 0; i < mobsHere.length; i++) {
-			if (mobsHere[i].id == nb.tar) return true;
+			if (mobsHere[i].id === nb.tar) return true;
 		}
 	}
 
@@ -113,8 +116,7 @@ nb.tarCheck = function(){
     	if (nb.ignores.includes(nb.mobs[i].toLowerCase())) continue; //don't target this mob if we have ignored it.
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].name.toLowerCase() == nb.mobs[i].toLowerCase()) {
-                nb.tar = mobsHere[k].id;
-                send_GMCP("IRE.Target.Set",nb.tar);
+            	nb.setTar(mobsHere[k].id);
                 return true;
             }
         }
@@ -123,6 +125,12 @@ nb.tarCheck = function(){
     //no mob here to bash.
     display_notice("No mobs here.","red");
     return false;
+}
+
+nb.setTar = function(t) {
+    nb.tar = mobsHere[k].id;
+    send_GMCP("IRE.Target.Set",nb.tar);
+	if (nb.groupMode && nb.groupLeader) nb.send("crt Target: "+nb.tar);
 }
 
 nb.calcTarsHere = function() {

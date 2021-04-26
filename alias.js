@@ -58,15 +58,21 @@ nb.verb_config = function(c){
 
 nb.verb_toggle = function(c) {
 	c = c.split(" ");
-	const toggles = ["debug"];
+	const toggles = ["debug","group","leader"];
 	var toggled = null;
 	if (c.length !== 2) {
-		display_notice("NBTOGGLE TOGGLE <"+toggles.join("/")+">");
+		display_notice("NBTOGGLE <"+toggles.join("/")+">");
 		return;
 	}
 	if (c[1] === "debug") {
 		nb.debugMode=!nb.debugMode;
 		toggled = nb.debugMode;
+	} else if (c[1] === "group") {
+		nb.groupMode = !nb.groupMode;
+		toggled = nb.groupMode
+	} else if (c[1] === "leader") {
+		nb.groupLeader = !nb.groupLeader;
+		toggled = nb.groupLeader
 	}
 	display_notice(c[1]+ " is now "+toggled);
 }
