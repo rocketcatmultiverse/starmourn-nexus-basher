@@ -10,6 +10,8 @@ nb.interrupt = false;
 nb.sys.health = {};
 nb.sys.efficacy = {};
 nb.debugMode = false;
+nb.prios = "has";
+nb.mwp = "";
 nb.checkForUpdates = nb.checkForUpdates || true;
 nb.systems = [
     "muscular",
@@ -278,6 +280,9 @@ nb.onLoad = function () {
 };
 nb.onGo = function () {
     nb.reset();
+    if (nb.prios !== "has") {
+    	nb.warn("NB recommends you WETWIRING PRIORITIES HEALTH AFFLICTIONS SYSTEMS while hunting.");
+    }
     if (nb.class === "Engineer") {
         if (!("Stimjector" in GMCP.Defences)) {
             nb.warn("Your stimjector is off. Make sure to OPERATE STIMJECTOR " + GMCP.Character.name + " ON before you start.");
@@ -330,15 +335,19 @@ nb.onGo = function () {
                 routingNow = "small";
         }
         if (dualshot) {
-            nb.warn("Make sure your railgun is active. Otherwise we recommend netlauncher and shield.");
+        	if (nb.mwp !== "snr") {
+            	nb.warn("Make sure your railgun is active. Otherwise we recommend netlauncher and shield.");
+        	}
             if (routing && routingNow !== "large")
                 nb.warn("Make sure to SUIT ROUTE LARGE.");
         } else if (hobble) {
-            nb.warn("Make sure your minigun and railgun are active. Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
-            if (routing && routingNow !== "medium")
+        	if (nb.mwp[1] !== "m" && nb.mwp[2] !== "r")
+            	nb.warn("Make sure your minigun and railgun are active. Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
+        	if (routing && routingNow !== "medium")
                 nb.warn("Make sure to SUIT ROUTE MEDIUM.");
         } else if (minigun && backhand) {
-            nb.warn("Make sure your minigun is active! Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
+        	if (nb.mwp[1] !== "m")
+            	nb.warn("Make sure your minigun is active! Note that NB currently will not switch to netlauncher if you do not have enough plasma for flash. So RESISTANCE ON if you do not want to take the chance against mobs with channels.");
             if (routing && routingNow !== "medium")
                 nb.warn("Make sure to SUIT ROUTE MEDIUM.");
         } else {

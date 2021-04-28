@@ -1,5 +1,22 @@
 nb.tarStaggeringOrDazed = false;
 
+nb.mwpWeaponInSlot = function(slot) {
+	if (nb.mwp.length !== 3) {
+		nb.error("Issue reading GMCP mwp value: "+nb.mwp);
+		return false;
+	}
+	if (slot === "small") {
+		return nb.mwp[0]
+	}
+	if (slot === "medium") {
+		return nb.mwp[1]
+	}
+	if (slot === "large") {
+		return nb.mwp[2]
+	}
+	return false;
+}
+
 nb.beastOnKill = function() {
 	if (nb.class !== "BEAST") return;
 	nb.tarStaggeringOrDazed = false;
