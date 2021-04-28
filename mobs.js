@@ -21,7 +21,7 @@ nb.mobs = [
 	"a glitch-riddled security robot", "an aggressively malfunctioning drone", "a skull-featured female Bushraki gang member",
 	"a skull-featured male Bushraki gang member", "a vibro-blade wielding Bushraki", "a savage dark-cloaked Bushraki",
 	//Coriolis
-	"a malfunctioning windmill drone","a horned lapine","a venomous copper flitwing",
+	"a malfunctioning windmill drone","a venomous copper flitwing",
 	// Zephyr
 	"a buzzing lake darter",
 	//Scrapston
@@ -64,13 +64,29 @@ nb.mobs = [
 	//Pylos
     "a tentacle-finned hookmaw", "a slow-moving hunk of living coral", "an algae-covered calciburr",
     "a depthless puddle of black liquid", "a poison-spitting treefrog","a delicately bulbous blinkfish",
+    //Delta deck
+    "a Fatar salvager","an armored salvage bot","a Bushraki mercenary","a Fatar guardian","an Elgan salvager","a Decheeran salvager","a Nusriza salvager",
+    //Greenwilds
+    "a luminous eel","a king tangutan","a hulking arboreal lizard","a great white eagle","a giant guerilla beetle","a female tangutan",
+    //Tosmar
+    "a vicious haerbist","a tundra snake",
+
 
 
 	//====================
 	// 50-75
 	//====================
+	//Anemoi
+	"a rabid cania","a sly cania","a carnivorous black eagle","a ravenous tigrid","a caliginous eagle","a brown-scaled tigrid",
+	//Arrizuri
+	"a ferocious atzaparaki","a sluggish atzaparaki","a lumbering lasama",
+	//Thait
+	"a ferociously toothed moss lizard","a horned lapine","a needle-clawed moss lizard","a three-eyed rosewing",
 	//New Dikamazi
 	"a rampaging construction mech","a dilapidated construction mech","a cyborg leech orchid",
+	//Jelle
+	"a thrashing heik-il vine","a monstrously huge heik-il vine","a dour Bushraki looter","a menacing Bushraki looter",
+	"a heavily armed male Bushraki guard","a heavily armed female Bushraki guard","an off-duty Bushraki looter","a tough Bushraki drug runner",
 	//Ixsei
 	"a crystal-clawed rock giant","a salt-crusted quartz creeper",
 	//northern usum
@@ -78,6 +94,12 @@ nb.mobs = [
 	"a foraging zhubeast","an alert giant springer","a lurking blacktooth coroxodon","a large hairy skulf",
 	"a roosting tosmarian condor","a two-headed zhubeast","a juvenile rapasu worm","a coiling skilth snake",
 	"a giant springer","an immense reptilian predator",
+	//prugita
+	"a savage selakki","a somnolent selakki","a stationary sentry bot","a well-armed security bot","a Nabian guard",
+	//deisk
+	"a terrifying mekmavaur",
+	//td
+	"a tentacle-limbed shapeshifter"
 
 ];
 
