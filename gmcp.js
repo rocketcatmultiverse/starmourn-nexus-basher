@@ -8,6 +8,7 @@ nb.gmcp = function(m, r) {
 		nb.wwBal = r.ww == "1" ? true : false;
 		nb.hpperc = parseInt(r.hp)/parseInt(r.maxhp);
 		nb.class = r.class;
+		nb.prios = r.ww_prios;
 		if (nb.class === "B.E.A.S.T.") nb.class = "BEAST";
 		eval("nb.cooldowns = {"+r.cooldowns+"}");
 		switch (nb.class) {
@@ -20,6 +21,8 @@ nb.gmcp = function(m, r) {
 			case "Nanoseer":
 				nb.sanity = r.sa;
 				break;
+			case "BEAST":
+				nb.mwp = r.mwp;
 			default:
 				break;
 		}

@@ -1,4 +1,4 @@
 //This is a list of files for the .nxs to grab. Has to be manually updated. Excludes main.js which inits nb namespace. 
 [
-	"alias","beast","engineer","fury","gmcp","interrupts","mobs","nanoseer","scoundrel","skills","trigger","utils","ascii-tables","configs",
+	"alias","beast","engineer","fury","gmcp","interrupts","mobs","nanoseer","scoundrel","skills","trigger","utils","configs",
 ]
