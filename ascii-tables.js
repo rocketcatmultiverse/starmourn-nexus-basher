@@ -5,8 +5,7 @@
  * https://github.com/sorensen/ascii-table
  */
 
-;(function() {
-'use strict';
+(function() {
 
 /*!
  * Module dependencies
