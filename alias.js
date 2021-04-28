@@ -47,7 +47,7 @@ nb.alias = function(c) {
 	return false;
 }
 
-nb.mobadd = function(c) {
+nb.verb_mobadd = function(c) {
 	var split = c.split(" ")
 	if (split.length < 2) {
 		display_notice("Please specify the name of the mob you would like to add. NBADDMOB <name of mob>.");
