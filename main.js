@@ -1,3 +1,4 @@
+nb = {};
 nb.class = get_variable("my_class");
 if (nb.class === "B.E.A.S.T.")
     nb.class = "BEAST";
