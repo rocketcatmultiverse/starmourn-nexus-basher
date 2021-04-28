@@ -7,6 +7,7 @@ nb.mobs = [
 	"a submerged tentacle","a medium-sized tentacle","a red-backed water bug",
 	//Marle
 	"a Kronish Cross rockhopper","a large Kronish Cross rockhopper","a jumbo Kronish Cross rockhopper",
+	"a miniature Kronish Cross rockhopper","a stunted Kronish Cross rockhopper",
 	//Mirror Lake
 	"a water skipper","a sparkling eel","a small arboreal lizard",
 	//Dregs
@@ -20,6 +21,8 @@ nb.mobs = [
 	"a skull-featured male Bushraki gang member", "a vibro-blade wielding Bushraki", "a savage dark-cloaked Bushraki",
 	//Coriolis
 	"a malfunctioning windmill drone","a horned lapine","a venomous copper flitwing",
+	// Zephyr
+	"a buzzing lake darter",
 	//Scrapston
 	"a grime-slick eel","a needle-mouthed eel","a poisonous eel",
 	//Whittler's hollow
