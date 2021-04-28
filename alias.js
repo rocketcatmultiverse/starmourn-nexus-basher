@@ -39,7 +39,29 @@ nb.alias = function(c) {
 		nb.verb_config(c);
 		return true;
 	}
+
+	if (arg === "nbmobadd" || arg === "nbadd" || arg === "nbaddmob" || arg === "nbmobadd") {
+		nb.verb_mobadd(c);
+		return true;
+	}
 	return false;
+}
+
+nb.mobadd = function(c) {
+	var split = c.split(" ")
+	if (split.length < 2) {
+		display_notice("Please specify the name of the mob you would like to add. NBADDMOB <name of mob>.");
+		return;
+	}
+	split.shift();
+	var mob = split.join(" ")
+	if (nb.mobs.includes(mob)) {
+		display_notice("That mob is already known to nb.");
+		return;
+	}
+	nb.mobs.push(mob);
+	display_notice(mob + " has been added to NB for this session. ");
+	return;
 }
 
 nb.verb_config = function(c){
