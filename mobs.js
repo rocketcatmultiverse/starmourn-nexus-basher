@@ -1,3 +1,4 @@
+//Add mobs here. Aggressive mobs go earlier in the list for an area.
 nb.mobs = [
 	//====================
 	// 1-15
@@ -35,9 +36,27 @@ nb.mobs = [
 	//====================
 	// 20-40
 	//====================
+	//Praviskar
+	"a merciless Bushraki occupier","an avaricious Bushraki slaver","a lightly armed Bushraki guardswoman","a lightly armed Bushraki guardsman",
+	"a heavily armed female Bushraki guard","a heavily armed male Bushraki guard",
+	//Oranc
+	"a stealthy poison-tooth","a green-scaled varrana","a great strider","a wind snake","a Krona poacher","a blue-crested ratika",
+	//Lowtown
+	"a strung-out female Lowtowner","a strung-out male Lowtowner","an oversized heik-il vine","a shifty looking Nath-el","a juvenile heik-il vine","a thrashing heik-il vine","a sickly heik-il vine",
     //Goribar
     "a small loam leech", "a saffron algerion", "a coral algerion", "a moss-hued algerion", "a large loam leech",
     "an azure algerion", "an oversized loam leech", "a loam leech",
+    //Locorin
+    "a blacktooth coroxodon","an enormous blacktooth coroxodon","a ruby-plumed eskama","a mossy shellback",
+    //Kashitir
+    "a nightstalker","an indigo malaca","a juvenile nightstalker","a Grethen silkmoth","a collared malaca",
+    //Golpur
+    "an enormous drakkafly","an immense Rapasu worm","a flat balkrab","a giant black tarak beetle",
+    //Saksar
+    "an immense reptillian predator","a male Selassian cultist","a female Selassion cultist","a sharp-toothed raptor","a coiling skilth snake",
+    "a pack of small sharp-toothed reptiles","a scale-feathered scorpion bird","a blue-furred primate","a brutish loroi mercenary",
+    //Siva
+     "a needle-mouthed eel","an immense alpha skulf","a large hairy skulf","a lean-ribbed skulf","a spot-scaled tridactyl","a venomous tridactyl",
 
 	//====================
 	// 40-50
