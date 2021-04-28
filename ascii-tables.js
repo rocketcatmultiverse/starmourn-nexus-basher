@@ -6,6 +6,7 @@
  */
 
 (function() {
+'use strict';
 
 /*!
  * Module dependencies
