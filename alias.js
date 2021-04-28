@@ -105,6 +105,7 @@ nb.verb_toggle = function(c) {
 nb.verb_help = function() {
 	display_notice("Welcome to Nexus Community Basher for Starmourn!");
 	display_notice("Use NBGO to toggle the system enabled/disabled, or NBSTOP to stop it!");
+	display_notice("Use NBADDMOB <mob name> to add a mob name to NB. Mobs added this way do not persist across sessions.");
 	display_notice("Use NBIGNORE <mob name> to tell the basher to ignore a particular mob name. UNIGNORE to undo. Ignores do not persist across sessions.");
 	display_notice("Use NBK or NBKILL to tell the basher to kill all the mobs in the room.");
 	display_notice("NBRELOAD will reload the system.");
