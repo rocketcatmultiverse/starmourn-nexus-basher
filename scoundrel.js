@@ -2,7 +2,7 @@ var have = nb.haveSkill;
 
 nb.offense.Scoundrel = function(){
 	var fling = nb.haveSkill("improvisation","fling");
-	var eject = fling && nb.tarHealth > 20 && nb.bullets === 8 && nb.haveSkill("gunslinging","eject");
+	var eject = fling && !("ab_Gunslinging_eject" in nb.cooldowns) && nb.bullets === 8 && nb.haveSkill("gunslinging","eject");
 	if (nb.bullets === 0 || eject) {
 		if (fling) {
 			if (eject) nb.send("gun eject");
