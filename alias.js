@@ -35,6 +35,11 @@ nb.alias = function(c) {
 		return true;
 	}
 
+	if (arg === "nbecho") {
+		nb.verb_echo(c);
+		return true;
+	}
+
 	if (arg === "nbconfig") {
 		nb.verb_config(c);
 		return true;
@@ -45,6 +50,18 @@ nb.alias = function(c) {
 		return true;
 	}
 	return false;
+}
+
+nb.verb_echo = function(c) {
+	var split = c.split(" ");
+	if (split.length < 2) {
+		display_notice("Please specify the line to trigger.");
+		return;
+	}
+	split.shift();
+
+	nb.echoTrigger(split.join(" "));
+	return;
 }
 
 nb.verb_mobadd = function(c) {

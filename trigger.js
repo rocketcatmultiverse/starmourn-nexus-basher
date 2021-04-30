@@ -35,3 +35,7 @@ nb.trigger = function(c) {
 	}
 	return false;
 }
+
+nb.echoTrigger = function(r) {
+	nb.trigger(r);
+}
