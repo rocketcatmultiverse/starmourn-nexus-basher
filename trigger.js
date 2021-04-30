@@ -1,4 +1,4 @@
-nb.crewRegex = RegExp('/^\(Crew\): .+ says, "Target: (.+)\."$');
+nb.crewRegex = RegExp('^\(Crew\): .+ says, "Target: (.+)\."$');
 nb.trigger = function(c) {
 	var res;
 	if (c === "You have recovered your balance.") nb.onBal();
