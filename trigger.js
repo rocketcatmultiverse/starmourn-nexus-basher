@@ -38,5 +38,6 @@ nb.trigger = function(c) {
 }
 
 nb.echoTrigger = function(r) {
+	display_notice(r);
 	nb.trigger(r);
 }
