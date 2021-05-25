@@ -12,6 +12,7 @@ nb.sys.efficacy = {};
 nb.debugMode = false;
 nb.prios = "has";
 nb.mwp = "";
+nb.tarAffs = 0;
 nb.checkForUpdates = nb.checkForUpdates || true;
 nb.systems = [
     "muscular",
@@ -110,6 +111,7 @@ nb.onKill = function () {
     nb.tarCheck();
     nb.furyOnKill();
     nb.beastOnKill();
+    nb.tarAffs=0;
     let v = nb.configs.heal_after_each_mob.val;
     if (!v)
         return;

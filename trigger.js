@@ -34,6 +34,8 @@ nb.trigger = function(c) {
 		c === "You can again use a stim." ||
 		c === "It is safe to suffuse yourself with kith energy again.") {
 		nb.onHealBalGained();
+	} else if (c.includes("Your shot strikes home with a satisfying accuracy, afflicting")) {
+		nb.tarAffs++;
 	}
 	return false;
 }

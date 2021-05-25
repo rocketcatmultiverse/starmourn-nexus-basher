@@ -3,6 +3,11 @@ var have = nb.haveSkill;
 nb.offense.Scoundrel = function(){
 	var fling = nb.haveSkill("improvisation","fling");
 	var eject = fling && !("ab_Gunslinging_eject" in nb.cooldowns) && nb.bullets === 8 && nb.haveSkill("gunslinging","eject");
+	//this is simplistic logic for haymaker for now, we can improve it later
+	var haymaker = nb.haveSkill("guile","haymaker") && nb.configs.use_haymaker.val && nb.tarAffs >= nb.configs.haymaker_aff_threshold.val
+	if (haymaker) {
+		return "guile haymaker "+nb.tar;
+	}
 	if (nb.bullets === 0 || eject) {
 		if (fling) {
 			if (eject) nb.send("gun eject");

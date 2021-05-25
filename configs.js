@@ -86,6 +86,20 @@ nb.configs = {
 		"validateMsg":"melter_target_hp_threshold must be a number between 0 and 1.",
 		"validate":function(v){return nb.isPercentage(v);},
 	},
+	"use_haymaker" : {
+		"val":true,
+		"category":"Scoundrel",
+		"desc":"NB will use Haymaker, see also haymaker_aff_threshold. Default: true",
+		"validateMsg":"use_haymaker must be a boolean true or false.",
+		"validate":function(v){return nb.isBool(v);},
+	},
+	"haymaker_aff_threshold" : {
+		"val": 3,
+		"category": "Scoundrel",
+		"desc":"The target must have this number of affs on it or more in order to use Haymaker. Default: 3.",
+		"validateMsg":"haymaker_aff_threshold must be a number.",
+		"validate":function(v){return nb.isNumber(v);}
+	}
 }
 
 nb.loadUserConfigs = function(){
