@@ -136,6 +136,7 @@ nb.tarCheck = function () {
     }
     //no, let's get a new one if we can.
     nb.debug(JSON.stringify(nb.mobs));
+    nb.tarAffs=0;
     for (i = 0; i < nb.mobs.length; i++) {
         if (nb.ignores.includes(nb.mobs[i].toLowerCase()))
             continue;
