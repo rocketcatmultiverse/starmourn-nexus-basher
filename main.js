@@ -203,6 +203,7 @@ nb.reset = function () {
     nb.speedupHere = false;
     nb.pzHere = false;
     nb.tar = "";
+    nb.tarAffs = 0;
 };
 nb.onDeath = function () {
     nb.reset();
