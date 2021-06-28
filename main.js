@@ -100,7 +100,7 @@ nb.getClassHeal = function () {
     case "Fury":
         return "kith suffuse";
     case "Nanoseer":
-        return "nano repair";
+        return "void embrace";
     default:
         nb.error("Invalid class " + nb.class + " provided to nb.getClassHeal");
         return false;
