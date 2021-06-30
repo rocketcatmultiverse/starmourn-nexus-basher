@@ -30,7 +30,7 @@ nb.trigger = function(c) {
 		nb.debug("Reached crew res with res "+JSON.stringify(res));
 		if (nb.groupMode && !nb.groupLeader) nb.setTar(res[1]);
 	} else if (c === "Your HUD indicates that you may use your life support system once again." ||
-		c === "Your nanites can again repair your body." ||
+		c === "You can once again embrace the surrounding energies." ||
 		c === "You can again use a stim." ||
 		c === "It is safe to suffuse yourself with kith energy again.") {
 		nb.onHealBalGained();
