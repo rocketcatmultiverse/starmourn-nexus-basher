@@ -230,7 +230,7 @@ nb.healCd = function () {
     case "Fury":
         return "ab_Fulmination_suffuse" in nb.cooldowns;
     case "Nanoseer":
-        return "ab_Nanotech_repair" in nb.cooldowns;
+        return "ab_Voidism_embrace" in nb.cooldowns;
     default:
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
         return false;
