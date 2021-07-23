@@ -1,5 +1,6 @@
 nb.speedupHere = false;
 nb.pzHere = false;
+nb.mltStrike = true;
 nb.haveEmp = function(e){
   var e = e.toLowerCase();
   for (var d in GMCP.Defences) {
