@@ -71,6 +71,13 @@ nb.configs = {
 		"validateMsg":"speedup_target_count_threshold must be a number.",
 		"validate":function(v){return nb.isNumber(v);}
 	},
+	"use_multistrike" : {
+		"val":false,
+		"category":"Nanoseer",
+		"desc":"NB will use multistrike if you have the skill. Default: false.",
+		"validateMsg":"use_multistrike must be a boolean true or false.",
+		"validate":function(v){return nb.isBool(v);}
+	},
 	//Scoundrel
 	"override_ied_type" : {
 		"val":"",

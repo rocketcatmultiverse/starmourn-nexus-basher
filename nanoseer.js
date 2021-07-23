@@ -1,5 +1,6 @@
 nb.speedupHere = false;
 nb.pzHere = false;
+nb.mltStrike = true;
 nb.haveEmp = function(e){
   var e = e.toLowerCase();
   for (var d in GMCP.Defences) {
@@ -70,5 +71,10 @@ nb.offense.Nanoseer = function(){
   if (pzTest) {
     return "pointzero";
   }
+ //adding in multistrike; config swap.
+ var mltTest = nb.haveSkill("nanotech","multistrike") && nb.configs.use_multistrike.val && nb.mltStrike;
+ if (mltTest) {
+	 return "multistrike";
+ }
 	return "void freeze "+nb.tar;
 }
