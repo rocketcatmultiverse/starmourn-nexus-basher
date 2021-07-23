@@ -36,6 +36,10 @@ nb.trigger = function(c) {
 		nb.onHealBalGained();
 	} else if (c.includes("Your shot strikes home with a satisfying accuracy, afflicting")) {
 		nb.tarAffs++;
+	} else if (c.includes("glowing red from within as thousands of microscopic attacks draw blood.")) {
+		nb.mltStrike=false;
+	} else if (c.includes("The nanites disperse, no longer striking at")) {
+		nb.mltStrike=true;
 	}
 	return false;
 }
