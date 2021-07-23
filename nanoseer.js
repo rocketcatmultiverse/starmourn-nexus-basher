@@ -71,7 +71,7 @@ nb.offense.Nanoseer = function(){
     return "pointzero";
   }
  //adding in multistrike; config swap.
- var mltTest = nb.haveSkill("nanotech","multistrike") && nb.configs.use_multistrike.val;
+ var mltTest = nb.haveSkill("nanotech","multistrike") && nb.configs.use_multistrike.val && nb.mltStrike;
  if (mltTest) {
 	 return "multistrike";
  }
