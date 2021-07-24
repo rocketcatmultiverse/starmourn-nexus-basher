@@ -20,6 +20,7 @@ nb.gmcp = function(m, r) {
 				break;
 			case "Nanoseer":
 				nb.sanity = r.sa;
+				nb.nanites = r.na;
 				break;
 			case "BEAST":
 				nb.mwp = r.mwp;
