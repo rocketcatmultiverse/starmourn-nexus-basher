@@ -16,7 +16,7 @@ nb.trigger = function(c) {
 		nb.hider();
 	} else if (c.includes("Items here:")) {
                 nb.hideIH = true;
-		gag_current_line();
+		nb.hider();
 	} else if (c.includes("Total:")) {
 	        nb.hider();
 	        nb.hideIH = false;
