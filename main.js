@@ -259,6 +259,14 @@ nb.needMend = function () {
 nb.onBal = function () {
     nb.calc();
 };
+nb.hider = function () {
+    if (!nb.go) return false;
+    if (!nb.interrupt) return false;
+    if (nb.interrupt && !nb.hideIH) return false;
+    if (nb.interrupt && nb.hideIH) {
+        gag_current_line();
+    }
+};
 nb.updateCheck = function () {
     if (!nb.checkForUpdates)
         return;
