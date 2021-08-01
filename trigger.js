@@ -14,15 +14,15 @@ nb.trigger = function(c) {
 		nb.debug("Interrupting mob "+JSON.stringify(xyz));
 		nb.warn("Interrupting mob "+JSON.stringify(xyz));
 		nb.chanTar = xyz[0];
-		nb.warn("Channel Target now "+nb.chanTar));
-	} else if (c.includes("Items here:")) && (nb.interrupt === true) {
+		nb.warn("Channel Target now "+nb.chanTar);
+	} else if (c.includes("Items here:")) {
                 nb.hideIH = true;
-		gag_current_line();
-	} else if (c.includes("Total:")) && (nb.hideIH === true) {
-	        gag_current_line();
+		nb.hider;
+	} else if (c.includes("Total:")) {
+	        nb.hider();
 	        nb.hideIH = false;
-	} else if ((abc = nb.IHRegex.exec(c)) !== null) && (nb.hideIH === true) {
-		gag_current_line();
+	} else if ((abc = nb.IHRegex.exec(c)) !== null) {
+		nb.hider();
 	} else if (c.includes("You have learned the following abilities in this session")) {
 		display_notice("We notice you are gaining new skills. When you are finished learning, NBRELOAD so that Nexus Basher uses the best abilities", "green");
 	} else if (c.includes("buzzes softly, but doesn't have enough power to attack.")) {
