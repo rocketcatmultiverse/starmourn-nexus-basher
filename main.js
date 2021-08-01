@@ -180,8 +180,8 @@ nb.calcTarsHere = function () {
     nb.tarsHere = res;
 };
 nb.needInterrupt = function () {
-    if (!nb.interrupt)
-        return false;
+    if (!nb.interrupt) {
+        return false; }
     switch (nb.class) {
     case "Engineer":
         nb.interrupt = false;
