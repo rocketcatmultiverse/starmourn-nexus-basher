@@ -54,7 +54,7 @@ nb.trigger = function(c) {
 		nb.tarAffs++;
 	} else if (c.includes("glowing red from within as thousands of microscopic attacks draw blood.")) {
 		nb.mltStrike=false;
-	} else if (c.includes("The nanites disperse, no longer striking at")) {
+	} else if (c.includes("The nanites disperse, no longer striking")) {
 		nb.mltStrike=true;
 	}
 	return false;
