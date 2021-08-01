@@ -262,8 +262,7 @@ nb.onBal = function () {
 nb.hider = function () {
     if (!nb.go) return false;
     if (!nb.interrupt) return false;
-    if (nb.interrupt && !nb.hideIH) return false;
-    if (nb.interrupt && nb.hideIH) {
+    if (nb.hideIH) {
         gag_current_line();
     }
 };
