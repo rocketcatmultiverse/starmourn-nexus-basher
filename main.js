@@ -4,6 +4,7 @@ if (nb.class === "B.E.A.S.T.")
     nb.class = "BEAST";
 nb.go = false;
 nb.tar = "";
+nb.chanTar = "";
 nb.offense = {};
 nb.sys = {};
 nb.interrupt = false;
@@ -189,9 +190,8 @@ nb.needInterrupt = function () {
     case "Fury":
         return "kith fever " + nb.tar;
     case "Nanoseer":
-        return "nano eyestrike " + nb.tar;
-        //nb.interrupt = false
-        //return "ih"
+        //return "nano eyestrike " + nb.tar;
+        return "nano eyestrike " + nb.chanTar;
     default:
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
         return false;
