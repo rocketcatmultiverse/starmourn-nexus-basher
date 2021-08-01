@@ -56,6 +56,8 @@ nb.trigger = function(c) {
 		nb.mltStrike=false;
 	} else if (c.includes("The nanites disperse, no longer striking")) {
 		nb.mltStrike=true;
+	} else if (c.includes("The foggy mist of nanites surrounding")) {
+		nb.mltStrike=false;
 	}
 	return false;
 }
