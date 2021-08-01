@@ -64,6 +64,7 @@ nb.onRoomChange = function(newRoomInfo) {
 	nb.interrupt=false; //a bit naive...
 	nb.speedupHere=false;
 	nb.pzHere=false;
+	nb.mltStrike=true;
 }
 
 nb.itemsHere = [];
@@ -127,6 +128,7 @@ nb.combatMessage = function(msg, caster, target, text) {
 	if (msg === "turret qpcboost") { nb.needQPCBoost = false; return; }
 	if (msg === "void point zero") { nb.pzHere = true; return; }
 	if (msg === "nanotech multistrike") { nb.mltStrike = false; return; }
+	if (msg === "nanotech multistrike hit") { nb.mltStrike = false; return; }
 	if (msg === "oblivion speedup") { nb.speedupHere = true; return; }
 	if (msg.split(" ")[0] === "rage") { nb.rageSent = true; }
 	if (msg.split(" ")[0] === "blade") { nb.rageSent = false; }
