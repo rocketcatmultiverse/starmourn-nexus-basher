@@ -7,6 +7,7 @@ nb.trigger = function(c) {
 	}
 	else if (nb.isInterruptLine(c)) {
 		nb.interrupt = true;
+		nb.hideIH = true;
 		nb.send("ih");
 	}
 	else if (c.includes("You have learned the following abilities in this session")) {
