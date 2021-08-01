@@ -115,6 +115,7 @@ nb.onKill = function () {
     nb.furyOnKill();
     nb.beastOnKill();
     nb.tarAffs=0;
+    nb.mltStrike = false;
     let v = nb.configs.heal_after_each_mob.val;
     if (!v)
         return;
@@ -214,6 +215,7 @@ nb.reset = function () {
     nb.pzHere = false;
     nb.tar = "";
     nb.tarAffs = 0;
+    nb.mltStrike = false;
 };
 nb.onDeath = function () {
     nb.reset();
