@@ -1,5 +1,6 @@
 nb.crewRegex = /^\(Crew\): .+ says, "Target: (.+)\."$/
-nb.interruptRegex = /^(\w+)(\s+)(.+)(\s+)\((.*)channeling attack(.*)\)%/
+nb.interruptRegex = /^(\w+)(\s+)(.+)(\s+)\((.*)channeling attack(.*)\)$/
+nb.IHRegex = /^(\w+)(\s+)(.*)$/
 nb.trigger = function(c) {
 	var res;
 	if (c === "You have recovered your balance.") nb.onBal();
@@ -12,7 +13,13 @@ nb.trigger = function(c) {
 	} else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
 		//nb.debug("Interrupting mob "+JSON.stringify(interruption));
 		nb.chanTar = xyz[0];
-	} else if (c.includes("Items here:")) {
+	} else if (c.includes("Items here:")) && (nb.interrupt === true) {
+                nb.hideIH = true;
+		gag_current_line();
+	} else if (c.includes("Total:")) && (nb.hideIH === true) {
+	        gag_current_line();
+	        nb.hideIH = false;
+	} else if ((abc = nb.IHRegex.exec(c)) !== null) && (nb.hideIH === true) {
 		gag_current_line();
 	} else if (c.includes("You have learned the following abilities in this session")) {
 		display_notice("We notice you are gaining new skills. When you are finished learning, NBRELOAD so that Nexus Basher uses the best abilities", "green");
