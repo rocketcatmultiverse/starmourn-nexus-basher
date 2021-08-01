@@ -15,7 +15,7 @@ nb.trigger = function(c) {
 		nb.chanTar = xyz[1];
 	} else if (c.includes("Items here:")) {
                 nb.hideIH = true;
-		nb.hider;
+		gag_current_line();
 	} else if (c.includes("Total:")) {
 	        nb.hider();
 	        nb.hideIH = false;
