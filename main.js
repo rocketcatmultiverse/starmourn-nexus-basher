@@ -44,23 +44,16 @@ nb.send = function (cmd) {
     send_command(cmd, 1);
 };
 
-nb.hider = function () {
-    if (!nb.go)
-        return;
-    if (!nb.hideIH)
-        return;
-    gag_current_line();
-};
 nb.calc = function () {
     if (!nb.go)
+        return;
+    if (!nb.bal)
         return;
     let needInterrupt = nb.needInterrupt();
     if (needInterrupt) {
         nb.send(needInterrupt);
         return;
     }
-    if (!nb.bal)
-        return;
     let needMend = nb.needMend();
     if (needMend) {
         nb.send(needMend);
@@ -189,19 +182,19 @@ nb.needInterrupt = function () {
     case "Scoundrel":
         nb.interrupt = false;
         if (nb.bullets === 0) {
-            return "guile pocketsand " + nb.tar;
+            return "guile pocketsand " + nb.chanTar;
         } else {
-            return "gun pointblank " + nb.tar;
+            return "gun pointblank " + nb.chanTar;
         }
     case "BEAST":
         nb.interrupt = false;
         //if (nb.mwpActive("netlauncher")) return "netlaunch "+nb.tar; //this would be better
         if (nb.haveSkill("mwp", "dualshot") && !("ab_MWP_netlaunch" in nb.cooldowns))
-            return "netlaunch " + nb.tar;
-        return "plasma flash " + nb.tar;
+            return "netlaunch " + nb.chanTar;
+        return "plasma flash " + nb.chanTar;
     case "Fury":
         nb.interrupt = false;
-        return "kith fever " + nb.tar;
+        return "kith fever " + nb.chanTar;
     case "Nanoseer":
         nb.interrupt = false;
         //return "nano eyestrike " + nb.tar;
