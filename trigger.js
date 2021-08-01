@@ -9,9 +9,9 @@ nb.trigger = function(c) {
 	else if (nb.isInterruptLine(c)) {
 		nb.interrupt = true;
 		nb.send("ih");
-	} else if ((interuption = nb.interruptRegex.exec(c)) !== null) {
-		nb.debug("Interrupting mob "+JSON.stringify(interruption));
-		nb.chanTar = interruption[0];
+	} else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
+		//nb.debug("Interrupting mob "+JSON.stringify(interruption));
+		nb.chanTar = xyz[0];
 	} else if (c.includes("You have learned the following abilities in this session")) {
 		display_notice("We notice you are gaining new skills. When you are finished learning, NBRELOAD so that Nexus Basher uses the best abilities", "green");
 	} else if (c.includes("buzzes softly, but doesn't have enough power to attack.")) {
