@@ -12,9 +12,7 @@ nb.trigger = function(c) {
 		nb.send("ih");
 	} else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
 		nb.debug("Interrupting mob "+JSON.stringify(xyz));
-		nb.warn("Interrupting mob "+JSON.stringify(xyz));
 		nb.chanTar = xyz[0];
-		nb.warn("Channel Target now "+nb.chanTar);
 	} else if (c.includes("Items here:")) {
                 nb.hideIH = true;
 		nb.hider;
