@@ -189,9 +189,9 @@ nb.needInterrupt = function () {
     case "Fury":
         return "kith fever " + nb.tar;
     case "Nanoseer":
-        //return "nano eyestrike " + nb.tar;//
-        nb.interrupt = false
-        return "ih"
+        return "nano eyestrike " + nb.tar;
+        //nb.interrupt = false
+        //return "ih"
     default:
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
         return false;
