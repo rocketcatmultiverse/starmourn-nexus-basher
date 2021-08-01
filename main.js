@@ -8,6 +8,7 @@ nb.chanTar = "";
 nb.offense = {};
 nb.sys = {};
 nb.interrupt = false;
+nb.hideIH = false;
 nb.sys.health = {};
 nb.sys.efficacy = {};
 nb.debugMode = false;
@@ -41,6 +42,14 @@ nb.groupMode = false;
 nb.groupLeader = false;
 nb.send = function (cmd) {
     send_command(cmd, 1);
+};
+
+nb.hider = function () {
+    if (!nb.go)
+        return;
+    if (!nb.hideIH)
+        return;
+    gag_current_line();
 };
 nb.calc = function () {
     if (!nb.go)
