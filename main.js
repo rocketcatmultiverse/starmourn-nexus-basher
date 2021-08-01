@@ -182,6 +182,7 @@ nb.calcTarsHere = function () {
 nb.needInterrupt = function () {
     if (!nb.interrupt)
         return false;
+    nb.warn("Interrupting "nb.chanTar);
     switch (nb.class) {
     case "Engineer":
         nb.interrupt = false;
