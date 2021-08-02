@@ -9,10 +9,10 @@ nb.trigger = function(c) {
 	}
 	else if (nb.isInterruptLine(c)) {
 		nb.interrupt = true;
-		//nb.send("ih");
-	//} else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
-	//	nb.debug("Interrupting mob "+JSON.stringify(xyz));
-	//	nb.chanTar = xyz[1];
+		nb.send("ih");
+	} else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
+		nb.debug("Interrupting mob "+JSON.stringify(xyz));
+		nb.chanTar = xyz[1];
 	//	nb.hider();
 	//} else if (c.includes("Items here:")) {
        //         nb.hideIH = true;
