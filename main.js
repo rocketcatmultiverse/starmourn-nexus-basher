@@ -200,7 +200,7 @@ nb.needInterrupt = function () {
         nb.interrupt = false;
         let attacker = "nano eyestrike " + nb.chanTar;
         nb.send(attacker);
-        nb.attack();
+        return nb.attack();
     default:
         nb.interrupt = false;
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
