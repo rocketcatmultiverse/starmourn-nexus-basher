@@ -204,7 +204,6 @@ nb.needInterrupt = function () {
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
         return false;
     }
-    nb.attack();
 };
 nb.reset = function () {
     nb.vitalsWaiting = false;
