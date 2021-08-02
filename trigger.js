@@ -9,19 +9,19 @@ nb.trigger = function(c) {
 	}
 	else if (nb.isInterruptLine(c)) {
 		nb.interrupt = true;
-		nb.send("ih");
-	} else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
-		nb.debug("Interrupting mob "+JSON.stringify(xyz));
-		nb.chanTar = xyz[1];
-		nb.hider();
-	} else if (c.includes("Items here:")) {
-                nb.hideIH = true;
-		nb.hider();
-	} else if (c.includes("Total:")) {
-	        nb.hider();
-	        nb.hideIH = false;
-	} else if ((abc = nb.IHRegex.exec(c)) !== null) {
-		nb.hider();
+		//nb.send("ih");
+	//} else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
+	//	nb.debug("Interrupting mob "+JSON.stringify(xyz));
+	//	nb.chanTar = xyz[1];
+	//	nb.hider();
+	//} else if (c.includes("Items here:")) {
+       //         nb.hideIH = true;
+	//	nb.hider();
+	//} else if (c.includes("Total:")) {
+	//        nb.hider();
+	//        nb.hideIH = false;
+	//} else if ((abc = nb.IHRegex.exec(c)) !== null) {
+	//	nb.hider();
 	} else if (c.includes("You have learned the following abilities in this session")) {
 		display_notice("We notice you are gaining new skills. When you are finished learning, NBRELOAD so that Nexus Basher uses the best abilities", "green");
 	} else if (c.includes("buzzes softly, but doesn't have enough power to attack.")) {
@@ -56,8 +56,8 @@ nb.trigger = function(c) {
 		nb.mltStrike=false;
 	} else if (c.includes("The nanites disperse, no longer striking")) {
 		nb.mltStrike=true;
-	} else if (c.includes("The foggy mist of nanites surrounding")) {
-		nb.mltStrike=false;
+	//} else if (c.includes("The foggy mist of nanites surrounding")) {
+	//	nb.mltStrike=false;
 	}
 	return false;
 }
