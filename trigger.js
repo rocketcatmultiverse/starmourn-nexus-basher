@@ -42,10 +42,8 @@ nb.trigger = function(c) {
 		nb.tarAffs++;
 	} else if (c.includes("glowing red from within as thousands of microscopic attacks draw blood.")) {
 		nb.mltStrike=false;
-		display_notice("MULTISTRIKE IS UP!", "red");
 	} else if (c.includes("The nanites disperse, no longer striking")) {
 		nb.mltStrike=true;
-		display_notice("MULTISTRIKE IS DOWN!", "red");
 	}else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
 		nb.debug("Interrupting mob "+JSON.stringify(xyz));
 		nb.chanTar = xyz[1];
