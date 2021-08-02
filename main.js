@@ -198,7 +198,9 @@ nb.needInterrupt = function () {
         return "kith fever " + nb.chanTar;
     case "Nanoseer":
         nb.interrupt = false;
-        return "nano eyestrike " + nb.chanTar;
+        let attacker = "nano eyestrike " + nb.chanTar;
+        nb.send(attacker);
+        nb.attack();
     default:
         nb.interrupt = false;
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
