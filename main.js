@@ -198,13 +198,13 @@ nb.needInterrupt = function () {
         return "kith fever " + nb.chanTar;
     case "Nanoseer":
         nb.interrupt = false;
-        nb.send("nano eyestrike " + nb.chanTar);
-        return nb.attack();
+        return "nano eyestrike " + nb.chanTar;
     default:
         nb.interrupt = false;
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
         return false;
     }
+    nb.attack();
 };
 nb.reset = function () {
     nb.vitalsWaiting = false;
