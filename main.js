@@ -178,29 +178,23 @@ nb.needInterrupt = function () {
         return false; }
     switch (nb.class) {
     case "Engineer":
-        nb.interrupt = false;
         return "bot swing " + nb.chanTar;
     case "Scoundrel":
-        nb.interrupt = false;
         if (nb.bullets === 0) {
             return "guile pocketsand " + nb.chanTar;
         } else {
             return "gun pointblank " + nb.chanTar;
         }
     case "BEAST":
-        nb.interrupt = false;
         //if (nb.mwpActive("netlauncher")) return "netlaunch "+nb.tar; //this would be better
         if (nb.haveSkill("mwp", "dualshot") && !("ab_MWP_netlaunch" in nb.cooldowns))
             return "netlaunch " + nb.chanTar;
         return "plasma flash " + nb.chanTar;
     case "Fury":
-        nb.interrupt = false;
         return "kith fever " + nb.chanTar;
     case "Nanoseer":
-        nb.interrupt = false;
         return "nano eyestrike " + nb.chanTar;
     default:
-        nb.interrupt = false;
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
         return false;
     }
