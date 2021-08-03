@@ -1,12 +1,16 @@
 nb.crewRegex = /^\(Crew\): .+ says, "Target: (.+)\."$/
+nb.interruptRegex = /^(\w+)(\s+)(.+)(\s+)\((.*)channeling attack(.*)\)$/
+nb.IHRegex = /^(\w+)(\s+)(.*)$/
 nb.trigger = function(c) {
 	var res;
 	if (c === "You have recovered your balance.") nb.onBal();
 	else if (c.includes("You have slain")) {
 		nb.onKill();
 	}
-	else if (nb.isInterruptLine(c)) nb.interrupt = true;
-	else if (c.includes("You have learned the following abilities in this session")) {
+	else if (nb.isInterruptLine(c)) {
+		nb.interrupt = true;
+		nb.send("ih");
+	} else if (c.includes("You have learned the following abilities in this session")) {
 		display_notice("We notice you are gaining new skills. When you are finished learning, NBRELOAD so that Nexus Basher uses the best abilities", "green");
 	} else if (c.includes("buzzes softly, but doesn't have enough power to attack.")) {
 		nb.needQPCBoost = true; //this is simplistic to begin with. we'll need a way to tell if this is actually our turret.
@@ -38,8 +42,20 @@ nb.trigger = function(c) {
 		nb.tarAffs++;
 	} else if (c.includes("glowing red from within as thousands of microscopic attacks draw blood.")) {
 		nb.mltStrike=false;
-	} else if (c.includes("The nanites disperse, no longer striking at")) {
+	} else if (c.includes("The nanites disperse, no longer striking")) {
 		nb.mltStrike=true;
+	}else if ((xyz = nb.interruptRegex.exec(c)) !== null) {
+		nb.debug("Interrupting mob "+JSON.stringify(xyz));
+		nb.chanTar = xyz[1];
+		nb.hider();
+	} else if (c.includes("Items here:")) {
+                nb.hideIH = true;
+		nb.hider();
+	} else if (c.includes("Total:")) {
+	        nb.hider();
+	        nb.hideIH = false;
+	} else if ((abc = nb.IHRegex.exec(c)) !== null) {
+		nb.hider();
 	}
 	return false;
 }

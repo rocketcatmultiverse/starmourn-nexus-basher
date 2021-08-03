@@ -4,9 +4,11 @@ if (nb.class === "B.E.A.S.T.")
     nb.class = "BEAST";
 nb.go = false;
 nb.tar = "";
+nb.chanTar = "";
 nb.offense = {};
 nb.sys = {};
 nb.interrupt = false;
+nb.hideIH = false;
 nb.sys.health = {};
 nb.sys.efficacy = {};
 nb.debugMode = false;
@@ -41,6 +43,7 @@ nb.groupLeader = false;
 nb.send = function (cmd) {
     send_command(cmd, 1);
 };
+
 nb.calc = function () {
     if (!nb.go)
         return;
@@ -112,6 +115,7 @@ nb.onKill = function () {
     nb.furyOnKill();
     nb.beastOnKill();
     nb.tarAffs=0;
+    nb.mltStrike = true;
     let v = nb.configs.heal_after_each_mob.val;
     if (!v)
         return;
@@ -170,26 +174,26 @@ nb.calcTarsHere = function () {
     nb.tarsHere = res;
 };
 nb.needInterrupt = function () {
-    if (!nb.interrupt)
-        return false;
+    if (!nb.interrupt) {
+        return false; }
     switch (nb.class) {
     case "Engineer":
-        return "bot swing " + nb.tar;
+        return "bot swing " + nb.chanTar;
     case "Scoundrel":
         if (nb.bullets === 0) {
-            return "guile pocketsand " + nb.tar;
+            return "guile pocketsand " + nb.chanTar;
         } else {
-            return "gun pointblank " + nb.tar;
+            return "gun pointblank " + nb.chanTar;
         }
     case "BEAST":
         //if (nb.mwpActive("netlauncher")) return "netlaunch "+nb.tar; //this would be better
         if (nb.haveSkill("mwp", "dualshot") && !("ab_MWP_netlaunch" in nb.cooldowns))
-            return "netlaunch " + nb.tar;
-        return "plasma flash " + nb.tar;
+            return "netlaunch " + nb.chanTar;
+        return "plasma flash " + nb.chanTar;
     case "Fury":
-        return "kith fever " + nb.tar;
+        return "kith fever " + nb.chanTar;
     case "Nanoseer":
-        return "nano eyestrike " + nb.tar;
+        return "nano eyestrike " + nb.chanTar;
     default:
         nb.error("Invalid class " + nb.class + " provided to nb.sendHeal");
         return false;
@@ -204,6 +208,7 @@ nb.reset = function () {
     nb.pzHere = false;
     nb.tar = "";
     nb.tarAffs = 0;
+    nb.mltStrike = true;
 };
 nb.onDeath = function () {
     nb.reset();
@@ -248,6 +253,13 @@ nb.needMend = function () {
 };
 nb.onBal = function () {
     nb.calc();
+};
+nb.hider = function () {
+    if (!nb.go) return false;
+    if (!nb.interrupt) return false;
+    if (nb.hideIH) {
+        gag_current_line();
+    }
 };
 nb.updateCheck = function () {
     if (!nb.checkForUpdates)

@@ -32,6 +32,7 @@ const interruptLines = [
 "Throwing back its grizzled head, .* lets out a high-pitched, wavering howl.",
 "A low hum begins to whine from the blaster in a menacing Chrome Skull\'s hand\, red lights along the barrel growing brighter and brighter\.",
 "^The LED lights glittering in (.+) begin to flash a dull but penetrating red\, and the fleshy blossom pulses urgently\.$",
+"^The thrashing root of a cyborg leech orchid seems to stretch out into a weird pink rope\, coiling its sinuous girth firmly around (.+)\'s nearest limb\.$",
 "^(.+) begins to rattle\, steam pouring from its body as the meters and dials on its mechanical body glow bright red\.$",
 ".* draws in a deep breath, its sides beginning to swell alarmingly.",
 "A disturbingly enraged, high pitched whine screeches loudly from .*, and it begins to thrash at the earth with its powerful back legs.",

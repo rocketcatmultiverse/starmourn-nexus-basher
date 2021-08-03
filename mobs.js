@@ -77,13 +77,13 @@ nb.mobs = [
 	// 50-75
 	//====================
 	//Anemoi
-	"a rabid cania","a sly cania","a carnivorous black eagle","a ravenous tigrid","a caliginous eagle","a brown-scaled tigrid",
+	"a rabid cania","a ravenous tigrid","a carnivorous black eagle","a sly cania","a caliginous eagle","a brown-scaled tigrid",
 	//Arrizuri
 	"a ferocious atzaparaki","a sluggish atzaparaki","a lumbering lasama",
 	//Thait
-	"a ferociously toothed moss lizard","a horned lapine","a needle-clawed moss lizard","a three-eyed rosewing",
+	"a ferociously toothed moss lizard","a needle-clawed moss lizard","a horned lapine","a three-eyed rosewing",
 	//New Dikamazi
-	"a rampaging construction mech","a dilapidated construction mech","a cyborg leech orchid",
+	"a rampaging construction mech","a dilapidated construction mech","the thrashing root of a cyborg leech orchid","a cyborg leech orchid",
 	//Jelle
 	"a thrashing heik-il vine","a monstrously huge heik-il vine","a dour Bushraki looter","a menacing Bushraki looter",
 	"a heavily armed male Bushraki guard","a heavily armed female Bushraki guard","an off-duty Bushraki looter","a tough Bushraki drug runner",
@@ -99,7 +99,7 @@ nb.mobs = [
 	//deisk
 	"a terrifying mekmavaur",
 	//td
-	"a tentacle-limbed shapeshifter"
+	"a tentacle-limbed shapeshifter", "an eyeless maw",
 
 ];
 
