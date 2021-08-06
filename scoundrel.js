@@ -6,7 +6,7 @@ nb.offense.Scoundrel = function(){
 	//this is simplistic logic for haymaker for now, we can improve it later
 	var haymaker = nb.haveSkill("guile","haymaker") && nb.configs.use_haymaker.val && nb.tarAffs >= nb.configs.haymaker_aff_threshold.val
 	if (haymaker) {
-		return "guile haymaker "+nb.tar;
+		return "guile haymaker "+nb.tar+nb.configs.haymaker_limb.val;
 	}
 	if (nb.bullets === 0 || eject) {
 		if (fling) {
