@@ -106,6 +106,13 @@ nb.configs = {
 		"desc":"The target must have this number of affs on it or more in order to use Haymaker. Default: 3.",
 		"validateMsg":"haymaker_aff_threshold must be a number.",
 		"validate":function(v){return nb.isNumber(v);}
+	},
+	"haymaker_limb" : {
+		"val":"torso",
+		"category":"Scoundrel",
+		"desc":"If NB is using haymaker, it will target this limb. Default: torso",
+		"validateMsg":"haymaker_limb must be a string.",
+		"validate":function(v){return nb.isString(v);},
 	}
 }
 
