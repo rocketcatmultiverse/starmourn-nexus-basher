@@ -16,6 +16,7 @@ nb.prios = "has";
 nb.mwp = "";
 nb.tarAffs = 0;
 nb.checkForUpdates = nb.checkForUpdates || true;
+nb.tarIsMech = false;
 nb.systems = [
     "muscular",
     "internal",
@@ -148,12 +149,15 @@ nb.tarCheck = function () {
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].name.toLowerCase() === nb.mobs[i].toLowerCase()) {
                 nb.setTar(mobsHere[k].id);
+                if nb.mechanicals.includes(nb.mobs[i]) nb.tarIsMech = true;
+                else nb.tarIsMech = false;
                 return true;
             }
         }
     }
     //no mob here to bash.
     display_notice("No mobs here.", "red");
+    nb.tarIsMech = false;
     return false;
 };
 nb.setTar = function (t) {
@@ -209,6 +213,7 @@ nb.reset = function () {
     nb.tar = "";
     nb.tarAffs = 0;
     nb.mltStrike = true;
+    nb.tarIsMech = false;
 };
 nb.onDeath = function () {
     nb.reset();
