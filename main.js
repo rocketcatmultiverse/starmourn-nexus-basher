@@ -149,8 +149,8 @@ nb.tarCheck = function () {
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].name.toLowerCase() === nb.mobs[i].toLowerCase()) {
                 nb.setTar(mobsHere[k].id);
-                if nb.mechanicals.includes(nb.mobs[i]) nb.tarIsMech = true;
-                else nb.tarIsMech = false;
+                if (nb.mechanicals.includes(nb.mobs[i])) { nb.tarIsMech = true; }
+                else { nb.tarIsMech = false; }
                 return true;
             }
         }
