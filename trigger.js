@@ -8,7 +8,6 @@ nb.trigger = function(c) {
 		nb.onKill();
 	}
 	else if (nb.isInterruptLine(c)) {
-		// nb.interrupt = true; // moving to line 49
 		nb.send("ih");
 	} else if (c.includes("You have learned the following abilities in this session")) {
 		display_notice("We notice you are gaining new skills. When you are finished learning, NBRELOAD so that Nexus Basher uses the best abilities", "green");
