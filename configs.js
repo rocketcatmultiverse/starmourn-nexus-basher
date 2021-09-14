@@ -47,6 +47,20 @@ nb.configs = {
 
 	//Beast
 	//Engineer
+	"use_shock_rotation" : {
+		"val":false,
+		"category":"Engineer",
+		"desc":"NB will use the shock bashing rotation instead of default",
+		"validateMsg":"use_shock_rotation must be a boolean true or false",
+		"validate":function(v){return nb.isBool(v);}
+	},
+	"no_qpcboost" : {
+		"val":false,
+		"category":"Engineer",
+		"desc":"NB will ignore qpc boost, letting QPC turrets do the job even if the turret is out of power.",
+		"validateMsg":"no_qpcboost must be a boolean true or false",
+		"validate":function(v){return nb.isBool(v);}
+	},
 	//Fury
 	//Nanoseer
 	"use_pointzero" : {

@@ -182,7 +182,7 @@ nb.needInterrupt = function () {
         return false; }
     switch (nb.class) {
     case "Engineer":
-        return "bot swing " + nb.chanTar;
+        return "gadget shock " + nb.chanTar;
     case "Scoundrel":
         if (nb.bullets === 0) {
             return "guile pocketsand " + nb.chanTar;
