@@ -1,4 +1,4 @@
-nb.crewRegex = /^\(Crew\): .+ says, "Target: (.+)\."$/
+nb.crewRegex = /^\(Crew\): .+ says, "Target: (.+)\."\s?$/
 nb.interruptRegex = /^(\w+)(\s+)(.+)(\s+)\((.*)channeling attack(.*)\)$/
 nb.IHRegex = /^(\w+)(\s+)(.*)$/
 nb.trigger = function(c) {
