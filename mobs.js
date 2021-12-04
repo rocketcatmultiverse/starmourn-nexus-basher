@@ -29,9 +29,9 @@ nb.mobs = [
 	//Whittler's hollow
 	"a fat terraworm","a meaty terraworm","an iridescent opal beetle", "a horrifically mutated rodent",
 	//Tabby
-	"a Ry'nari mutant wearing looted soldier fatigues","a grotesquely mutated bird", "a bile-skinned Amaian mutant", "a green-glowing Decheeran mutant", "a scab-scaled Ry'nari mutant",
-    "a grotesque Nusriza mutant", "a mutant encased in ancient power armor", "a warty Ry'nari mutant", "a tatter-finned Amaian mutant",
-    "a twisted Decheeran mutant","a spine-skinned Nusriza mutant",
+	"a Ry'nari mutant wearing looted soldier fatigues","a grotesquely mutated bird", "a bile-skinned Amaian mutant", "a green-glowing Decheeran mutant", 
+	"a scab-scaled Ry'nari mutant","a grotesque Nusriza mutant", "a mutant encased in ancient power armor", "a warty Ry'nari mutant", 
+	"a tatter-finned Amaian mutant","a twisted Decheeran mutant","a spine-skinned Nusriza mutant",
 
 	//====================
 	// 20-40
@@ -71,8 +71,6 @@ nb.mobs = [
     //Tosmar
     "a vicious haerbist","a tundra snake",
 
-
-
 	//====================
 	// 50-75
 	//====================
@@ -87,24 +85,47 @@ nb.mobs = [
 	//Jelle
 	"a thrashing heik-il vine","a monstrously huge heik-il vine","a dour Bushraki looter","a menacing Bushraki looter",
 	"a heavily armed male Bushraki guard","a heavily armed female Bushraki guard","an off-duty Bushraki looter","a tough Bushraki drug runner",
+	"a virile heik-il vine",
 	//Ixsei
-	"a crystal-clawed rock giant","a salt-crusted quartz creeper",
-	//northern usum
+	"a crystal-clawed rock giant","a salt-crusted quartz creeper","a male Selassian mechanic","a female Selassian mechanic","a male Selassian Ophidian", 
+	"a female Selassian Ophidian","a male Selassian Viper","a female Selassian Viper","a male Selassian Venom","a female Selassian Venom", 
+	"a male Selassian Neonate","a female Selassian Neonate",
+	//Northern Usum
 	'a blacktooth coroxodon',"a giant tosmarian condor","an immense rapasu worm","an overfed skulf",
 	"a foraging zhubeast","an alert giant springer","a lurking blacktooth coroxodon","a large hairy skulf",
 	"a roosting tosmarian condor","a two-headed zhubeast","a juvenile rapasu worm","a coiling skilth snake",
 	"a giant springer","an immense reptilian predator",
-	//prugita
-	"a savage selakki","a somnolent selakki","a stationary sentry bot","a well-armed security bot","a Nabian guard",
-	//deisk
+	//Prugita
+	"a savage selakki","a somnolent selakki","a stationary sentry bot",
+	"a well-armed security bot","a Nabian guard",
+	//Deisk
 	"a terrifying mekmavaur",
 	//td
 	"a tentacle-limbed shapeshifter", "an eyeless maw",
+	//FeTek
+	"an out-of-control FeTek assembly drone",
+	
+//Wilderness
+	// Servius Fault
+	"a green-spotted zemani", "a green-spotted zemani",
+	// Prugita
+	"a stinger-footed hiver","a four-eared remes rat","a scoop-tusked gliven",
+	//Jelle
+	"a tangle-bodied tentacla",
+	//Locorin
+	"an eight-eyed hagda", "a nightstalker", "a feathered draken lizard",
+	//Thait
+	"a purple-spotted fadeti","a star-nosed burrower",
+	//Saksar
+	"a spot-pelted kumta","a ruby-pincered skitter",
+	//Anemoi
+	"a diamond-backed scorptail","a spiral-horned kegri", 
 
 ];
 
 //names of mechanical targets go here. 
-nb.mechanicals = ["a cyborg leech orchid","a rampaging construction mech","a dilapidated construction mech","a stationary sentry bot","a well-armed security bot",
-"a glitch-riddled security robot", "an aggressively malfunctioning drone","a malfunctioning windmill drone","an armored salvage bot"];
+nb.mechanicals = ["the thrashing root of a cyborg leech orchid","a cyborg leech orchid","a rampaging construction mech","a dilapidated construction mech","an out-of-control FeTek assembly drone",
+		  "a stationary sentry bot","a well-armed security bot","a glitch-riddled security robot", "an aggressively malfunctioning drone","a malfunctioning windmill drone",
+		  "an armored salvage bot","a search and rescue drone"];
 
 nb.ignores = nb.ignores || [];
