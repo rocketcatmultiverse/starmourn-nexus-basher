@@ -42,34 +42,35 @@ nb.mobs = [
 	//Oranc
 	"a stealthy poison-tooth","a green-scaled varrana","a great strider","a wind snake","a Krona poacher","a blue-crested ratika",
 	//Lowtown
-	"a strung-out female Lowtowner","a strung-out male Lowtowner","an oversized heik-il vine","a shifty looking Nath-el","a juvenile heik-il vine","a thrashing heik-il vine","a sickly heik-il vine",
-    //Goribar
-    "a small loam leech", "a saffron algerion", "a coral algerion", "a moss-hued algerion", "a large loam leech",
-    "an azure algerion", "an oversized loam leech", "a loam leech",
-    //Locorin
-    "a blacktooth coroxodon","an enormous blacktooth coroxodon","a ruby-plumed eskama","a mossy shellback",
-    //Kashitir
-    "a nightstalker","an indigo malaca","a juvenile nightstalker","a Grethen silkmoth","a collared malaca",
-    //Golpur
-    "an enormous drakkafly","an immense Rapasu worm","a flat balkrab","a giant black tarak beetle",
-    //Saksar
-    "an immense reptillian predator","a male Selassian cultist","a female Selassion cultist","a sharp-toothed raptor","a coiling skilth snake",
-    "a pack of small sharp-toothed reptiles","a scale-feathered scorpion bird","a blue-furred primate","a brutish loroi mercenary",
-    //Siva
-     "a needle-mouthed eel","an immense alpha skulf","a large hairy skulf","a lean-ribbed skulf","a spot-scaled tridactyl","a venomous tridactyl",
+	"a strung-out female Lowtowner","a strung-out male Lowtowner","an oversized heik-il vine","a shifty looking Nath-el","a juvenile heik-il vine",
+	"a thrashing heik-il vine","a sickly heik-il vine",
+    	//Goribar
+    	"a small loam leech", "a saffron algerion", "a coral algerion", "a moss-hued algerion", "a large loam leech",
+    	"an azure algerion", "an oversized loam leech", "a loam leech",
+    	//Locorin
+    	"a blacktooth coroxodon","an enormous blacktooth coroxodon","a ruby-plumed eskama","a mossy shellback",
+    	//Kashitir
+    	"a nightstalker","an indigo malaca","a juvenile nightstalker","a Grethen silkmoth","a collared malaca",
+    	//Golpur
+    	"an enormous drakkafly","an immense Rapasu worm","a flat balkrab","a giant black tarak beetle",
+    	//Saksar
+    	"an immense reptillian predator","a male Selassian cultist","a female Selassion cultist","a sharp-toothed raptor","a coiling skilth snake",
+    	"a pack of small sharp-toothed reptiles","a scale-feathered scorpion bird","a blue-furred primate","a brutish loroi mercenary",
+    	//Siva
+     	"a needle-mouthed eel","an immense alpha skulf","a large hairy skulf","a lean-ribbed skulf","a spot-scaled tridactyl","a venomous tridactyl",
 
 	//====================
 	// 40-50
 	//====================
 	//Pylos
-    "a tentacle-finned hookmaw", "a slow-moving hunk of living coral", "an algae-covered calciburr",
-    "a depthless puddle of black liquid", "a poison-spitting treefrog","a delicately bulbous blinkfish",
-    //Delta deck
-    "a Fatar salvager","an armored salvage bot","a Bushraki mercenary","a Fatar guardian","an Elgan salvager","a Decheeran salvager","a Nusriza salvager",
-    //Greenwilds
-    "a luminous eel","a king tangutan","a hulking arboreal lizard","a great white eagle","a giant guerilla beetle","a female tangutan",
-    //Tosmar
-    "a vicious haerbist","a tundra snake",
+    	"a tentacle-finned hookmaw", "a slow-moving hunk of living coral", "an algae-covered calciburr",
+    	"a depthless puddle of black liquid", "a poison-spitting treefrog","a delicately bulbous blinkfish",
+    	//Delta Deck
+    	"a Fatar salvager","an armored salvage bot","a Bushraki mercenary","a Fatar guardian","an Elgan salvager","a Decheeran salvager","a Nusriza salvager",
+    	//Greenwilds
+    	"a luminous eel","a king tangutan","a hulking arboreal lizard","a great white eagle","a giant guerilla beetle","a female tangutan",
+    	//Tosmar
+    	"a vicious haerbist","a tundra snake",
 
 	//====================
 	// 50-75
@@ -104,11 +105,22 @@ nb.mobs = [
 	"a tentacle-limbed shapeshifter", "an eyeless maw",
 	//FeTek
 	"an out-of-control FeTek assembly drone",
+	//HugTech
+	"a malfunctioning remote manipulator","a malfunctioning remote manipulator","a fuzzy cerise tentacle plushie with half a face",
+	"a bright bronze ice crab plushie with half a face","a plump bronze haerbist plushie with half a face","a tattered copper skulf plushie with half a face",
+	"a charming rose eckin plushie with a dangling broken arm","a plain silver spiderax plushie with a glitching voicebox","a matted pink heik-il plushie with half a face",
+	"a fuzzy orange giant-springer plushie with a dangling broken arm","a plump white coroxodon plushie with half a face",
+	"a bright aquamarine rat plushie","a bright rose haerbist plushie with one eye hanging out","a small turquoise needleback plushie with a moth-eaten hole in its torso",
+	"a creepy black ventrat plushie with half a face","a fuzzy cerise tentacle plushie with half a face","a downy sapphire zhubeast plushie with a patchwork of parts",
+	"a faded brown sandcrawler plushie with a glitching voicebox","a tawdry navy sandcrawler plushie with a glitching voicebox",
+	"a furry slate shellback plushie with half a face","a plump silver quartz-creeper plushie with a moth-eaten hole in its torso",
+	"a button-eyed indigo terraworm plushie with half a face","a misshapen redberry atzaparaki plushie with one eye hanging out",
+	"a feathery emerald zhubeast plushie with half a face","a matted lilac merova plushie with a glitching voicebox","a beady-eyed albino knockout rat",
 	
-//Wilderness
-	// Servius Fault
+	//Wilderness
+	//Servius Fault
 	"a green-spotted zemani", "a green-spotted zemani",
-	// Prugita
+	//Prugita
 	"a stinger-footed hiver","a four-eared remes rat","a scoop-tusked gliven",
 	//Jelle
 	"a tangle-bodied tentacla",
@@ -120,12 +132,27 @@ nb.mobs = [
 	"a spot-pelted kumta","a ruby-pincered skitter",
 	//Anemoi
 	"a diamond-backed scorptail","a spiral-horned kegri", 
-
+	//Arrizuri
+	"a fleshy-spined echidna","a stalk-eyed mayaki",
+	//Ixsei
+	"a crystal-headed tolma","a silver-scaled spinehusk",
 ];
 
 //names of mechanical targets go here. 
-nb.mechanicals = ["the thrashing root of a cyborg leech orchid","a cyborg leech orchid","a rampaging construction mech","a dilapidated construction mech","an out-of-control FeTek assembly drone",
-		  "a stationary sentry bot","a well-armed security bot","a glitch-riddled security robot", "an aggressively malfunctioning drone","a malfunctioning windmill drone",
-		  "an armored salvage bot","a search and rescue drone"];
+nb.mechanicals = ["the thrashing root of a cyborg leech orchid","a cyborg leech orchid","a rampaging construction mech","a malfunctioning remote manipulator",
+		  "a malfunctioning remote manipulator","a fuzzy cerise tentacle plushie with half a face", "a bright bronze ice crab plushie with half a face",
+		  "a plump bronze haerbist plushie with half a face", "a tattered copper skulf plushie with half a face",
+		  "a charming rose eckin plushie with a dangling broken arm","a plain silver spiderax plushie with a glitching voicebox",
+		  "a matted pink heik-il plushie with half a face","a fuzzy orange giant-springer plushie with a dangling broken arm",
+		  "a plump white coroxodon plushie with half a face","a bright aquamarine rat plushie","a bright rose haerbist plushie with one eye hanging out",
+		  "a small turquoise needleback plushie with a moth-eaten hole in its torso","a creepy black ventrat plushie with half a face",
+		  "a fuzzy cerise tentacle plushie with half a face","a downy sapphire zhubeast plushie with a patchwork of parts",
+		  "a faded brown sandcrawler plushie with a glitching voicebox","a tawdry navy sandcrawler plushie with a glitching voicebox",
+		  "a furry slate shellback plushie with half a face","a plump silver quartz-creeper plushie with a moth-eaten hole in its torso",
+		  "a button-eyed indigo terraworm plushie with half a face","a misshapen redberry atzaparaki plushie with one eye hanging out",
+		  "a feathery emerald zhubeast plushie with half a face","a feathery emerald zhubeast plushie with half a face",
+		  "a matted lilac merova plushie with a glitching voicebox","a dilapidated construction mech","an out-of-control FeTek assembly drone",
+		  "a stationary sentry bot","a well-armed security bot","a glitch-riddled security robot", "an aggressively malfunctioning drone",
+		  "a malfunctioning windmill drone","an armored salvage bot","a search and rescue drone"];
 
 nb.ignores = nb.ignores || [];
