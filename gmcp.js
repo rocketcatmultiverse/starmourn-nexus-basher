@@ -113,6 +113,7 @@ nb.combatMessage = function(msg, caster, target, text) {
 			case "rage stun":
 			case "bot swing":
 			case "gadgets shock":
+			case "gadget shock":
 			case "mwp netlaunch":
 			case "plasma sear":
 			case "plasma flash":
