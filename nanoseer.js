@@ -21,6 +21,7 @@ nb.offense.Nanoseer = function(){
 	var frenzyTest = nb.haveSkill("oblivion","frenzy") && !("Oblivion Frenzy" in GMCP.Defences) && !("ab_Oblivion_frenzy" in nb.cooldowns);
 	var speedupTest = nb.haveSkill("oblivion","speedup") && ( nb.tarsHere >= nb.configs.speedup_target_count_threshold.val ) && !("ab_Oblivion_speedup" in nb.cooldowns) && !(nb.speedupHere);
 	var sanity = nb.sanity;
+  var em = nb.tarIsMech && nb.haveSkill("nanotech","zap");
   nb.debug("Nanoseer offense, speedupTest: "+speedupTest+ " cooldowns: "+JSON.stringify(nb.cooldowns));
 
   if (nb.haveSkill("oblivion","affinity")) {
@@ -65,6 +66,9 @@ nb.offense.Nanoseer = function(){
       }
     }
 	}
+  if (em) {
+    return "nanotech zap "+nb.tar;
+  }
   //we will need a config to disable pointzero, it's not required once you have crits.
   var pzTest = nb.haveSkill("voidism","pointzero") && nb.configs.use_pointzero.val && (nb.tarsHere >= nb.configs.pointzero_target_count_threshold.val) && !nb.pzHere;
   //phew... time for the easy part.
