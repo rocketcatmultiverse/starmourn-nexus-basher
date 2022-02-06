@@ -23,7 +23,7 @@ nb.beastOnKill = function() {
 }
 nb.beastCheckOverclock = function(msg) {
 	if (!nb.haveSkill("suittech","overclock") || ("ab_SuitTech_overclock" in nb.cooldowns)) return;
-	if (nb.tarIsMech && nb.haveSkill("suittech","pulse") {
+	if (nb.tarIsMech && nb.haveSkill("suittech","pulse")) {
 		nb.send("overclock");
 		return;
 	}
