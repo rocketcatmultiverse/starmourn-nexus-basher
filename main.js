@@ -149,8 +149,14 @@ nb.tarCheck = function () {
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].name.toLowerCase() === nb.mobs[i].toLowerCase()) {
                 nb.setTar(mobsHere[k].id);
-                if (nb.mechanicals.includes(nb.mobs[i].toLowerCase())) { nb.tarIsMech = true; }
-                else { nb.tarIsMech = false; }
+                if (nb.mechanicals.includes(nb.mobs[i].toLowerCase())) { 
+                    nb.debug(nb.mobs[i].toLowerCase() + " is mechanical");
+                    nb.tarIsMech = true; 
+                }
+                else { 
+                    nb.debug(nb.mobs[i].toLowerCase() + " is not mechanical");
+                    nb.tarIsMech = false; 
+                }
                 return true;
             }
         }
