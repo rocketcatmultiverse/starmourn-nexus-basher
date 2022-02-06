@@ -168,10 +168,11 @@ nb.setTar = function (t) {
         for (let k = 0; k < mobsHere.length; k++)
         {
             if (mobsHere[k].name.toLowerCase() === nb.mechanicals[i].toLowerCase()) {
-            nb.debug("tar is mechanical");
-            nb.tarIsMech=true;
-            found = true;
-            break;    
+                nb.debug("tar is mechanical");
+                nb.tarIsMech=true;
+                found = true;
+                break;
+            }
         }
         if (found) break;
     }
