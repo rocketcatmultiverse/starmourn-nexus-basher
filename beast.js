@@ -23,6 +23,10 @@ nb.beastOnKill = function() {
 }
 nb.beastCheckOverclock = function(msg) {
 	if (!nb.haveSkill("suittech","overclock") || ("ab_SuitTech_overclock" in nb.cooldowns)) return;
+	if (nb.tarIsMech && nb.haveSkill("suittech","pulse")) {
+		nb.send("overclock");
+		return;
+	}
 	if (nb.haveSkill("mwp","dualshot")) { //if we have dualshot, only use it with dualshot.
 		if (msg === "mwp dualshot") {
 			nb.send("overclock");
@@ -42,7 +46,7 @@ nb.offense.BEAST = function(){
 	var minigun = nb.haveSkill("mwp","minigun");
 	var hobble = nb.haveSkill("mwp","hobble");
 	var dualshot = nb.haveSkill("mwp","dualshot");
-	var em = nb.tarIsMech && nb.haveSkill("mwp","emshot");
+	var em = nb.tarIsMech && nb.haveSkill("sutitech","pulse");
 	if (!backhand && !hobble && !em) {
 		//we do not use minigun, and must use plasma burn. Do not use heatup. 
 		return "plasma burn "+nb.tar;
@@ -51,7 +55,7 @@ nb.offense.BEAST = function(){
 		return "heatup";
 	}
 	if (em) {
-		return "mwp emshot "+nb.tar;
+		return "suit pulse "+nb.tar;
 	}
 	else if (dualshot) {
 		//if we have dualshot, we have hobble

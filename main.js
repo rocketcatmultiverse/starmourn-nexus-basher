@@ -149,26 +149,33 @@ nb.tarCheck = function () {
         for (let k = 0; k < mobsHere.length; k++) {
             if (mobsHere[k].name.toLowerCase() === nb.mobs[i].toLowerCase()) {
                 nb.setTar(mobsHere[k].id);
-                if (nb.mechanicals.includes(nb.mobs[i].toLowerCase())) { 
-                    nb.debug(nb.mobs[i].toLowerCase() + " is mechanical");
-                    nb.tarIsMech = true; 
-                }
-                else { 
-                    nb.debug(nb.mobs[i].toLowerCase() + " is not mechanical");
-                    nb.tarIsMech = false; 
-                }
                 return true;
             }
         }
     }
     //no mob here to bash.
     display_notice("No mobs here.", "red");
-    nb.tarIsMech = false;
     return false;
 };
 nb.setTar = function (t) {
     nb.tar = t;
     send_GMCP("IRE.Target.Set", nb.tar);
+    //we do tarIsMech in setTar so that we use the right rotation even in following a leader
+    nb.tarIsMech=false;
+    var mobsHere = nb.itemsHere;
+    var found = false;
+    for (i = 0; i < nb.mechanicals.length; i++) {
+        for (let k = 0; k < mobsHere.length; k++)
+        {
+            if (mobsHere[k].name.toLowerCase() === nb.mechanicals[i].toLowerCase()) {
+                nb.debug("tar is mechanical");
+                nb.tarIsMech=true;
+                found = true;
+                break;
+            }
+        }
+        if (found) break;
+    }
     if (nb.groupMode && nb.groupLeader)
         nb.send("crt Target: " + nb.tar);
 };
