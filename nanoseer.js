@@ -67,7 +67,7 @@ nb.offense.Nanoseer = function(){
     }
 	}
   if (em) {
-    return "nanotech zap "+nb.tar;
+    return "nano zap "+nb.tar;
   }
   //we will need a config to disable pointzero, it's not required once you have crits.
   var pzTest = nb.haveSkill("voidism","pointzero") && nb.configs.use_pointzero.val && (nb.tarsHere >= nb.configs.pointzero_target_count_threshold.val) && !nb.pzHere;
