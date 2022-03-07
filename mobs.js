@@ -1,5 +1,5 @@
 //Add mobs here. Aggressive mobs go earlier in the list for an area.
-nb.mobs = [
+var mobs = [
 	//====================
 	// 1-15
 	//====================
@@ -139,7 +139,7 @@ nb.mobs = [
 ];
 
 //names of mechanical targets go here. 
-nb.mechanicals = ["the thrashing root of a cyborg leech orchid","a cyborg leech orchid","a rampaging construction mech","a malfunctioning remote manipulator",
+var mechanicals = ["the thrashing root of a cyborg leech orchid","a cyborg leech orchid","a rampaging construction mech","a malfunctioning remote manipulator",
 		  "a malfunctioning remote manipulator","a fuzzy cerise tentacle plushie with half a face", "a bright bronze ice crab plushie with half a face",
 		  "a plump bronze haerbist plushie with half a face", "a tattered copper skulf plushie with half a face",
 		  "a charming rose eckin plushie with a dangling broken arm","a plain silver spiderax plushie with a glitching voicebox",
@@ -156,3 +156,12 @@ nb.mechanicals = ["the thrashing root of a cyborg leech orchid","a cyborg leech 
 		  "a malfunctioning windmill drone","an armored salvage bot","a search and rescue drone"];
 
 nb.ignores = nb.ignores || [];
+nb.mobs = [];
+nb.mechanicals = [];
+mobs.forEach( el => {
+	nb.mobs.push(el.toLowerCase());
+});
+
+mechanicals.forEach( el => {
+	nb.mechanicals.push(el.toLowerCase());
+});

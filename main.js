@@ -143,11 +143,11 @@ nb.tarCheck = function () {
     nb.debug(JSON.stringify(nb.mobs));
     nb.tarAffs=0;
     for (i = 0; i < nb.mobs.length; i++) {
-        if (nb.ignores.includes(nb.mobs[i].toLowerCase()))
+        if (nb.ignores.includes(nb.mobs[i]))
             continue;
         //don't target this mob if we have ignored it.
         for (let k = 0; k < mobsHere.length; k++) {
-            if (mobsHere[k].name.toLowerCase() === nb.mobs[i].toLowerCase()) {
+            if (mobsHere[k].name.toLowerCase() === nb.mobs[i]) {
                 nb.setTar(mobsHere[k].id);
                 return true;
             }
@@ -167,7 +167,7 @@ nb.setTar = function (t) {
     for (i = 0; i < nb.mechanicals.length; i++) {
         for (let k = 0; k < mobsHere.length; k++)
         {
-            if (mobsHere[k].name.toLowerCase() === nb.mechanicals[i].toLowerCase()) {
+            if (mobsHere[k].name.toLowerCase() === nb.mechanicals[i]) {
                 nb.debug("tar is mechanical");
                 nb.tarIsMech=true;
                 found = true;
@@ -183,7 +183,7 @@ nb.calcTarsHere = function () {
     var res = 0;
     for (var i = 0; i < nb.itemsHere.length; i++) {
         for (var k = 0; k < nb.mobs.length; k++) {
-            if (nb.itemsHere[i].name.toLowerCase() === nb.mobs[k].toLowerCase()) {
+            if (nb.itemsHere[i].name.toLowerCase() === nb.mobs[k]) {
                 res++;
             }
         }
