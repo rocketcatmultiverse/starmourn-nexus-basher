@@ -14,6 +14,7 @@ nb.sys.efficacy = {};
 nb.debugMode = false;
 nb.prios = "has";
 nb.mwp = "";
+nb.plasma = 0;
 nb.tarAffs = 0;
 nb.checkForUpdates = nb.checkForUpdates || true;
 nb.tarIsMech = false;
@@ -203,9 +204,13 @@ nb.needInterrupt = function () {
             return "gun pointblank " + nb.chanTar;
         }
     case "BEAST":
-        //if (nb.mwpActive("netlauncher")) return "netlaunch "+nb.tar; //this would be better
-        if (nb.haveSkill("mwp", "dualshot") && !("ab_MWP_netlaunch" in nb.cooldowns))
+        //if netlaunch on cd, hooknet. if hooknet on cd, try flash unless plasma under 100 then you'll have to smash.
+        if (!("ab_MWP_netlaunch" in nb.cooldowns))
             return "netlaunch " + nb.chanTar;
+        if (nb.haveSkill("mwp", "hooknet") && !("ab_MWP_hooknet" in nb.cooldowns))
+            return "hooknet "+ nb.chanTar;
+        if (nb.plasma < 100 && nb.haveSkill("mwp", "smash"))
+            return "mwp smash "+nb.chanTar;
         return "plasma flash " + nb.chanTar;
     case "Fury":
         return "kith fever " + nb.chanTar;

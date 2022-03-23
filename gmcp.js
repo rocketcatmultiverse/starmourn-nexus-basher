@@ -24,6 +24,7 @@ nb.gmcp = function(m, r) {
 				break;
 			case "BEAST":
 				nb.mwp = r.mwp;
+				nb.plasma = r.pl;
 			default:
 				break;
 		}
