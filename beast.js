@@ -57,7 +57,8 @@ nb.offense.BEAST = function(){
 	if (em) {
 		return "suit pulse "+nb.tar;
 	}
-	else if (dualshot) {
+	var railcd = "mwp_railgun" in nb.cooldowns;
+	else if (!railcd && dualshot) {
 		//if we have dualshot, we have hobble
 		if (!("ab_MWP_dualshot" in nb.cooldowns)) {
 			return "dualshot "+nb.tar;
@@ -67,10 +68,11 @@ nb.offense.BEAST = function(){
 	} else {
 		if (nb.tarStaggeringOrDazed) {
 			return "mwp minigun "+nb.tar;
-		} else if (hobble) {
+		} else if (!railcd && hobble) {
 			return "mwp hobble "+nb.tar;
 		} else if (backhand) {
 			return "suit backhand "+nb.tar;
 		}
 	}
+	return "mwp wallop "+nb.tar;
 }
