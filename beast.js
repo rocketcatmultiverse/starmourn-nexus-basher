@@ -54,6 +54,7 @@ nb.offense.BEAST = function(){
 	if (!("Plasma generation" in GMCP.Defences)) {
 		return "heatup";
 	}
+	//this is a bit of a mess rn since railgun changes, need a dedicated BEAST player to put in better logic.
 	var railcd = ("mwp_railgun" in nb.cooldowns);
 	if (em) {
 		return "suit pulse "+nb.tar;
@@ -66,13 +67,13 @@ nb.offense.BEAST = function(){
 			return "hobble "+nb.tar;
 		}
 	} else {
-		if (nb.tarStaggeringOrDazed) {
+		/*if (nb.tarStaggeringOrDazed) {
 			return "mwp minigun "+nb.tar;
-		} else if (!railcd && hobble) {
+		}*/ if (!railcd && hobble) {
 			return "mwp hobble "+nb.tar;
-		} else if (backhand) {
+		} /*else if (backhand) {
 			return "suit backhand "+nb.tar;
-		}
+		}*/
 	}
 	return "mwp wallop "+nb.tar;
 }
