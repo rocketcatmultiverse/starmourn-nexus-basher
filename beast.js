@@ -42,38 +42,21 @@ nb.beastCheckOverclock = function(msg) {
 	}
 }
 nb.offense.BEAST = function(){
-	var backhand = nb.haveSkill("suittech","backhand");
-	var minigun = nb.haveSkill("mwp","minigun");
-	var hobble = nb.haveSkill("mwp","hobble");
 	var dualshot = nb.haveSkill("mwp","dualshot");
 	var em = nb.tarIsMech && nb.haveSkill("suittech","pulse");
-	if (!backhand && !hobble && !em) {
-		//we do not use minigun, and must use plasma burn. Do not use heatup. 
-		return "plasma burn "+nb.tar;
+	if (em) {
+		return "suit pulse "+nb.tar;
 	}
 	if (!("Plasma generation" in GMCP.Defences)) {
 		return "heatup";
 	}
-	//this is a bit of a mess rn since railgun changes, need a dedicated BEAST player to put in better logic.
-	var railcd = ("mwp_railgun" in nb.cooldowns);
-	if (em) {
-		return "suit pulse "+nb.tar;
+	if (!nb.configs.force_wallop_route.val && (!dualshot || nb.configs.use_burn_route.val)) { 
+		return "plasma burn "+nb.tar;
 	}
-	else if (!railcd && dualshot) {
-		//if we have dualshot, we have hobble
-		if (!("ab_MWP_dualshot" in nb.cooldowns)) {
+	var railcd = ("mwp_railgun" in nb.cooldowns);
+	var dualshotcd = ("ab_MWP_dualshot" in nb.cooldowns)
+	if (dualshot && !railcd && !dualshotcd && nb.hpperc > .8) {
 			return "dualshot "+nb.tar;
-		} else {
-			return "hobble "+nb.tar;
-		}
-	} else {
-		/*if (nb.tarStaggeringOrDazed) {
-			return "mwp minigun "+nb.tar;
-		}*/ if (!railcd && hobble) {
-			return "mwp hobble "+nb.tar;
-		} /*else if (backhand) {
-			return "suit backhand "+nb.tar;
-		}*/
 	}
 	return "mwp wallop "+nb.tar;
 }

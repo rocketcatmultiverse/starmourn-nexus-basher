@@ -46,6 +46,20 @@ nb.configs = {
 	},
 
 	//Beast
+	"use_burn_route" : {
+		"val":false,
+		"category":"BEAST",
+		"desc":"NB will use the burn rotation instead of default",
+		"validateMsg":"use_burn_route must be a boolean true or false",
+		"validate":function(v){return nb.isBool(v);}
+	},
+	"force_wallop_route" : {
+		"val":false,
+		"category":"BEAST",
+		"desc":"NB will force the wallop rotation even if you dont have dualshot",
+		"validateMsg":"force_wallop_route must be a boolean true or false",
+		"validate":function(v){return nb.isBool(v);}
+	},
 	//Engineer
 	"use_shock_rotation" : {
 		"val":false,
