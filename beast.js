@@ -54,10 +54,10 @@ nb.offense.BEAST = function(){
 	if (!("Plasma generation" in GMCP.Defences)) {
 		return "heatup";
 	}
+	var railcd = ("mwp_railgun" in nb.cooldowns);
 	if (em) {
 		return "suit pulse "+nb.tar;
 	}
-	var railcd = "mwp_railgun" in nb.cooldowns;
 	else if (!railcd && dualshot) {
 		//if we have dualshot, we have hobble
 		if (!("ab_MWP_dualshot" in nb.cooldowns)) {
