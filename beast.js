@@ -42,19 +42,19 @@ nb.beastCheckOverclock = function(msg) {
 	}
 }
 nb.offense.BEAST = function(){
-	var dualshot = nb.haveSkill("mwp","dualshot");
-	var em = nb.tarIsMech && nb.haveSkill("suittech","pulse");
-	if (em) {
-		return "suit pulse "+nb.tar;
-	}
 	if (!("Plasma generation" in GMCP.Defences)) {
 		return "heatup";
 	}
+	const em = nb.tarIsMech && nb.haveSkill("suittech","pulse");
+	if (em) {
+		return "suit pulse "+nb.tar;
+	}
+	const dualshot = nb.haveSkill("mwp","dualshot");
 	if (!nb.configs.force_wallop_route.val && (!dualshot || nb.configs.use_burn_route.val)) { 
 		return "plasma burn "+nb.tar;
 	}
-	var railcd = ("mwp_railgun" in nb.cooldowns);
-	var dualshotcd = ("ab_MWP_dualshot" in nb.cooldowns)
+	const railcd = ("mwp_railgun" in nb.cooldowns);
+	const dualshotcd = ("ab_MWP_dualshot" in nb.cooldowns)
 	if (dualshot && !railcd && !dualshotcd && nb.hpperc > .8) {
 			return "dualshot "+nb.tar;
 	}
