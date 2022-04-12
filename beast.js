@@ -59,7 +59,7 @@ nb.offense.BEAST = function(){
 	if (dualshot && !railcd && !dualshotcd && nb.hpperc > .8) {
 		return "dualshot "+nb.tar+" headshot headshot";
 	}
-	else if (!railcd and headshot) {
+	else if (!railcd && headshot) {
 		return "headshot "+nb.tar;
 	}
 	return "mwp wallop "+nb.tar;
