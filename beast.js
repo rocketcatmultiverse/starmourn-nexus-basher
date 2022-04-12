@@ -54,9 +54,13 @@ nb.offense.BEAST = function(){
 		return "plasma burn "+nb.tar;
 	}
 	const railcd = ("mwp_railgun" in nb.cooldowns);
-	const dualshotcd = ("ab_MWP_dualshot" in nb.cooldowns)
+	const dualshotcd = ("ab_MWP_dualshot" in nb.cooldowns);
+	const headshot = nb.haveSkill("mwp","headshot");
 	if (dualshot && !railcd && !dualshotcd && nb.hpperc > .8) {
-			return "dualshot "+nb.tar;
+		return "dualshot "+nb.tar+" headshot headshot";
+	}
+	else if (!railcd and headshot) {
+		return "headshot "+nb.tar;
 	}
 	return "mwp wallop "+nb.tar;
 }
