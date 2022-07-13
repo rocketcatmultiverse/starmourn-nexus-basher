@@ -32,6 +32,8 @@ var mobs = [
 	"a Ry'nari mutant wearing looted soldier fatigues","a grotesquely mutated bird", "a bile-skinned Amaian mutant", "a green-glowing Decheeran mutant", 
 	"a scab-scaled Ry'nari mutant","a grotesque Nusriza mutant", "a mutant encased in ancient power armor", "a warty Ry'nari mutant", 
 	"a tatter-finned Amaian mutant","a twisted Decheeran mutant","a spine-skinned Nusriza mutant",
+	//Bodean
+	"an axropod",
 
 	//====================
 	// 20-40
