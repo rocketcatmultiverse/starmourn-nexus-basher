@@ -120,6 +120,10 @@ var mobs = [
 	"a feathery emerald zhubeast plushie with half a face","a matted lilac merova plushie with a glitching voicebox","a beady-eyed albino knockout rat",
 	
 	//Wilderness
+  //Folly Fault Path
+  "a speckle-scaled sophilian",
+  //Fogbound Marshes
+  "a spine-carapaced hari","a bone-crested sohemuu","a dark-furred and floating fleel",
 	//Servius Fault
 	"a green-spotted zemani", "a green-spotted zemani",
 	//Prugita
