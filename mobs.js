@@ -120,6 +120,10 @@ var mobs = [
 	"a feathery emerald zhubeast plushie with half a face","a matted lilac merova plushie with a glitching voicebox","a beady-eyed albino knockout rat",
 	
 	//Wilderness
+	//Folly Fault Path
+	"a speckle-scaled sophilian",
+	//Fogbound Marshes
+	"a spine-carapaced hari","a bone-crested sohemuu","a dark-furred and floating fleel",
 	//Servius Fault
 	"a green-spotted zemani", "a green-spotted zemani",
 	//Prugita
@@ -141,8 +145,8 @@ var mobs = [
 ];
 
 //names of mechanical targets go here. 
-var mechanicals = ["the thrashing root of a cyborg leech orchid","a cyborg leech orchid","a rampaging construction mech","a malfunctioning remote manipulator",
-		  "a malfunctioning remote manipulator","a fuzzy cerise tentacle plushie with half a face", "a bright bronze ice crab plushie with half a face",
+var mechanicals = ["a cyborg leech orchid","a rampaging construction mech","a malfunctioning remote manipulator",
+		  "a fuzzy cerise tentacle plushie with half a face", "a bright bronze ice crab plushie with half a face",
 		  "a plump bronze haerbist plushie with half a face", "a tattered copper skulf plushie with half a face",
 		  "a charming rose eckin plushie with a dangling broken arm","a plain silver spiderax plushie with a glitching voicebox",
 		  "a matted pink heik-il plushie with half a face","a fuzzy orange giant-springer plushie with a dangling broken arm",
