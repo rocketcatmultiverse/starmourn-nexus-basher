@@ -146,7 +146,7 @@ var mobs = [
 
 //names of mechanical targets go here. 
 var mechanicals = ["a cyborg leech orchid","a rampaging construction mech","a malfunctioning remote manipulator",
-		  "a malfunctioning remote manipulator","a fuzzy cerise tentacle plushie with half a face", "a bright bronze ice crab plushie with half a face",
+		  "a fuzzy cerise tentacle plushie with half a face", "a bright bronze ice crab plushie with half a face",
 		  "a plump bronze haerbist plushie with half a face", "a tattered copper skulf plushie with half a face",
 		  "a charming rose eckin plushie with a dangling broken arm","a plain silver spiderax plushie with a glitching voicebox",
 		  "a matted pink heik-il plushie with half a face","a fuzzy orange giant-springer plushie with a dangling broken arm",
