@@ -120,6 +120,8 @@ var mobs = [
 	"a feathery emerald zhubeast plushie with half a face","a matted lilac merova plushie with a glitching voicebox","a beady-eyed albino knockout rat",
 	
 	//Wilderness
+	// Oranc
+	"a tough-skinned nesihorn","a bioluminescent irktin",
 	//Folly Fault Path
 	"a speckle-scaled sophilian",
 	//Fogbound Marshes
