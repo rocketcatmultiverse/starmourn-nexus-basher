@@ -144,6 +144,8 @@ var mobs = [
 	"a fleshy-spined echidna","a stalk-eyed mayaki",
 	//Ixsei
 	"a crystal-headed tolma","a silver-scaled spinehusk",
+	//Suiko
+	"a long-legged trisurde","a twin-headed henizu","a metallic-furred fuber",
 ];
 
 //names of mechanical targets go here. 
