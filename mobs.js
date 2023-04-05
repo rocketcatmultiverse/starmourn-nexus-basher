@@ -120,6 +120,8 @@ var mobs = [
 	"a feathery emerald zhubeast plushie with half a face","a matted lilac merova plushie with a glitching voicebox","a beady-eyed albino knockout rat",
 	
 	//Wilderness
+	// Oranc
+	"a tough-skinned nesihorn","a bioluminescent irktin",
 	//Folly Fault Path
 	"a speckle-scaled sophilian",
 	//Fogbound Marshes
@@ -142,6 +144,8 @@ var mobs = [
 	"a fleshy-spined echidna","a stalk-eyed mayaki",
 	//Ixsei
 	"a crystal-headed tolma","a silver-scaled spinehusk",
+	//Suiko
+	"a long-legged trisurde","a twin-headed henizu","a metallic-furred fuber",
 ];
 
 //names of mechanical targets go here. 
