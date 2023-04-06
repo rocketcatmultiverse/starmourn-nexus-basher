@@ -146,6 +146,8 @@ var mobs = [
 	"a crystal-headed tolma","a silver-scaled spinehusk",
 	//Suiko
 	"a long-legged trisurde","a twin-headed henizu","a metallic-furred fuber",
+	//Tosmar
+	"a fleshy-crested denghoof","a spike-headed kusowo",
 ];
 
 //names of mechanical targets go here. 
