@@ -1,6 +1,18 @@
 //Add mobs here. Aggressive mobs go earlier in the list for an area.
 var mobs = [
 	//====================
+	// Aggressive mobs
+	//====================
+
+
+
+
+
+	//====================
+	// Passive mobs
+	//====================
+
+	//====================
 	// 1-15
 	//====================
 	//Southern Usum Usutti
