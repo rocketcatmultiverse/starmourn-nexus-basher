@@ -148,6 +148,8 @@ var mobs = [
 	"a long-legged trisurde","a twin-headed henizu","a metallic-furred fuber",
 	//Tosmar
 	"a fleshy-crested denghoof","a spike-headed kusowo",
+	//Golpur
+	"a broad-horned stripeback",
 ];
 
 //names of mechanical targets go here. 
