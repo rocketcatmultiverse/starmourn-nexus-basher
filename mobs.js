@@ -1,16 +1,58 @@
 //Add mobs here. Aggressive mobs go earlier in the list for an area.
 var mobs = [
-	//====================
-	// Aggressive mobs
-	//====================
-
-
-
-
+//====================
+// Aggressive mobs
+//====================
 
 	//====================
-	// Passive mobs
+	// 20-40
 	//====================
+	//Golpur
+	"an immense Rapasu worm","an enormous drakkafly",
+	//Kashitir
+    "a nightstalker","a juvenile nightstalker",
+	//Locorin
+	"a blacktooth coroxodon","a mossy shellback",
+    //Saksar
+	"a male Selassian cultist","a female Selassion cultist","an immense reptillian predator","a pack of small sharp-toothed reptiles",
+	"a scale-feathered scorpion bird","a sharp-toothed raptor",
+    //Siva
+	"a lean-ribbed skulf","a large hairy skulf","an immense alpha skulf",
+
+	//====================
+	// 40-50
+	//====================
+	//Pylos
+
+	//Greenwilds
+	"a luminous eel","a king tangutan",
+	//====================
+	// 50-75
+	//====================
+	//Anemoi
+	"a ravenous tigrid","a rabid cania","a carnivorous black eagle",
+	//Arrizuri
+	"a ferocious atzaparaki",
+	//Deisk
+	"a terrifying mekmavaur",
+	//Ixsei
+	"a crystal-clawed rock giant","a male Selassian mechanic","a female Selassian mechanic","a male Selassian Ophidian", 
+	"a female Selassian Ophidian","a male Selassian Viper","a female Selassian Viper","a male Selassian Venom","a female Selassian Venom", 
+	"a male Selassian Neonate","a female Selassian Neonate",
+	//Jelle
+	"a tough Bushraki drug runner","a dour Bushraki looter","a menacing Bushraki looter","an off-duty Bushraki looter",
+	"a virile heik-il vine",
+	//New Dikamazi
+	"the thrashing root of a cyborg leech orchid",
+	//Northern Usum
+	"an immense rapasu worm",
+	//Prugita
+	"a savage selakki",
+
+
+//====================
+// Passive mobs
+//====================
 
 	//====================
 	// 1-15
@@ -62,16 +104,16 @@ var mobs = [
     	"a small loam leech", "a saffron algerion", "a coral algerion", "a moss-hued algerion", "a large loam leech",
     	"an azure algerion", "an oversized loam leech", "a loam leech",
     	//Locorin
-    	"a blacktooth coroxodon","an enormous blacktooth coroxodon","a ruby-plumed eskama","a mossy shellback",
+    	"an enormous blacktooth coroxodon","a ruby-plumed eskama",
     	//Kashitir
-    	"a nightstalker","an indigo malaca","a juvenile nightstalker","a Grethen silkmoth","a collared malaca",
+    	"an indigo malaca","a Grethen silkmoth","a collared malaca",
     	//Golpur
-    	"an enormous drakkafly","an immense Rapasu worm","a flat balkrab","a giant black tarak beetle",
+    	"a flat balkrab","a giant black tarak beetle",
     	//Saksar
-    	"an immense reptillian predator","a male Selassian cultist","a female Selassion cultist","a sharp-toothed raptor","a coiling skilth snake",
-    	"a pack of small sharp-toothed reptiles","a scale-feathered scorpion bird","a blue-furred primate","a brutish loroi mercenary",
+    	"a coiling skilth snake",
+    	"a blue-furred primate","a brutish loroi mercenary",
     	//Siva
-     	"a needle-mouthed eel","an immense alpha skulf","a large hairy skulf","a lean-ribbed skulf","a spot-scaled tridactyl","a venomous tridactyl",
+     	"a needle-mouthed eel","a spot-scaled tridactyl","a venomous tridactyl",
 
 	//====================
 	// 40-50
@@ -82,7 +124,7 @@ var mobs = [
     	//Delta Deck
     	"a Fatar salvager","an armored salvage bot","a Bushraki mercenary","a Fatar guardian","an Elgan salvager","a Decheeran salvager","a Nusriza salvager",
     	//Greenwilds
-    	"a luminous eel","a king tangutan","a hulking arboreal lizard","a great white eagle","a giant guerilla beetle","a female tangutan",
+    	"a hulking arboreal lizard","a great white eagle","a giant guerilla beetle","a female tangutan",
     	//Tosmar
     	"a vicious haerbist","a tundra snake",
 
@@ -90,31 +132,26 @@ var mobs = [
 	// 50-75
 	//====================
 	//Anemoi
-	"a rabid cania","a ravenous tigrid","a carnivorous black eagle","a sly cania","a caliginous eagle","a brown-scaled tigrid",
+	"a sly cania","a caliginous eagle","a brown-scaled tigrid",
 	//Arrizuri
-	"a ferocious atzaparaki","a sluggish atzaparaki","a lumbering lasama",
+	"a sluggish atzaparaki","a lumbering lasama",
 	//Thait
 	"a ferociously toothed moss lizard","a needle-clawed moss lizard","a horned lapine","a three-eyed rosewing",
 	//New Dikamazi
-	"a rampaging construction mech","a dilapidated construction mech","the thrashing root of a cyborg leech orchid","a cyborg leech orchid",
+	"a rampaging construction mech","a dilapidated construction mech","a cyborg leech orchid",
 	//Jelle
-	"a thrashing heik-il vine","a monstrously huge heik-il vine","a dour Bushraki looter","a menacing Bushraki looter",
-	"a heavily armed male Bushraki guard","a heavily armed female Bushraki guard","an off-duty Bushraki looter","a tough Bushraki drug runner",
-	"a virile heik-il vine",
+	"a thrashing heik-il vine","a monstrously huge heik-il vine",
+	"a heavily armed male Bushraki guard","a heavily armed female Bushraki guard",
 	//Ixsei
-	"a crystal-clawed rock giant","a salt-crusted quartz creeper","a male Selassian mechanic","a female Selassian mechanic","a male Selassian Ophidian", 
-	"a female Selassian Ophidian","a male Selassian Viper","a female Selassian Viper","a male Selassian Venom","a female Selassian Venom", 
-	"a male Selassian Neonate","a female Selassian Neonate",
+	"a salt-crusted quartz creeper",
 	//Northern Usum
-	'a blacktooth coroxodon',"a giant tosmarian condor","an immense rapasu worm","an overfed skulf",
+	'a blacktooth coroxodon',"a giant tosmarian condor","an overfed skulf",
 	"a foraging zhubeast","an alert giant springer","a lurking blacktooth coroxodon","a large hairy skulf",
 	"a roosting tosmarian condor","a two-headed zhubeast","a juvenile rapasu worm","a coiling skilth snake",
 	"a giant springer","an immense reptilian predator",
 	//Prugita
-	"a savage selakki","a somnolent selakki","a stationary sentry bot",
+	"a somnolent selakki","a stationary sentry bot",
 	"a well-armed security bot","a Nabian guard",
-	//Deisk
-	"a terrifying mekmavaur",
 	//td
 	"a tentacle-limbed shapeshifter", "an eyeless maw",
 	//FeTek
