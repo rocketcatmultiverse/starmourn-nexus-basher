@@ -3,6 +3,13 @@ var mobs = [
 //====================
 // Aggressive mobs
 //====================
+	//====================
+	// 10-20
+	//====================
+	//Coriolis
+	"a malfunctioning windmill drone",
+	//Scrapston
+	"a needle-mouthed eel",
 
 	//====================
 	// 20-40
@@ -12,20 +19,25 @@ var mobs = [
 	//Kashitir
     "a nightstalker","a juvenile nightstalker",
 	//Locorin
-	"a blacktooth coroxodon","a mossy shellback",
+	"a blacktooth coroxodon","a mossy shellback","an enormous blacktooth coroxodon",
+	//Lowtown
+	"a shifty looking Nath-el","a strung-out female Lowtowner","a strung-out male Lowtowner","an oversized heik-il vine",
     //Saksar
 	"a male Selassian cultist","a female Selassion cultist","an immense reptillian predator","a pack of small sharp-toothed reptiles",
 	"a scale-feathered scorpion bird","a sharp-toothed raptor",
     //Siva
-	"a lean-ribbed skulf","a large hairy skulf","an immense alpha skulf",
+	"a lean-ribbed skulf","a large hairy skulf","an immense alpha skulf","a needle-mouthed eel",
 
 	//====================
 	// 40-50
 	//====================
 	//Pylos
-
+	"a depthless puddle of black liquid","a tentacle-finned hookmaw",
 	//Greenwilds
 	"a luminous eel","a king tangutan",
+	//Tosmar
+	"a vicious haerbist",
+
 	//====================
 	// 50-75
 	//====================
@@ -48,6 +60,21 @@ var mobs = [
 	"an immense rapasu worm",
 	//Prugita
 	"a savage selakki",
+	//Thait
+	"a ferociously toothed moss lizard",
+
+
+//====================
+// Wilderness exclusive aggros
+//====================
+	//Arrizuri
+	"a fleshy-spined echidna",
+	//Folly Fault Path
+	"a speckle-scaled sophilian",
+	//Golpur
+	"a broad-horned stripeback",
+	//Servius Fault
+	"a green-spotted zemani",
 
 
 //====================
@@ -79,7 +106,7 @@ var mobs = [
 	// Zephyr
 	"a buzzing lake darter",
 	//Scrapston
-	"a grime-slick eel","a needle-mouthed eel","a poisonous eel",
+	"a grime-slick eel","a poisonous eel",
 	//Whittler's hollow
 	"a fat terraworm","a meaty terraworm","an iridescent opal beetle", "a horrifically mutated rodent",
 	//Tabby
@@ -98,13 +125,13 @@ var mobs = [
 	//Oranc
 	"a stealthy poison-tooth","a green-scaled varrana","a great strider","a wind snake","a Krona poacher","a blue-crested ratika",
 	//Lowtown
-	"a strung-out female Lowtowner","a strung-out male Lowtowner","an oversized heik-il vine","a shifty looking Nath-el","a juvenile heik-il vine",
+	"a juvenile heik-il vine",
 	"a thrashing heik-il vine","a sickly heik-il vine",
     	//Goribar
     	"a small loam leech", "a saffron algerion", "a coral algerion", "a moss-hued algerion", "a large loam leech",
     	"an azure algerion", "an oversized loam leech", "a loam leech",
     	//Locorin
-    	"an enormous blacktooth coroxodon","a ruby-plumed eskama",
+    	"a ruby-plumed eskama",
     	//Kashitir
     	"an indigo malaca","a Grethen silkmoth","a collared malaca",
     	//Golpur
@@ -113,20 +140,20 @@ var mobs = [
     	"a coiling skilth snake",
     	"a blue-furred primate","a brutish loroi mercenary",
     	//Siva
-     	"a needle-mouthed eel","a spot-scaled tridactyl","a venomous tridactyl",
+     	"a spot-scaled tridactyl","a venomous tridactyl",
 
 	//====================
 	// 40-50
 	//====================
 	//Pylos
-    	"a tentacle-finned hookmaw", "a slow-moving hunk of living coral", "an algae-covered calciburr",
-    	"a depthless puddle of black liquid", "a poison-spitting treefrog","a delicately bulbous blinkfish",
+    	"a slow-moving hunk of living coral", "an algae-covered calciburr",
+    	"a poison-spitting treefrog","a delicately bulbous blinkfish",
     	//Delta Deck
     	"a Fatar salvager","an armored salvage bot","a Bushraki mercenary","a Fatar guardian","an Elgan salvager","a Decheeran salvager","a Nusriza salvager",
     	//Greenwilds
     	"a hulking arboreal lizard","a great white eagle","a giant guerilla beetle","a female tangutan",
     	//Tosmar
-    	"a vicious haerbist","a tundra snake",
+    	"a tundra snake",
 
 	//====================
 	// 50-75
@@ -136,7 +163,7 @@ var mobs = [
 	//Arrizuri
 	"a sluggish atzaparaki","a lumbering lasama",
 	//Thait
-	"a ferociously toothed moss lizard","a needle-clawed moss lizard","a horned lapine","a three-eyed rosewing",
+	"a needle-clawed moss lizard","a horned lapine","a three-eyed rosewing",
 	//New Dikamazi
 	"a rampaging construction mech","a dilapidated construction mech","a cyborg leech orchid",
 	//Jelle
@@ -171,12 +198,8 @@ var mobs = [
 	//Wilderness
 	// Oranc
 	"a tough-skinned nesihorn","a bioluminescent irktin",
-	//Folly Fault Path
-	"a speckle-scaled sophilian",
 	//Fogbound Marshes
 	"a spine-carapaced hari","a bone-crested sohemuu","a dark-furred and floating fleel",
-	//Servius Fault
-	"a green-spotted zemani", "a green-spotted zemani",
 	//Prugita
 	"a stinger-footed hiver","a four-eared remes rat","a scoop-tusked gliven",
 	//Jelle
@@ -190,15 +213,14 @@ var mobs = [
 	//Anemoi
 	"a diamond-backed scorptail","a spiral-horned kegri", 
 	//Arrizuri
-	"a fleshy-spined echidna","a stalk-eyed mayaki",
+	"a stalk-eyed mayaki",
 	//Ixsei
 	"a crystal-headed tolma","a silver-scaled spinehusk",
 	//Suiko
 	"a long-legged trisurde","a twin-headed henizu","a metallic-furred fuber",
 	//Tosmar
 	"a fleshy-crested denghoof","a spike-headed kusowo",
-	//Golpur
-	"a broad-horned stripeback",
+
 ];
 
 //names of mechanical targets go here. 
