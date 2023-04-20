@@ -15,7 +15,7 @@ var mobs = [
 	// 20-40
 	//====================
 	//Golpur
-	"an immense Rapasu worm","an enormous drakkafly","a giant black tarak beetle",
+	"an immense Rapasu worm","an enormous drakkafly",
 	//Kashitir
     "a nightstalker","a juvenile nightstalker",
 	//Locorin
@@ -149,7 +149,7 @@ var mobs = [
 	// 20-40
 	//====================
 	//Golpur
-	"a flat balkrab",
+	"a flat balkrab","a giant black tarak beetle",
 	//Goribar
 	"a small loam leech", "a saffron algerion", "a coral algerion", "a moss-hued algerion", "a large loam leech",
 	"an azure algerion", "an oversized loam leech", "a loam leech",
